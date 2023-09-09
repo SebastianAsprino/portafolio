@@ -48,12 +48,26 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  animation: rainbow 2s infinite; /* Cambia el valor '2s' para ajustar la velocidad de la animación */
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+.app-container {
+  opacity: 0; /* Configura la opacidad inicial en 0 para ocultar todo el contenido */
+  transform: translateY(-50px); /* Inicialmente, desplaza todo el contenido hacia arriba */
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.app-container.appear {
+  opacity: 1; /* Cuando se agrega la clase 'appear', la opacidad se establece en 1, haciendo que el contenido aparezca gradualmente */
+  transform: translateY(0); /* Cuando se agrega la clase 'appear', el contenido vuelve a su posición original */
+  transition-delay: 0.5s; /* Agrega un retraso para crear un efecto de barrido */
+}
+
+
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -67,3 +81,19 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+@keyframes rainbow {
+  0%     { border-color: #ff0000; }
+  8.333%     { border-color: #ff8000; }
+  16.667%     { border-color: #ffff00; }
+  25.000%     { border-color: #80ff00; }
+  33.333%     { border-color: #00ff00; }
+  41.667%     { border-color: #00ff80; }
+  50.000%     { border-color: #00ffff; }
+  58.333%     { border-color: #0080ff; }
+  66.667%     { border-color: #0000ff; }
+  75.000%     { border-color: #8000ff; }
+  83.333%     { border-color: #ff00ff; }
+  91.667%     { border-color: #ff0080; }
+  100.00%     { border-color: #ff0000; }
+}
+
