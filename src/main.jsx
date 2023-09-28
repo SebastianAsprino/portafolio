@@ -9,7 +9,7 @@ function Main() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowContent(true);
-    }, 500);
+    },100);
     return () => clearTimeout(timer);
   }, []);
   return (

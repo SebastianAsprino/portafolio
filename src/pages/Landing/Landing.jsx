@@ -47,34 +47,4 @@ function Landing() {
 
 export default Landing;
 
-// import React, { useState, useEffect } from 'react';
-
-// function Landing() {
-//   const [isDarkMode, setIsDarkMode] = useState(
-//     window.matchMedia('(prefers-color-scheme: dark)').matches
-//   );
-
-//   useEffect(() => {
-//     const darkModeListener = (event) => {
-//       setIsDarkMode(event.matches);
-//     };
-
-//     const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-//     darkModeMediaQuery.addListener(darkModeListener);
-
-//     return () => {
-//       darkModeMediaQuery.removeListener(darkModeListener);
-//     };
-//   }, []);
-
-//   return (
-//     <div>
-//       <a href="https://vitejs.dev" target="_blank">
-//         <div className={`logo test ${isDarkMode ? 'dark' : 'light'}`} />
-//       </a>
-//     </div>
-//   );
-// }
-
-// export default Landing;
 
