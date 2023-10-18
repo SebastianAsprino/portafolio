@@ -67,6 +67,15 @@ button:focus-visible {
   transition-delay: 0.1s;
 }
 
+.gradient-text {
+  background: linear-gradient(45deg,#ff0000, #ff8000, #ffff00, #80ff00, #00ff00, #00ff80, #00ffff, #0080ff, #0000ff, #8000ff, #ff00ff, #ff0080, #ff0000);
+  background-size: 200% 100%;
+  animation: gradientMove 5s linear infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -93,4 +102,13 @@ button:focus-visible {
   83.333%     { border-color: #ff00ff; }
   91.667%     { border-color: #ff0080; }
   100.00%     { border-color: #ff0000; }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
 }
