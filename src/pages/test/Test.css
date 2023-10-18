@@ -1,11 +1,270 @@
 .gradient-text {
-  background: linear-gradient(90deg,#ff0000, #ff8000, #ffff00, #80ff00, #00ff00, #00ff80, #00ffff, #0080ff, #0000ff, #8000ff, #ff00ff, #ff0080, #ff0000);
+  background: linear-gradient(45deg,#ff0000, #ff8000, #ffff00, #80ff00, #00ff00, #00ff80, #00ffff, #0080ff, #0000ff, #8000ff, #ff00ff, #ff0080, #ff0000);
   background-size: 200% 100%;
-  animation: gradientMove 10s linear infinite;
+  animation: gradientMove 5s linear infinite;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
+
+
+.row {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+
+.row .col.s12 {
+  width: 100%;
+  margin-left: auto;
+  left: auto;
+  right: auto;
+}
+
+.row .col {
+  float: left;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 0.75rem;
+  min-height: 1px;
+}
+
+.header {
+  color: #ee6e73;
+  font-weight: 300;
+}
+
+h3 {
+  font-size: 2.92rem;
+  line-height: 110%;
+  margin: 1.9466666667rem 0 1.168rem 0;
+}
+
+.card {
+  position: relative;
+  margin: 0.5rem
+rem
+0 1rem 0;
+  background-color: #0c0b0b;
+  -webkit-transition: -webkit-box-shadow .25s;
+  transition: -webkit-box-shadow .25s;
+  transition: box-shadow .25s;
+  transition: box-shadow .25s, -webkit-box-shadow .25s;
+  border-radius: 2px;
+}
+
+
+.card .card-image {
+  position: relative;
+}
+
+.card .card-content {
+  padding: 24px;
+  border-radius: 0 0 2px 2px;
+}
+
+.card .card-action:last-child {
+  border-radius: 0 0 2px 2px;
+}
+.card .card-action {
+  background-color: inherit;
+  border-top: 1px solid rgba(160,160,160,0.2);
+  position: relative;
+  padding: 16px 24px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.bi-color-background-50 {
+  background: linear-gradient(90deg, red, blue, yellow);
+  background-size: 300% 100%;
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.shadow {
+  box-shadow: 75px -24px 128px rgba(0, 0, 0, 0.6);
+}
+
+.bg-border-gradient-4-gray-800 {
+  background: linear-gradient(90deg, #333, #666);
+}
+
+.border {
+  border: 1px solid transparent;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  overflow: auto;
+  max-width: 710px;
+  min-height: 330px;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.text-gray-200 {
+  color: #ccc;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.text-green-600 {
+  color: #00cc66;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.typography-xs {
+  font-size: 0.625rem;
+}
+
+.hover\:text-green-600:hover {
+  color: #00cc66;
+}
+
+
+
+
+
+
+.ui.button, .ui.buttons .button, .ui.buttons .or {
+  font-size: 1rem;
+}
+
+.ui.button {
+  cursor: pointer;
+  display: inline-block;
+  min-height: 1em;
+  outline: 0;
+  border: none;
+  vertical-align: baseline;
+  background: #e0e1e2 none;
+  color: rgba(0,0,0,.6);
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  margin: 0 0.25em 0 0;
+  padding: 0.78571429em 1.5em 0.78571429em;
+  text-transform: none;
+  text-shadow: none;
+  font-weight: 700;
+  line-height: 1em;
+  font-style: normal;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 0.28571429rem;
+  -webkit-box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34,36,38,.15) inset;
+  box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34,36,38,.15) inset;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: opacity .1s ease,background-color .1s ease,color .1s ease,background .1s ease,-webkit-box-shadow .1s ease;
+  transition: opacity .1s ease,background-color .1s ease,color .1s ease,background .1s ease,-webkit-box-shadow .1s ease;
+  transition: opacity .1s ease,background-color .1s ease,color .1s ease,box-shadow .1s ease,background .1s ease;
+  transition: opacity .1s ease,background-color .1s ease,color .1s ease,box-shadow .1s ease,background .1s ease,-webkit-box-shadow .1s ease;
+  will-change: '';
+  -webkit-tap-highlight-color: transparent;
+}
+[type=reset], [type=submit], button, html [type=button] {
+  -webkit-appearance: button;
+}
+
+button, select {
+  text-transform: none;
+}
+button, input {
+  overflow: visible;
+}
+
+
+
+
+
+
+/* Style buttons */
+.btn {
+  background-color: DodgerBlue; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 12px 16px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @keyframes gradientMove {
   0% {
@@ -15,3 +274,6 @@
     background-position: 200% 50%;
   }
 }
+
+
+

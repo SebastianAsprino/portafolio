@@ -3,6 +3,7 @@ import Landing from './pages/Landing/Landing'
 import About from './pages/About/About'
 import Webs from './pages/webs/webs'
 import Test from './pages/test/test'
+import Testcards from './pages/testcards/Testcards'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path = "/about" element={<About/>}/>
         <Route path = "/monos" element={<Webs/>}/>
         <Route path = "/test" element={<Test/>}/>
+        <Route path = "/test1" element={<Testcards/>}/>
       </Routes>
     </>
   )

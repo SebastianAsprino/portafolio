@@ -3,7 +3,16 @@ import React from "react";
 
 function Webs() {
   return (
-    <p>
+    <>
+
+    <h1 className="gradient-text">HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH</h1>
+    <h2 className="gradient-text" >HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH</h2>
+    <h3 className="gradient-text">HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH</h3>
+    <h4 className="gradient-text">HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH</h4>
+    <h5 className="gradient-text">HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH</h5>
+    <h6 className="gradient-text">HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH</h6>
+
+    <p className="gradient-text">
       Los monos, miembros del infraorden Simiiformes, representan una de las ramas más fascinantes y diversas del reino animal. Estos primates, conocidos por su inteligencia y agilidad, han ocupado un lugar destacado en la imaginación humana y la investigación científica durante siglos. Desde los exuberantes bosques tropicales de América Central y del Sur hasta las vastas selvas de África y Asia, los monos han conquistado una amplia variedad de hábitats. 
 
 Su diversidad es impresionante: los monos pueden ser pequeños y escurridizos como los lémures de Madagascar, o grandes y poderosos como los gorilas de las selvas africanas. Los colores de su pelaje varían desde tonos brillantes y llamativos hasta matices más discretos y miméticos. Pero lo que realmente destaca en estos primates es su comportamiento social complejo. Muchas especies de monos viven en grupos sociales organizados, donde jerarquías y relaciones interpersonales desempeñan un papel fundamental en la vida cotidiana.
@@ -14,6 +23,7 @@ Sin embargo, los monos enfrentan desafíos significativos en el mundo moderno. L
 
 En resumen, los monos son criaturas asombrosas que despiertan admiración tanto por su belleza física como por su complejo comportamiento social y su inteligencia. Su estudio y conservación son fundamentales para comprender mejor la naturaleza y para preservar la riqueza de nuestro planeta en un mundo en constante cambio.
     </p>
+    </>
   );
 }
 
