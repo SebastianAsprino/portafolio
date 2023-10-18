@@ -4,14 +4,6 @@ import React from "react";
 function Webs() {
   return (
     <>
-
-    <h1 className="gradient-text">HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH</h1>
-    <h2 className="gradient-text" >HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH</h2>
-    <h3 className="gradient-text">HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH</h3>
-    <h4 className="gradient-text">HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH</h4>
-    <h5 className="gradient-text">HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH</h5>
-    <h6 className="gradient-text">HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH</h6>
-
     <p className="gradient-text">
       Los monos, miembros del infraorden Simiiformes, representan una de las ramas más fascinantes y diversas del reino animal. Estos primates, conocidos por su inteligencia y agilidad, han ocupado un lugar destacado en la imaginación humana y la investigación científica durante siglos. Desde los exuberantes bosques tropicales de América Central y del Sur hasta las vastas selvas de África y Asia, los monos han conquistado una amplia variedad de hábitats. 
 
