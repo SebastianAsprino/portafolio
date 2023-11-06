@@ -7,7 +7,7 @@ const NavBar = () => {
   return (
     <nav>
       <div class="wrapper">
-        <div class="logo"><a href="#">Logo</a></div>
+        <div class="logo"><a href="/">Logo</a></div>
         <input type="radio" name="slider" id="menu-btn"/>
         <input type="radio" name="slider" id="close-btn"/>
         <ul class="nav-links">
