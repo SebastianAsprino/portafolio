@@ -1,11 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import './about.css';
 
 
 
 function About() {
   return (
-    <div>
+    <div className="about">
       <NavLink to="/">
         <button>
           asprino.tech

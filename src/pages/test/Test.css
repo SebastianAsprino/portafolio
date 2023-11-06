@@ -1,4 +1,4 @@
-.gradient-text {
+/* .gradient-text {
   background: linear-gradient(45deg,#ff0000, #ff8000, #ffff00, #80ff00, #00ff00, #00ff80, #00ffff, #0080ff, #0000ff, #8000ff, #ff00ff, #ff0080, #ff0000);
   background-size: 200% 100%;
   animation: gradientMove 5s linear infinite;
@@ -72,7 +72,7 @@ rem
   border-top: 1px solid rgba(160,160,160,0.2);
   position: relative;
   padding: 16px 24px;
-}
+} */
 
 
 
@@ -105,7 +105,7 @@ rem
 
 
 
-.bi-color-background-50 {
+/* .bi-color-background-50 {
   background: linear-gradient(90deg, red, blue, yellow);
   background-size: 300% 100%;
 }
@@ -159,13 +159,13 @@ rem
 .hover\:text-green-600:hover {
   color: #00cc66;
 }
+ */
 
 
 
 
 
-
-.ui.button, .ui.buttons .button, .ui.buttons .or {
+/* .ui.button, .ui.buttons .button, .ui.buttons .or {
   font-size: 1rem;
 }
 
@@ -211,7 +211,7 @@ button, select {
 }
 button, input {
   overflow: visible;
-}
+} */
 
 
 
@@ -219,19 +219,19 @@ button, input {
 
 
 /* Style buttons */
-.btn {
+/* .btn {
   background-color: DodgerBlue; /* Blue background */
-  border: none; /* Remove borders */
-  color: white; /* White text */
-  padding: 12px 16px; /* Some padding */
-  font-size: 16px; /* Set a font size */
-  cursor: pointer; /* Mouse pointer on hover */
-}
+  /* border: none; /* Remove borders */
+  /* color: white; /* White text */
+  /* padding: 12px 16px; Some padding */ 
+  /* font-size: 16px; Set a font size */
+  /* cursor: pointer; Mouse pointer on hover */ 
+/* } */ 
 
 /* Darker background on mouse-over */
-.btn:hover {
+/* .btn:hover {
   background-color: RoyalBlue;
-}
+} */
 
 
 
@@ -265,7 +265,7 @@ button, input {
 
 
 
-
+/* 
 @keyframes gradientMove {
   0% {
     background-position: 0% 50%;
@@ -273,7 +273,7 @@ button, input {
   100% {
     background-position: 200% 50%;
   }
-}
+} */
 
 
 

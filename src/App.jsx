@@ -5,9 +5,13 @@ import Webs from './pages/webs/webs'
 import Test from './pages/test/test'
 import Testcards from './pages/testcards/Testcards'
 
+import NavBar from './componets/NavBar/NavBar'
+
+
 function App() {
   return (
     <>
+      <NavBar/>
       <Routes>
         <Route path = "/" element={<Landing/>}/>
         <Route path = "/about" element={<About/>}/>
