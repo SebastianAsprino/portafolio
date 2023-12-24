@@ -1,3 +1,37 @@
-.navbar {
+/* Landing.css */
 
+/* clases de la navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  position: relative;
+  top: 0;
+  left: 0;
+
+  background-color: #131315; /* Puedes cambiar el color de fondo según tu preferencia */
+  color: white; /* Puedes cambiar el color del texto según tu preferencia */
+  border-radius: 999px; /* Ajusta el valor según sea necesario para hacer los extremos redondeados */
+  margin: 10px;
 }
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  margin-right: 15px;
+  /* cursor: pointer; */
+}
+
+.navbar p {
+  margin: 0;
+}
+
+/* Añade estilos adicionales según sea necesario */

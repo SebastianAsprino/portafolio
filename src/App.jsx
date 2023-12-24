@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 
-import Pagina from './pages/pagina/pagina'
+import Landing from './pages/Landing/Landing'
 
 
 
@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path = "/" element={<Pagina/>}/>
+        <Route path = "/" element={<Landing/>}/>
       </Routes>
     </>
   )
