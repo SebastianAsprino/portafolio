@@ -1,0 +1,42 @@
+---
+import Navbar from '../component/Navbar/NavBar.astro'
+import Footer from '../component/Footer/Footer.astro'
+---
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Portafolio</title>
+	</head>
+	<body>
+		<Navbar/>
+		<main>
+			<h1>Astro</h1>
+
+			<div>info</div>
+		</main>
+		<Footer/>
+	</body>
+</html>
+
+
+<!-- ---
+import { Router, Route } from '@astro/router';
+---
+
+<Router>
+  <Route path="/home">
+    <Home />
+  </Route>
+  <Route path="/about">
+    <About />
+  </Route>
+  <Route path="/contact">
+    <Contact />
+  </Route>
+  <Route path="/user">
+    <User />
+  </Route>
+</Router> -->
