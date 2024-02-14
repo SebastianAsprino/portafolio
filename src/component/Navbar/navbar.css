@@ -33,3 +33,22 @@
 }
 
 /* Añade estilos adicionales según sea necesario */
+.text {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 18px;
+  line-height: 40px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.navigation {
+  padding: 0px 5% 8px;
+  background-color: transparent;
+}
+.w-nav {
+  position: relative;
+  /* background: #ddd;
+    background-color: rgb(221, 221, 221); */
+  z-index: 1000;
+}
