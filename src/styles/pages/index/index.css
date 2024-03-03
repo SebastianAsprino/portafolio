@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'MonaspaceNeon';
+  src: url('assets/fonts/MonaspaceNeonVarVF[wght,wdth,slnt].ttf') format('truetype');
+}
+
+
+
+* {
+  background-color: #000000;
+  font-family: 'MonaspaceNeon', 'Sofia Sans Condensed';
+  font-variation-settings: 'wght' 400, 'wdth' 100;
+  color: #cfcfea;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
