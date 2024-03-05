@@ -1,0 +1,56 @@
+header{
+  margin: 0;
+  padding: 10px;
+}
+
+nav {
+background-color: #1f1f1fFF;
+display: flex;
+justify-content: space-between;
+padding: 15px 15px;
+border-radius: 38px;
+
+}
+nav p{
+  margin-inline-start: 10px;
+  padding-left: 10PX;
+  padding-top: 6px;
+  background-color: #1f1f1fFF;
+}
+
+nav ul {
+  background-color: #1f1f1fFF;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav ul li {
+  display: inline-block;
+  margin-right: 5px;
+  margin-top: 6px;
+}
+
+nav ul li a{
+  background-color: #1f1f1fFF;
+  
+  text-decoration: none;
+  padding: 8px 8px;
+  transition: background-color 0.3s;
+  }
+  nav ul li a:hover {
+    color: #4169E1;
+  }
+
+/* 
+Profesionalismo y confianza:
+Azul Marino: #0B3C5D (color usado modo oscuro)
+Azul Real: #4169E1 (color usado modo oscuro)
+Azul Medianoche: #191970 (usar modo claro)
+
+Autoridad y poder:
+
+Azul Pizarra: #4682B4 (posible usar)
+Azul Imperial: #005A9C
+Azul Cobalto: #0047AB(usar) */
+
+
