@@ -3,18 +3,24 @@ import NavBar from "../components/navbar/navbar.astro";
 import Main from "../components/main/main.astro"
 
 import "../styles/pages/index/index.css";
+
+const canonicalURL = new URL(Astro.url, Astro.site);
+
+const socialImageURL = new URL('/pfp.jpg', Astro.url);
+
 ---
 
 <html lang="es">
   <head>
-    <meta charset="utf-8" />
-    <link
-      rel="preload"
-      href="assets/fonts/MonaspaceNeonVarVF[wght,wdth,slnt].ttf"
-      as="font"
-      type="font/ttf"
-      crossorigin="anonymous"
-    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+    <meta name="description" content="Mi portafolio web parecido a un CV pero mejor.">
+    <meta property="og:image" content={socialImageURL} />
+    <meta property="og:title" content="Portafolio Sebastian Asprino" />
+    <meta property="og:description" content="Mi portafolio web parecido a un CV pero mejor 🧑🏻‍💻." />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="preload" href="assets/fonts/MonaspaceNeonVarVF[wght,wdth,slnt].ttf" as="font" type="font/ttf" crossorigin="anonymous"/>
     <title>Portafolio</title>
   </head>
   <body>
@@ -27,4 +33,3 @@ import "../styles/pages/index/index.css";
   </body>
 </html>
 
-<!-- <link rel="preload" href="/Assets/fonts/MonaspaceKryptonVarVF[wght,wdth,slnt].woff2" as="font" type="font/woff2" crossorigin="anonymous"> -->
