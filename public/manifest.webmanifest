@@ -1,0 +1,18 @@
+{
+  "name": "Sebastian Asprino",
+  "short_name": "Asprino",
+  "background_color": "#000000",
+  "display": "minimal-ui",
+  "start_url": "/?feature=apca",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "https://www.asprino.tech/pfp.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#4169E1",
+  "related_applications": [],
+  "capture_links": "none"
+  }
