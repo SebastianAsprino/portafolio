@@ -6,7 +6,7 @@ import "../styles/pages/index/index.css";
 
 const canonicalURL = new URL(Astro.url, Astro.site);
 
-const socialImageURL = new URL('/pfp.jpg', Astro.url);
+const socialImageURL = new URL('/pfp.ico', Astro.url);
 
 ---
 
@@ -14,19 +14,30 @@ const socialImageURL = new URL('/pfp.jpg', Astro.url);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+    <meta name="description" content="Mi portafolio">
     <meta name="description" content="Mi portafolio web parecido a un CV pero mejor.">
-    <meta property="og:image" content={socialImageURL} />
+    <meta name="keywords" content="ingeniero de sistemas, fullstack, backend, frontend, devops, desarrollo web, experiencia digital, construcción de productos en línea, código eficiente, arquitectura de software, comunicación transparente, usuario final, experiencia del usuario">
+    <link rel="image_src" href={socialImageURL}/>
+
+    <meta property="og:site_name" content="Sebastian Asprino" />
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content="Portafolio Sebastian Asprino" />
+    <meta property="og:image" content={socialImageURL} />
+
+
+    <meta property="og:image:width" content="256">
+    <meta property="og:image:height" content="256">   
     <meta property="og:description" content="Mi portafolio web parecido a un CV pero mejor 🧑🏻‍💻." />
-    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    
+    <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+
     <link rel="canonical" href={canonicalURL} />
     <link rel="preload" href="assets/fonts/MonaspaceNeonVarVF[wght,wdth,slnt].ttf" as="font" type="font/ttf" crossorigin="anonymous"/>
-    <title>Portafolio</title>
+    <title>Sebastian Asprino</title>
   </head>
   <body>
     <NavBar />
     <Main/>
-    
     <!-- <footer>
       <p>sebastian asprino. all rights reserved. © 2023</p>
     </footer> -->
