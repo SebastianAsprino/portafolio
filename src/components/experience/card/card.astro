@@ -1,0 +1,88 @@
+---
+import { Image } from 'astro:assets';
+const { image, title, date, alt } = Astro.props;
+---
+<style>
+
+ a{
+  background-color: transparent;
+  text-decoration: none;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  border-radius: 40px;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+ }
+ a:hover {
+  box-shadow: 0px 0px 30px rgb(255, 255, 255);
+  transform: scale(1.01);
+ }
+.card {
+  background-color: #333333FF;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 15px 5px 15px;
+    border-radius: 38px;
+    margin: 10px;
+    border: 2px solid background-color: #333333FF;; /* Establecer el ancho, estilo y color del borde */
+    width: 240px; /* Tamaño deseado de la tarjeta */
+    height: 280px; /* Tamaño deseado de la tarjeta */
+    text-align: center; /* Centrar el contenido horizontalmente */
+    margin: auto; /* Centrar la tarjeta horizontalmente */
+}
+
+.imagen {
+    max-width: 100%;
+    max-height: 150px;
+    border-radius: 50px 50px 10px 50px;
+}
+
+h1 {
+  margin-top: 30px;
+  font-size: 25px;
+  background-color: #333333FF;
+}
+
+p {
+    margin-top: 10px;
+    font-size: 18px;
+    background-color: #333333FF;
+}
+
+
+
+</style>
+
+<a href="/ruta_de_destino">
+  <article class="card">
+    <Image class="imagen" src={image} alt={alt}/>
+    <h1>{title}</h1>
+    <p>{date}</p>
+  </article>
+</a>
+
+
+
+<!-- .intro a{
+  background-color: #1f1f1fFF;
+  padding-top: 10px;
+  text-align: start;
+  font-size: 43px;
+  text-decoration: none;
+}
+
+.intro a:hover{
+  color: #bf0000;
+}
+
+.pfp {
+  max-width: 90px;
+  border-radius: 50px;
+}
+
+.intro p {
+  background-color: #1f1f1fFF;
+  padding-top: 10px;
+  text-align: start;
+  font-size: 43px;
+} -->
