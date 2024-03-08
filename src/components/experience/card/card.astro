@@ -4,21 +4,23 @@ const { image, title, date, alt } = Astro.props;
 ---
 <style>
 
- a{
-  background-color: transparent;
-  text-decoration: none;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0;
-  border-radius: 40px;
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
- }
- a:hover {
-  box-shadow: 0px 0px 30px rgb(255, 255, 255);
-  transform: scale(1.01);
- }
-.card {
-  background-color: #333333FF;
+  a{
+    background-color: transparent;
+    text-decoration: none;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    border-radius: 40px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+  }
+
+  a:hover {
+    box-shadow: 0px 0px 30px rgb(255, 255, 255);
+    transform: scale(1.01);
+  }
+
+  .card {
+    background-color: #333333FF;
     display: flex;
     flex-direction: column;
     padding: 20px 15px 5px 15px;
@@ -29,27 +31,25 @@ const { image, title, date, alt } = Astro.props;
     height: 280px; /* Tamaño deseado de la tarjeta */
     text-align: center; /* Centrar el contenido horizontalmente */
     margin: auto; /* Centrar la tarjeta horizontalmente */
-}
+  }
 
-.imagen {
+  .imagen {
     max-width: 100%;
     max-height: 150px;
-    border-radius: 50px 50px 10px 50px;
-}
+    border-radius: 45px 45px 10px 45px;
+  }
 
-h1 {
-  margin-top: 30px;
-  font-size: 25px;
-  background-color: #333333FF;
-}
+  h1 {
+    margin-top: 30px;
+    font-size: 25px;
+    background-color: #333333FF;
+  }
 
-p {
+  p {
     margin-top: 10px;
     font-size: 18px;
     background-color: #333333FF;
-}
-
-
+  }
 
 </style>
 
@@ -60,29 +60,3 @@ p {
     <p>{date}</p>
   </article>
 </a>
-
-
-
-<!-- .intro a{
-  background-color: #1f1f1fFF;
-  padding-top: 10px;
-  text-align: start;
-  font-size: 43px;
-  text-decoration: none;
-}
-
-.intro a:hover{
-  color: #bf0000;
-}
-
-.pfp {
-  max-width: 90px;
-  border-radius: 50px;
-}
-
-.intro p {
-  background-color: #1f1f1fFF;
-  padding-top: 10px;
-  text-align: start;
-  font-size: 43px;
-} -->
