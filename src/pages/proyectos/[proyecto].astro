@@ -1,0 +1,34 @@
+---
+export function getStaticPaths() {
+  return [
+    {params: {proyecto: 'a'}},
+    {params: {proyecto: 'b'}}
+  ];
+}
+
+const { proyecto } = Astro.params;
+
+const x = {
+  a: {
+    nombre: "Proyecto A",
+    año: "2020"
+  },
+  b: {
+    nombre: "Proyecto B",
+    año: "2021"
+  }
+};
+---
+
+<div>
+  {x[proyecto] ? (
+    <>
+      <h1>{proyecto}</h1>
+      <h1>{x[proyecto].nombre}</h1>
+      <h2>{x[proyecto].año}</h2>
+    </>
+  ) : (
+    <h1>Proyecto no encontrado</h1>
+  )}
+</div>
+
