@@ -9,6 +9,8 @@ import "../styles/pages/index/index.css";
 // const canonicalURL = new URL(Astro.url, Astro.site);
 
 // const socialImageURL = new URL('/pfp.png', Astro.url);
+// const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const canonicalURL = Astro.url
 
 ---
 
@@ -36,6 +38,7 @@ import "../styles/pages/index/index.css";
     <title>Sebastian Asprino</title>
   </head>
   <body>
+    <h1>{canonicalURL}</h1>
     <NavBar /> 
     <Main/>
     <Experience/>
