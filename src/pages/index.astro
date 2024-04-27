@@ -6,12 +6,15 @@ import Footer from "../components/footer/footer.astro";
 
 import "../styles/pages/index/index.css";
 
-// const canonicalURL = new URL(Astro.url, Astro.site);
+// const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 // const socialImageURL = new URL('/pfp.png', Astro.url);
 // const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const canonicalURL = Astro.url
-const url = new URL(Astro.request.url);
+const arroz = Astro.site
+const url1 = new URL(Astro.request.url);
+
+
 
 ---
 
@@ -42,9 +45,10 @@ const url = new URL(Astro.request.url);
     <h1>{canonicalURL}</h1>
     <h1>{Astro.currentLocale}</h1>
     <h1>{Astro.request.url}</h1>
-    <h1>{url}</h1>
     <h1>El nombre de la ruta URL actual es: {Astro.url.pathname}</h1>
     <h1>El origen de la URL actual es: {Astro.url.origin}</h1>
+    <h1>El astro site de la URL actual es: {Astro.site}</h1>
+    <h1>El astro site de la URL actual es: {arroz}</h1>
     <NavBar /> 
     <Main/>
     <Experience/>
