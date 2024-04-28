@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-const { image, title, date, alt } = Astro.props;
+const { url, image, title, date, alt } = Astro.props;
 ---
 <style>
 
@@ -53,7 +53,7 @@ const { image, title, date, alt } = Astro.props;
 
 </style>
 
-<a href="/ruta_de_destino">
+<a href={url}>
   <article class="card">
     <Image class="imagen" src={image} alt={alt}/>
     <h1>{title}</h1>

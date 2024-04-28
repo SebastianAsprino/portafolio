@@ -1,34 +1,138 @@
 ---
+import NavBar from "../../components/navbar/navbar.astro";
+import Footer from "../../components/footer/footer.astro";
+
+
 export function getStaticPaths() {
   return [
-    {params: {proyecto: 'a'}},
-    {params: {proyecto: 'b'}}
+    {params: {proyecto: 'Garw_Gura_Player'}},
+    {params: {proyecto: 'Poke_App'}},
+    {params: {proyecto: 'AnimeParadise'}},
+    {params: {proyecto: 'Egg'}}
   ];
 }
 
 const { proyecto } = Astro.params;
 
 const x = {
-  a: {
-    nombre: "Proyecto A",
-    año: "2020"
+  Garw_Gura_Player: {
+    nombre: "Garw Gura Player",
+    año: "2022",
+    repositorio:"https://github.com/SebastianAsprino/GawrGura_Player",
+    lenguajes:"python",
+    tecnologias:"python",
+    pruebalo:"https://github.com/SebastianAsprino/GawrGura_Player"
+
   },
-  b: {
-    nombre: "Proyecto B",
-    año: "2021"
+  Poke_App: {
+    nombre: "",
+    año: "",
+    repositorio:"",
+    lenguajes:"",
+    tecnologias:"",
+    pruebalo:""
+
+  },
+  AnimeParadise: {
+    nombre: "",
+    año: "",
+    repositorio:"",
+    lenguajes:"",
+    tecnologias:"",
+    pruebalo:""
+
+  },
+  Egg: {
+    nombre: "",
+    año: "",
+    repositorio:"",
+    lenguajes:"",
+    tecnologias:"",
+    pruebalo:""
+
   }
 };
 ---
 
-<div>
-  {x[proyecto] ? (
-    <>
-      <h1>{proyecto}</h1>
-      <h1>{x[proyecto].nombre}</h1>
-      <h2>{x[proyecto].año}</h2>
-    </>
-  ) : (
-    <h1>Proyecto no encontrado</h1>
-  )}
-</div>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+    <meta name="description" content="Mi portafolio">
+    <meta name="description" content="Mi portafolio web parecido a un CV pero mejor.">
+    <meta name="keywords" content="ingeniero de sistemas, fullstack, backend, frontend, devops, desarrollo web, experiencia digital, construcción de productos en línea, código eficiente, arquitectura de software, comunicación transparente, usuario final, experiencia del usuario">
+    <link rel="image_src" href="https://www.asprino.tech/pfp.jpg"/>
+    <link rel="manifest" href="/manifest.webmanifest" crossorigin="use-credentials">
+    <meta property="og:site_name" content="Sebastian Asprino" />
+    <meta property="og:url" content="https://www.asprino.tech" />
+    <meta property="og:title" content="Portafolio Sebastian Asprino" />
+    <meta property="og:image" content="https://www.asprino.tech/pfp.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:image:alt" content="mi foto de perfil procesada por IA" />    
+    <meta property="og:description" content="Mi portafolio web parecido a un CV pero mejor 🧑🏻‍💻." />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+    <link rel="canonical" href="https://www.asprino.tech" />
+    <link rel="preload" href="/MonaspaceNeonVarVF[wght,wdth,slnt].ttf" as="font" type="font/ttf" crossorigin="anonymous"/>
+    <title>Sebastian Asprino</title>
+  </head>
+  <body>
+    <NavBar /> 
+    <section>
+      {x[proyecto] ? (
+        <>
+          <h1>{x[proyecto].nombre}</h1>
+          <h2>{x[proyecto].año}</h2>
+          <h2>{x[proyecto].repositorio}</h2>
+          <h2>{x[proyecto].lenguajes}</h2>
+          <h2>{x[proyecto].tecnologias}</h2>
+          <h2>{x[proyecto].pruebalo}</h2>
+        </>
+      ) : (
+        <h1>Proyecto no encontrado</h1>
+      )}
+    </section>
+    <Footer/>
+  </body>
+</html>
 
+
+
+<style is:global>
+  @font-face {
+  font-family: 'MonaspaceNeon';
+  src: url('/MonaspaceNeonVarVF[wght,wdth,slnt].ttf') format('truetype');
+}
+
+* {
+  background-color: #000000;
+  font-family: 'MonaspaceNeon', 'Sofia Sans Condensed';
+  font-variation-settings: 'wght' 400, 'wdth' 100;
+  color: #cfcfea;
+  font-size: 20px;
+  line-height: 1.2;
+  padding: 0;
+  margin: 0 auto 0;
+  max-width: 1300px;
+}
+
+/* body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+} */
+
+/* 
+Profesionalismo y confianza:
+Azul Marino: #0B3C5D (color usado modo oscuro)
+Azul Real: #4169E1 (color usado modo oscuro)
+Azul Medianoche: #191970 (usar modo claro)
+
+Autoridad y poder:
+
+Azul Pizarra: #4682B4 (posible usar)
+Azul Imperial: #005A9C
+Azul Cobalto: #0047AB(usar) */
+</style>
