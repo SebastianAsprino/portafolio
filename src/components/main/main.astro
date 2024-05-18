@@ -13,7 +13,12 @@ import Educacion from "./main_components/educacion.astro"
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   }
-  
+  @media (max-width: 768px) {
+    main {
+      grid-template-columns: 1fr;
+    }
+  }
+
 </style>
 
 <main>
