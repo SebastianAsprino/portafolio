@@ -1,61 +1,29 @@
 ---
+import { getImage } from "astro:assets";
 import NavBar from "../../components/navbar/navbar.astro";
 import Footer from "../../components/footer/footer.astro";
+import faviconSrc from "../../../public/favicon.svg";
+import proyectos from '../../data/proyectos.json';
+
+const favicon = await getImage({src: faviconSrc});
 
 
 export function getStaticPaths() {
-  return [
-    {params: {proyecto: 'Garw_Gura_Player'}},
-    {params: {proyecto: 'Poke_App'}},
-    {params: {proyecto: 'AnimeParadise'}},
-    {params: {proyecto: 'Egg'}}
-  ];
+  return Object.keys(proyectos).map(proyecto => ({
+    params: { proyecto }
+  }));
 }
 
+
+function getTiposActivos(tipo) {
+  return Object.entries(tipo)
+    .filter(([_, value]) => value)
+    .map(([key, _]) => key);
+}
+
+
+
 const { proyecto } = Astro.params;
-
-const x = {
-  Garw_Gura_Player: {
-    nombre: "Garw Gura Player",
-    año: "2022",
-    repositorio:"https://github.com/SebastianAsprino/GawrGura_Player",
-    lenguajes:"python",
-    tecnologias:"python",
-    pruebalo:"https://github.com/SebastianAsprino/GawrGura_Player",
-    descripcion:"reporductor de gura"
-
-  },
-  Poke_App: {
-    nombre: "Poke App",
-    año: "2023",
-    repositorio:"https://github.com/SebastianAsprino/PI-Pokemon-main",
-    lenguajes:"javascript",
-    tecnologias:"react,express,sequelize,sql",
-    pruebalo:"https://pokemons.asprino.tech/",
-    descripcion:"proyecto"
-
-  },
-  AnimeParadise: {
-    nombre: "AnimeParadise",
-    año: "2023",
-    repositorio:"privado",
-    lenguajes:"javascript",
-    tecnologias:"react,express,sequelize,sql",
-    pruebalo:"https://www.animeparadise.lat",
-    descripcion:"pagina de anime"
-
-  },
-  Egg: {
-    nombre: "Egg",
-    año: "20233333333333333",
-    repositorio:"https://github.com/SebastianAsprino/Egg",
-    lenguajes:"htlm3333333333333333",
-    tecnologias:"html, css",
-    pruebalo:"https://egg.asprino.tech",
-    descripcion:"proyecto33333333"
-
-  }
-};
 ---
 
 <html lang="es">
@@ -76,7 +44,7 @@ const x = {
     <meta property="og:image:height" content="512" />
     <meta property="og:image:alt" content="mi foto de perfil procesada por IA" />    
     <meta property="og:description" content="Mi portafolio web parecido a un CV pero mejor 🧑🏻‍💻." />
-    <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+    <link rel="icon" href={favicon.src} type="image/svg+xml"/>
     <link rel="canonical" href="https://www.asprino.tech" />
     <link rel="preload" href="/MonaspaceNeonVarVF[wght,wdth,slnt].ttf" as="font" type="font/ttf" crossorigin="anonymous"/>
     <title>Sebastian Asprino</title>
@@ -84,15 +52,18 @@ const x = {
   <body>
     <NavBar /> 
     <section>
-      {x[proyecto] ? (
+      {proyectos[proyecto] ? (
         <>
-          <h1>{x[proyecto].nombre}</h1>
-          <h2>{x[proyecto].año}</h2>
-          <h2>{x[proyecto].repositorio}</h2>
-          <h2>{x[proyecto].lenguajes}</h2>
-          <h2>{x[proyecto].tecnologias}</h2>
-          <h2>{x[proyecto].pruebalo}</h2>
-          <h2>{x[proyecto].descripcion}</h2>
+          <h1>{proyectos[proyecto].nombre}</h1>
+          {getTiposActivos(proyectos[proyecto].tipo).map(tipo => (
+            <h2>{tipo}</h2>
+          ))}
+          <h2>{proyectos[proyecto].año}</h2>
+          <h2>{proyectos[proyecto].repositorio}</h2>
+          <h2>{proyectos[proyecto].lenguajes}</h2>
+          <h2>{proyectos[proyecto].tecnologias}</h2>
+          <h2>{proyectos[proyecto].pruebalo}</h2>
+          <h2>{proyectos[proyecto].descripcion}</h2>
         </>
       ) : (
         <h1>Proyecto no encontrado</h1>

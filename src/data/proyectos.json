@@ -1,0 +1,58 @@
+{
+  "Garw_Gura_Player": {
+    "nombre": "Garw Gura Player",
+    "tipo": {
+      "PC": true,
+      "WEB": false,
+      "ANDROID": false
+    },
+    "año": "2022",
+    "repositorio": "https://github.com/SebastianAsprino/GawrGura_Player",
+    "lenguajes": "python",
+    "tecnologias": "python",
+    "pruebalo": "https://github.com/SebastianAsprino/GawrGura_Player",
+    "descripcion": "reproductor de gura"
+  },
+  "Poke_App": {
+    "nombre": "Poke App",
+    "tipo": {
+      "PC": false,
+      "WEB": true,
+      "ANDROID": false
+    },
+    "año": "2023",
+    "repositorio": "https://github.com/SebastianAsprino/PI-Pokemon-main",
+    "lenguajes": "javascript",
+    "tecnologias": "react,express,sequelize,sql",
+    "pruebalo": "https://pokemons.asprino.tech/",
+    "descripcion": "proyecto"
+  },
+  "AnimeParadise": {
+    "nombre": "AnimeParadise",
+    "tipo": {
+      "PC": false,
+      "WEB": true,
+      "ANDROID": false
+    },
+    "año": "2023",
+    "repositorio": "privado",
+    "lenguajes": "javascript",
+    "tecnologias": "react,express,sequelize,sql",
+    "pruebalo": "https://www.animeparadise.lat",
+    "descripcion": "pagina de anime"
+  },
+  "Egg": {
+    "nombre": "Egg",
+    "tipo": {
+      "PC": false,
+      "WEB": true,
+      "ANDROID": false
+    },
+    "año": "2023",
+    "repositorio": "https://github.com/SebastianAsprino/Egg",
+    "lenguajes": "html",
+    "tecnologias": "html, css",
+    "pruebalo": "https://egg.asprino.tech",
+    "descripcion": "proyecto"
+  }
+}
