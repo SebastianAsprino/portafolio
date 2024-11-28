@@ -1,1 +1,74 @@
-<h1>404 xd</h1>
+---
+import NavBar from "../components/navbar/navbar.astro";
+import Footer from "../components/footer/footer.astro";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+    <meta name="description" content="Página no encontrada">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+    <link rel="preload" href="/MonaspaceNeonVarVF[wght,wdth,slnt].ttf" as="font" type="font/ttf" crossorigin="anonymous"/>
+    <title>404 - Página no encontrada</title>
+  </head>
+  <body>
+    <NavBar />
+    <main class="error-container">
+      <h1>404</h1>
+      <p>Página no encontrada</p>
+      <p >Parece que te has perdido en el ciberespacio.</p>
+      <a href="/" >Volver al inicio</a>
+    </main>
+    <Footer/>
+
+    <style is:global>
+      @font-face {
+      font-family: 'MonaspaceNeon';
+      src: url('/MonaspaceNeonVarVF[wght,wdth,slnt].ttf') format('truetype');
+    }
+    
+    * {
+      background-color: #000000;
+      font-family: 'MonaspaceNeon', 'Sofia Sans Condensed';
+      font-variation-settings: 'wght' 400, 'wdth' 100;
+      color: #cfcfea;
+      font-size: 20px;
+      line-height: 1.2;
+      padding: 0;
+      margin: 0 auto 0;
+      max-width: 1300px;
+    }
+    h1 {
+      padding: 10%;
+      font-size: 6rem;
+    }
+    .error-container {
+        min-height: 70vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+    /* body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    } */
+    
+    /* 
+    Profesionalismo y confianza:
+    Azul Marino: #0B3C5D (color usado modo oscuro)
+    Azul Real: #4169E1 (color usado modo oscuro)
+    Azul Medianoche: #191970 (usar modo claro)
+    
+    Autoridad y poder:
+    
+    Azul Pizarra: #4682B4 (posible usar)
+    Azul Imperial: #005A9C
+    Azul Cobalto: #0047AB(usar) */
+    </style>
+  </body>
+</html>

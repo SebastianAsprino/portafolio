@@ -1,6 +1,6 @@
 ---
 import Intro from "./main_components/intro.astro"
-import Proyecto from "./main_components/proyecto.astro"
+import Proyecto from "./main_components/proyecto.svelte"
 import Descripcion from "./main_components/descripcion.astro"
 import Logos from "./main_components/logos.astro"
 import Educacion from "./main_components/educacion.astro"
@@ -23,7 +23,7 @@ import Educacion from "./main_components/educacion.astro"
 
 <main>
   <Intro/>
-  <Proyecto/>
+  <Proyecto client:load/>
   <Descripcion/>
   <section>
     <Logos/>
