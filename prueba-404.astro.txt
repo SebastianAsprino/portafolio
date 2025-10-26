@@ -50,7 +50,7 @@
         isDown = true;
         offsetX = e.clientX - ventana.offsetLeft;
         offsetY = e.clientY - ventana.offsetTop;
-        barra.style.cursor = "move";
+        barra.style.cursor = "move"; 
       });
 
       document.addEventListener("mouseup", () => {
