@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Barra de tareas Win7 con 7.css</title>
+
+  <!-- 7.css -->
+  <link rel="stylesheet" href="https://unpkg.com/7.css">
+
+  <style>
+    body {
+      min-height: 200vh; /* para probar scroll */
+      padding-bottom: 70px; /* que no tape la barra */
+    }
+
+    /* Barra principal */
+    .taskbar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px;
+      box-sizing: border-box;
+      background: linear-gradient(#2a2f33, #141618);
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.03);
+      z-index: 9999;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    /* Botón inicio (usando estilo 7.css en botón) */
+    .start {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .start button {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+    }
+    .start img {
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
+
+    /* Área de lanzadores */
+    .quick-launch {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      margin-left: 6px;
+    }
+    .quick-launch .icon {
+      width: 36px;
+      height: 36px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:4px;
+      cursor:pointer;
+    }
+    .quick-launch .icon:hover { background: rgba(255,255,255,0.08); }
+
+    /* Centro (ventanas abiertas) */
+    .taskbar-center {
+      display: flex;
+      flex: 1;
+      gap: 6px;
+      justify-content: center;
+      align-items: center;
+    }
+    .task-button {
+      min-width: 80px;
+      height: 36px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 0 8px;
+      border-radius:4px;
+      background: rgba(255,255,255,0.05);
+      cursor:pointer;
+    }
+    .task-button.active {
+      background: var(--button-face);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);
+    }
+
+    /* Bandeja del sistema */
+    .tray {
+      display:flex;
+      align-items:center;
+      gap:8px;
+      margin-left: auto;
+    }
+    .tray .tray-item { padding:4px 6px; border-radius:4px; font-size:13px; }
+    .tray .clock { min-width:68px; text-align:center; font-weight:600; }
+
+    /* Menú Inicio (ventana 7.css) */
+    .start-menu {
+      position: fixed;
+      left: 8px;
+      bottom: 56px;
+      width: 300px;
+      max-height: 60vh;
+      display: none;
+      z-index: 10000;
+    }
+    .start-menu.show { display: block; }
+  </style>
+<script is:inline defer src="https://umami.asprino.dev/script.js" data-website-id="74708092-3278-4e33-9139-54904dcd12f9"></script>
+
+</head>
+<body>
+  <div style="padding:24px;">
+    <h1>Demo barra de tareas Win7</h1>
+    <p>Scroll y verás la barra fija abajo.</p>
+  </div>
+
+  <!-- Menú Inicio -->
+  <div id="startMenu" class="window start-menu active">
+    <div class="title-bar">
+      <div class="title-bar-text">Menú Inicio</div>
+      <div class="title-bar-controls">
+        <button aria-label="Close"></button>
+      </div>
+    </div>
+    <div class="window-body">
+      <ul>
+        <li>Documentos</li>
+        <li>Imágenes</li>
+        <li>Configuración</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Barra de tareas -->
+  <div class="taskbar">
+    <div class="start">
+      <button class="button" id="startBtn">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Windows_logo_-_2002%E2%80%932012_%28Multicolored%29.svg" alt="logo">
+        Inicio
+      </button>
+    </div>
+
+    <div class="quick-launch">
+      <div class="icon" title="Explorador">📁</div>
+      <div class="icon" title="Navegador">🌐</div>
+      <div class="icon" title="Editor">✎</div>
+    </div>
+
+    <div class="taskbar-center">
+      <div class="task-button active">Ventana 1</div>
+      <div class="task-button">Ventana 2</div>
+    </div>
+
+    <div class="tray">
+      <div class="tray-item">🔈</div>
+      <div class="tray-item">🔋</div>
+      <div class="tray-item clock" id="clock">00:00</div>
+    </div>
+  </div>
+
+  <script>
+    // Toggle menú inicio
+    const startBtn = document.getElementById('startBtn');
+    const startMenu = document.getElementById('startMenu');
+    startBtn.addEventListener('click', () => {
+      startMenu.classList.toggle('show');
+    });
+
+    // Reloj
+    function updateClock(){
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2,'0');
+      const m = String(now.getMinutes()).padStart(2,'0');
+      document.getElementById('clock').textContent = `${h}:${m}`;
+    }
+    updateClock();
+    setInterval(updateClock, 1000 * 30);
+  </script>
+</body>
+</html>

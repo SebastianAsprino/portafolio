@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://unpkg.com/7.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body, html {
+        height: 100%;
+        margin: 0;
+      }
+      .background {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .window {
+        position: absolute; /* necesario para moverla */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background">
+      <div id="ventana" class="window glass active" style="max-width: 500px; top: 100px; left: 100px;">
+        <div class="title-bar" id="barra">
+          <div class="title-bar-text">Asprino.dev</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="window-body has-space">
+          <h3>404</h3>
+          <ul>
+            <li>Sitio no disponible :(</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const ventana = document.getElementById("ventana");
+      const barra = document.getElementById("barra");
+
+      let offsetX = 0, offsetY = 0, isDown = false;
+
+      barra.addEventListener("mousedown", (e) => {
+        isDown = true;
+        offsetX = e.clientX - ventana.offsetLeft;
+        offsetY = e.clientY - ventana.offsetTop;
+        barra.style.cursor = "move";
+      });
+
+      document.addEventListener("mouseup", () => {
+        isDown = false;
+        barra.style.cursor = "default";
+      });
+
+      document.addEventListener("mousemove", (e) => {
+        if (!isDown) return;
+        ventana.style.left = e.clientX - offsetX + "px";
+        ventana.style.top = e.clientY - offsetY + "px";
+      });
+    </script>
+  </body>
+</html>
