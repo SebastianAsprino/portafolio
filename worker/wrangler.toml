@@ -1,0 +1,7 @@
+name = "portafolio-fish-api"
+main = "src/index.ts"
+compatibility_date = "2024-09-23"
+
+[[kv_namespaces]]
+binding = "FISH_KV"
+id = "88cbfc0a73c44a8ca7316e0c372d4c7d"
