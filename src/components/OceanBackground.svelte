@@ -6,8 +6,9 @@
 	onMount(() => {
 		const ctx = canvas.getContext("2d");
 
-		const VW = 480,
-			VH = 270;
+		const w = window.innerWidth;
+		const VW = w < 600 ? 240 : w < 1024 ? 320 : 480;
+		const VH = w < 600 ? 135 : w < 1024 ? 180 : 270;
 		canvas.width = VW;
 		canvas.height = VH;
 
