@@ -1,79 +1,206 @@
 ---
-import NavBar from "../components/navbar/navbar.astro";
-import Main from "../components/main/main.astro"
-import Experience from "../components/experience/experience.astro";
-import Footer from "../components/footer/footer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
-    <meta name="description" content="Mi portafolio">
-    <meta name="description" content="Mi portafolio web parecido a un CV pero mejor.">
-    <meta name="keywords" content="ingeniero de sistemas, fullstack, backend, frontend, devops, desarrollo web, experiencia digital, construcción de productos en línea, código eficiente, arquitectura de software, comunicación transparente, usuario final, experiencia del usuario">
-    <link rel="image_src" href="https://www.asprino.dev/pfp.jpg"/>
-    <link rel="manifest" href="/manifest.webmanifest" crossorigin="use-credentials">
-    <meta property="og:site_name" content="Sebastian Asprino" />
-    <meta property="og:url" content="https://www.asprino.dev" />
-    <meta property="og:title" content="Portafolio Sebastian Asprino" />
-    <meta property="og:image" content="https://www.asprino.dev/pfp.jpg" />
-    <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:width" content="512" />
-    <meta property="og:image:height" content="512" />
-    <meta property="og:image:alt" content="mi foto de perfil procesada por IA" />    
-    <meta property="og:description" content="Mi portafolio web parecido a un CV pero mejor 🧑🏻‍💻." />
-    <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
-    <link rel="canonical" href="https://www.asprino.dev" />
-    <link rel="preload" href="/MonaspaceNeonVarVF[wght,wdth,slnt].ttf" as="font" type="font/ttf" crossorigin="anonymous"/>
-    <title>Sebastian Asprino</title>
-<script is:inline defer src="https://umami.asprino.dev/script.js" data-website-id="a7113ff6-902d-4be8-a0a2-ac131ea4bd68"></script>
-<script is:inline defer src="https://verbal-brooks-asprinos-70cb1d88.koyeb.app/script.js" data-website-id="ae6e0c1c-dd8e-4955-a904-00ffb40a15ef"></script>
-  </head>
-  <body>
-    <NavBar /> 
-    <Main/>
-    <Experience/>
-    <Footer/>
-    <img src="https://mechanical-jacki-asprinos-d8028e59.koyeb.app/" alt="">
-  </body>
-</html>
+<BaseLayout title="Sebastian Asprino">
+	<div class="site-center">
+		<div class="bento">
+			<header class="block block--header">
+				<span class="name">Sebastian Asprino</span>
+			</header>
 
+			<div class="block block--top">
+				<span class="tagline">Software Engineer</span>
+			</div>
 
-<style is:global>
-  @font-face {
-  font-family: 'MonaspaceNeon';
-  src: url('/MonaspaceNeonVarVF[wght,wdth,slnt].ttf') format('truetype');
-}
+			<nav class="block block--nav">
+				<div class="nav-wide">
+					<ul>
+						<li><a href="#about">About</a></li>
+						<li><a href="#projects">Projects</a></li>
+						<li><a href="#stack">Stack</a></li>
+						<li><a href="#contact">Contact</a></li>
+					</ul>
+				</div>
+				<details class="nav-narrow">
+					<summary>Menu</summary>
+					<ul>
+						<li><a href="#about">About</a></li>
+						<li><a href="#projects">Projects</a></li>
+						<li><a href="#stack">Stack</a></li>
+						<li><a href="#contact">Contact</a></li>
+					</ul>
+				</details>
+			</nav>
 
-* {
-  background-color: #000000;
-  font-family: 'MonaspaceNeon', 'Sofia Sans Condensed';
-  font-variation-settings: 'wght' 400, 'wdth' 100;
-  color: #cfcfea;
-  font-size: 20px;
-  line-height: 1.2;
-  padding: 0;
-  margin: 0 auto 0;
-  max-width: 1300px;
-}
+			<main class="block--main">
+				<section class="block" id="about">
+					<h2>About</h2>
+					<p>placeholder</p>
+				</section>
 
-/* body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-} */
+				<div class="posts-horizontal">
+					<section class="block" id="projects">
+						<h2>Projects</h2>
+						<p>placeholder</p>
+					</section>
+					<section class="block" id="stack">
+						<h2>Stack</h2>
+						<p>placeholder</p>
+					</section>
+				</div>
 
-/* 
-Profesionalismo y confianza:
-Azul Marino: #0B3C5D (color usado modo oscuro)
-Azul Real: #4169E1 (color usado modo oscuro)
-Azul Medianoche: #191970 (usar modo claro)
+				<section class="block" id="contact">
+					<h2>Contact</h2>
+					<p>placeholder</p>
+				</section>
+			</main>
 
-Autoridad y poder:
+			<footer class="block block--footer">
+				<span>Built with Astro · 2026</span>
+			</footer>
+		</div>
+	</div>
+</BaseLayout>
 
-Azul Pizarra: #4682B4 (posible usar)
-Azul Imperial: #005A9C
-Azul Cobalto: #0047AB(usar) */
+<style>
+	.site-center {
+		height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 1rem;
+	}
+
+	.bento {
+		display: grid;
+		width: 100%;
+		max-width: 900px;
+		height: 90vh;
+		grid-template-columns: 180px 1fr;
+		grid-template-rows: auto 1fr auto;
+		grid-template-areas:
+			"header  top"
+			"nav     main"
+			"footer  footer";
+		gap: 6px;
+	}
+
+	.block {
+		background: rgba(0, 10, 30, 0.72);
+		border: 1px solid rgba(130, 200, 255, 0.18);
+		backdrop-filter: blur(2px);
+		padding: 1rem;
+		color: #c8e8f8;
+		font-family: monospace;
+	}
+
+	.block--header {
+		grid-area: header;
+	}
+	.block--top {
+		grid-area: top;
+	}
+	.block--nav {
+		grid-area: nav;
+	}
+	.block--footer {
+		grid-area: footer;
+	}
+
+	.block--main {
+		grid-area: main;
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+		overflow-y: auto;
+		scrollbar-width: none;
+	}
+
+	.block--main::-webkit-scrollbar {
+		display: none;
+	}
+
+	.posts-horizontal {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 6px;
+	}
+
+	h2 {
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+		color: rgba(130, 200, 255, 0.6);
+		margin-bottom: 0.5rem;
+	}
+
+	.name {
+		font-size: 1.1rem;
+		font-weight: bold;
+		letter-spacing: 0.05em;
+	}
+
+	.tagline {
+		font-size: 0.85rem;
+		color: rgba(200, 232, 248, 0.7);
+	}
+
+	nav ul {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+	}
+
+	nav a {
+		color: #c8e8f8;
+		text-decoration: none;
+		font-size: 0.85rem;
+		opacity: 0.8;
+	}
+
+	nav a:hover {
+		opacity: 1;
+	}
+
+	.block--footer {
+		text-align: center;
+		font-size: 0.75rem;
+		opacity: 0.5;
+	}
+
+	.nav-wide {
+		display: block;
+	}
+	.nav-narrow {
+		display: none;
+	}
+
+	@media (max-width: 640px) {
+		.bento {
+			grid-template-columns: 1fr;
+			grid-template-areas:
+				"header"
+				"top"
+				"nav"
+				"main"
+				"footer";
+		}
+
+		.posts-horizontal {
+			grid-template-columns: 1fr;
+		}
+
+		.nav-wide {
+			display: none;
+		}
+		.nav-narrow {
+			display: block;
+		}
+
+		details.nav-narrow > ul {
+			margin-top: 0.5rem;
+		}
+	}
 </style>

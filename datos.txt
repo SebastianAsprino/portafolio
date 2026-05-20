@@ -1,0 +1,33 @@
+			Tabla
+			Tamaño (MB)
+			Evaluación
+			wequpmastp_woocommerce_sessions
+			625.23
+			Crítico — requiere limpieza inmediata
+			wequpmastp_postmeta
+			405.20
+			Crítico — datos huérfanos acumulados
+			cerber_log
+			67.16
+			Alto — retención de logs excesiva
+			wequpmastp_cerber_files
+			55.70
+			Alto
+			wequpmastp_termmeta
+			29.83
+			Moderado
+			wequpmastp_woocommerce_order_itemmeta
+			29.61
+			Moderado
+			wequpmastp_posts
+			26.42
+			Normal
+			wequpmastp_comments
+			13.91
+			Normal
+			wequpmastp_fluentform_submissions
+			12.52
+			Moderado
+			wequpmastp_yoast_indexable
+			10.75
+			Moderado
