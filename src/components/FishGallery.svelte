@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from "svelte";
+	import { onMount, onDestroy, tick } from "svelte";
 	import FishSprite from "./FishSprite.svelte";
 	import { API_URL, type ApiFish } from "../lib/fish";
 
@@ -8,12 +8,46 @@
 	let loading = true;
 	let loadingMore = false;
 	let error = false;
+	let sentinel: HTMLDivElement;
+	let observer: IntersectionObserver | null = null;
 
 	async function loadPage(cur?: string) {
 		const url = cur ? `${API_URL}/fish?cursor=${cur}` : `${API_URL}/fish`;
 		const res = await fetch(url);
 		if (!res.ok) throw new Error();
 		return res.json() as Promise<{ fish: ApiFish[]; cursor: string | null }>;
+	}
+
+	async function loadMore() {
+		if (!cursor || loadingMore) return;
+		loadingMore = true;
+		try {
+			const data = await loadPage(cursor);
+			fish = [...fish, ...data.fish];
+			cursor = data.cursor;
+			if (!cursor) {
+				observer?.disconnect();
+				observer = null;
+			} else {
+				await tick();
+				if (observer && sentinel) {
+					observer.unobserve(sentinel);
+					observer.observe(sentinel);
+				}
+			}
+		} finally {
+			loadingMore = false;
+		}
+	}
+
+	function findScrollParent(el: Element): Element | null {
+		let parent = el.parentElement;
+		while (parent) {
+			const { overflowY } = getComputedStyle(parent);
+			if (overflowY === "auto" || overflowY === "scroll") return parent;
+			parent = parent.parentElement;
+		}
+		return null;
 	}
 
 	onMount(async () => {
@@ -26,19 +60,24 @@
 		} finally {
 			loading = false;
 		}
+
+		if (!cursor) return;
+
+		await tick();
+
+		const scrollRoot = findScrollParent(sentinel);
+		observer = new IntersectionObserver(
+			(entries) => {
+				if (entries[0].isIntersecting) loadMore();
+			},
+			{ root: scrollRoot, rootMargin: "200px" },
+		);
+		observer.observe(sentinel);
 	});
 
-	async function loadMore() {
-		if (!cursor || loadingMore) return;
-		loadingMore = true;
-		try {
-			const data = await loadPage(cursor);
-			fish = [...fish, ...data.fish];
-			cursor = data.cursor;
-		} finally {
-			loadingMore = false;
-		}
-	}
+	onDestroy(() => {
+		observer?.disconnect();
+	});
 
 	function formatDate(ts: number) {
 		return new Date(ts).toLocaleDateString("es", {
@@ -73,13 +112,9 @@
 			</div>
 		{/each}
 	</div>
-
-	{#if cursor}
-		<button class="more" on:click={loadMore} disabled={loadingMore}>
-			{loadingMore ? "cargando..." : "ver más"}
-		</button>
-	{/if}
 {/if}
+
+<div bind:this={sentinel} class="sentinel"></div>
 
 <style>
 	.status {
@@ -143,25 +178,7 @@
 		color: rgba(200, 232, 248, 0.45);
 	}
 
-	.more {
-		display: block;
-		margin: 1rem auto 0;
-		background: rgba(0, 10, 30, 0.72);
-		border: 1px solid rgba(130, 200, 255, 0.28);
-		color: #c8e8f8;
-		font-family: monospace;
-		font-size: 0.8rem;
-		padding: 0.4rem 1.2rem;
-		cursor: pointer;
-		letter-spacing: 0.08em;
-	}
-
-	.more:hover:not(:disabled) {
-		border-color: rgba(130, 200, 255, 0.6);
-	}
-
-	.more:disabled {
-		opacity: 0.5;
-		cursor: default;
+	.sentinel {
+		height: 1px;
 	}
 </style>

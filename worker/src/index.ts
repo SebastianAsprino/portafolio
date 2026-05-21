@@ -7,7 +7,8 @@ type Env = {
 	};
 };
 
-interface Fish {
+interface Fish
+{
 	id: string;
 	sprite: number[][];
 	creatorName: string;
@@ -21,7 +22,8 @@ const app = new Hono<Env>();
 
 app.use('*', cors());
 
-app.post('/fish', async (c) => {
+app.post('/fish', async (c) =>
+{
 	const body = await c.req.json<Pick<Fish, 'sprite' | 'creatorName' | 'creatorUrl'>>();
 
 	const fish: Fish = {
@@ -48,12 +50,13 @@ app.post('/fish', async (c) => {
 	return c.json(fish, 201);
 });
 
-app.get('/fish', async (c) => {
+app.get('/fish', async (c) =>
+{
 	const cursor = c.req.query('cursor');
 
 	const result = await c.env.FISH_KV.list<FishMeta>({
 		prefix: 'fish:',
-		limit: 10,
+		limit: 1000,
 		...(cursor ? { cursor } : {}),
 	});
 

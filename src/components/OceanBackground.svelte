@@ -82,10 +82,13 @@
 		}
 
 		let fishData = [];
+		let spawnIndex = 0;
 
-		function spawnFish(forceX) {
-			const idx = (Math.random() * fishData.length) | 0;
-			const fd = fishData[idx];
+		function spawnFish(forceX, fd) {
+			if (!fd) {
+				fd = fishData[spawnIndex % fishData.length];
+				spawnIndex++;
+			}
 			const sprite = fd.sprite;
 			const dir = Math.random() < 0.5 ? 1 : -1;
 			const spriteW = sprite[0].length;
@@ -340,7 +343,7 @@
 					if (data.fish?.length) {
 						fishData = data.fish;
 						if (fishes.length === 0) {
-							const count = Math.min(fishData.length * 2, 16);
+							const count = Math.min(fishData.length * 2, 32);
 							for (let i = 0; i < count; i++) {
 								fishes.push(spawnFish(Math.random() * VW));
 							}
