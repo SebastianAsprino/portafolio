@@ -56,7 +56,7 @@ app.get('/fish', async (c) =>
 
 	const result = await c.env.FISH_KV.list<FishMeta>({
 		prefix: 'fish:',
-		limit: 1000,
+		limit: 100,
 		...(cursor ? { cursor } : {}),
 	});
 

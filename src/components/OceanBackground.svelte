@@ -336,21 +336,24 @@
 
 		rafId = requestAnimationFrame(tick);
 
-		function fetchFish() {
-			fetch(`${API_URL}/fish`)
-				.then((r) => r.json())
-				.then((data) => {
+		async function fetchFish() {
+			fishData = [];
+			let cur = undefined;
+			try {
+				do {
+					const url = cur ? `${API_URL}/fish?cursor=${cur}` : `${API_URL}/fish`;
+					const data = await fetch(url).then((r) => r.json());
 					if (data.fish?.length) {
-						fishData = data.fish;
-						if (fishes.length === 0) {
-							const count = Math.min(fishData.length * 2, 32);
-							for (let i = 0; i < count; i++) {
-								fishes.push(spawnFish(Math.random() * VW));
-							}
+						const wasEmpty = fishes.length === 0;
+						fishData.push(...data.fish);
+						const target = Math.min(fishData.length * 2, 32);
+						while (fishes.length < target) {
+							fishes.push(spawnFish(wasEmpty ? Math.random() * VW : undefined));
 						}
 					}
-				})
-				.catch(() => {});
+					cur = data.cursor;
+				} while (cur);
+			} catch {}
 		}
 
 		const onFishCreated = () => fetchFish();
