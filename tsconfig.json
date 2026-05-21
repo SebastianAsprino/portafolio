@@ -3,8 +3,15 @@
   "compilerOptions": {
     "strict": true,
     "esModuleInterop": true,
-    "moduleResolution": "node",
-    "skipLibCheck": true
+    "moduleResolution": "bundler",
+    "skipLibCheck": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   },
-  "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"]
+  "include": [
+    "src/**/*.d.ts",
+    "src/**/*.js",
+    "src/**/*.ts",
+    "src/**/*.svelte"
+  ]
 }

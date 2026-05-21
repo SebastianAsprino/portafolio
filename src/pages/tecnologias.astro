@@ -1,0 +1,22 @@
+---
+import BentoLayout from "../layouts/BentoLayout.astro";
+import StackSearch from "../components/StackSearch.svelte";
+import portfolio from "../data/portfolio.json";
+import { buildIconMap } from "../lib/stack-icons";
+
+const allTechs = [...new Set(portfolio.projects.flatMap((p) => p.stack))];
+const icons = buildIconMap(allTechs);
+---
+
+<BentoLayout
+	title="Tecnologías · Sebastian Asprino"
+	activeSection="tecnologias"
+	subtitle="Tecnologías"
+>
+	<StackSearch
+		projects={portfolio.projects}
+		allIcons={icons}
+		stackCategories={portfolio.stack}
+		client:load
+	/>
+</BentoLayout>

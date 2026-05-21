@@ -1,0 +1,359 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import FishCreate from "../../components/FishCreate.svelte";
+import portfolio from "../../data/portfolio.json";
+import { buildIconMap } from "../../lib/stack-icons";
+import type { GetStaticPaths } from "astro";
+
+export const getStaticPaths: GetStaticPaths = () => {
+	return portfolio.projects.map((p) => ({
+		params: { slug: p.slug },
+		props: { project: p },
+	}));
+};
+
+const { project } = Astro.props as {
+	project: (typeof portfolio.projects)[number];
+};
+
+const icons = buildIconMap(project.stack);
+---
+
+<BaseLayout title={`${project.name} · Sebastian Asprino`}>
+	<a href="/" class="back" onclick="history.back(); return false">← volver</a>
+	<div class="detail-wrap">
+		<article class="detail">
+			<header class="detail-header">
+				<div class="meta-row">
+					<span class="type">{project.type}</span>
+					<span class="year">{project.year}</span>
+				</div>
+				<h1>{project.name}</h1>
+				<p class="tagline">{project.tagline}</p>
+			</header>
+
+			{
+				project.video && (
+					<div class="media-hero">
+						<video src={project.video} autoplay muted loop playsinline />
+					</div>
+				)
+			}
+
+			{
+				!project.video && project.image[0] && (
+					<div class="media-hero">
+						<img src={project.image[0]} alt={project.name} />
+					</div>
+				)
+			}
+
+			<div class="body">
+				<p class="description">{project.description}</p>
+
+				<section class="section">
+					<h2>Stack</h2>
+					<div class="tech-grid">
+						{
+							project.stack.map((tech) => (
+								<span class="tech-badge">
+									{icons[tech] && (
+										<span class="tech-icon" set:html={icons[tech]} />
+									)}
+									{tech}
+								</span>
+							))
+						}
+					</div>
+				</section>
+
+				{
+					project.highlights.length > 0 && (
+						<section class="section">
+							<h2>Destacados</h2>
+							<ul class="highlight-list">
+								{project.highlights.map((h) => (
+									<li>{h}</li>
+								))}
+							</ul>
+						</section>
+					)
+				}
+
+				{
+					project.image.length > 1 && (
+						<section class="section">
+							<h2>Capturas</h2>
+							<div class="image-grid">
+								{project.image.map((src, i) => (
+									<img
+										src={src}
+										alt={`${project.name} ${i + 1}`}
+										loading="lazy"
+									/>
+								))}
+							</div>
+						</section>
+					)
+				}
+
+				{
+					(project.links.live || project.links.repo) && (
+						<section class="section links">
+							{project.links.live && (
+								<a
+									href={project.links.live}
+									target="_blank"
+									rel="noopener"
+									class="link-btn"
+								>
+									Ver proyecto →
+								</a>
+							)}
+							{project.links.repo && (
+								<a
+									href={project.links.repo}
+									target="_blank"
+									rel="noopener"
+									class="link-btn"
+								>
+									Código fuente
+								</a>
+							)}
+						</section>
+					)
+				}
+			</div>
+		</article>
+	</div>
+	<FishCreate client:load />
+</BaseLayout>
+
+<style>
+	.detail-wrap {
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 1rem 1rem 4rem;
+	}
+
+	.back {
+		position: fixed;
+		top: 1rem;
+		left: 1rem;
+		z-index: 10;
+		color: rgba(200, 232, 248, 0.75);
+		font-family: monospace;
+		font-size: 0.8rem;
+		text-decoration: none;
+		background: rgba(0, 10, 30, 0.72);
+		border: 1px solid rgba(130, 200, 255, 0.18);
+		padding: 0.35rem 0.75rem;
+		backdrop-filter: blur(4px);
+		transition: border-color 0.15s, color 0.15s;
+	}
+
+	.back:hover {
+		color: #c8e8f8;
+		border-color: rgba(130, 200, 255, 0.45);
+	}
+
+	.back:hover {
+		color: #c8e8f8;
+	}
+
+	.detail {
+		width: 100%;
+		max-width: 720px;
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.detail-header {
+		background: rgba(0, 10, 30, 0.72);
+		border: 1px solid rgba(130, 200, 255, 0.18);
+		backdrop-filter: blur(2px);
+		padding: 1.25rem;
+		font-family: monospace;
+	}
+
+	.meta-row {
+		display: flex;
+		gap: 1rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.type {
+		font-size: 0.65rem;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: rgba(130, 200, 255, 0.55);
+	}
+
+	.year {
+		font-size: 0.65rem;
+		color: rgba(200, 232, 248, 0.3);
+	}
+
+	h1 {
+		font-size: 1.4rem;
+		font-weight: bold;
+		color: #c8e8f8;
+		font-family: monospace;
+		margin-bottom: 0.4rem;
+	}
+
+	.tagline {
+		font-size: 0.85rem;
+		color: rgba(200, 232, 248, 0.6);
+		font-family: monospace;
+	}
+
+	.media-hero {
+		background: rgba(0, 8, 24, 0.9);
+		border: 1px solid rgba(130, 200, 255, 0.12);
+		aspect-ratio: 16 / 9;
+		overflow: hidden;
+	}
+
+	.media-hero img,
+	.media-hero video {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+	}
+
+	.body {
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+	}
+
+	.description {
+		font-family: monospace;
+		font-size: 0.82rem;
+		color: rgba(200, 232, 248, 0.7);
+		line-height: 1.65;
+		background: rgba(0, 10, 30, 0.72);
+		border: 1px solid rgba(130, 200, 255, 0.18);
+		backdrop-filter: blur(2px);
+		padding: 1rem;
+	}
+
+	.section {
+		background: rgba(0, 10, 30, 0.72);
+		border: 1px solid rgba(130, 200, 255, 0.18);
+		backdrop-filter: blur(2px);
+		padding: 1rem;
+	}
+
+	h2 {
+		font-size: 0.65rem;
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+		color: rgba(130, 200, 255, 0.5);
+		font-family: monospace;
+		margin-bottom: 0.75rem;
+	}
+
+	.tech-grid {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px;
+	}
+
+	.tech-badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 5px;
+		font-family: monospace;
+		font-size: 0.72rem;
+		color: rgba(200, 232, 248, 0.7);
+		border: 1px solid rgba(130, 200, 255, 0.18);
+		padding: 3px 8px;
+		background: rgba(0, 10, 30, 0.5);
+	}
+
+	.tech-icon {
+		display: inline-flex;
+		width: 16px;
+		height: 16px;
+	}
+
+	.tech-icon :global(div) {
+		width: 100%;
+		height: 100%;
+		display: flex;
+	}
+
+	.tech-icon :global(svg) {
+		width: 100%;
+		height: 100%;
+	}
+
+	.highlight-list {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+	}
+
+	.highlight-list li {
+		font-family: monospace;
+		font-size: 0.78rem;
+		color: rgba(200, 232, 248, 0.65);
+		padding-left: 0.75rem;
+		position: relative;
+	}
+
+	.highlight-list li::before {
+		content: "·";
+		position: absolute;
+		left: 0;
+		color: rgba(130, 200, 255, 0.5);
+	}
+
+	.image-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 6px;
+	}
+
+	.image-grid img {
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		object-fit: cover;
+		display: block;
+		background: rgba(0, 8, 24, 0.9);
+	}
+
+	.links {
+		display: flex;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+	}
+
+	.link-btn {
+		font-family: monospace;
+		font-size: 0.78rem;
+		color: #c8e8f8;
+		text-decoration: none;
+		border: 1px solid rgba(130, 200, 255, 0.28);
+		padding: 0.4rem 0.9rem;
+		background: rgba(0, 10, 30, 0.5);
+		transition: border-color 0.15s;
+	}
+
+	.link-btn:hover {
+		border-color: rgba(130, 200, 255, 0.6);
+	}
+
+	@media (max-width: 640px) {
+		.image-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

@@ -1,0 +1,325 @@
+{
+  "meta": {
+    "version": "1.0",
+    "last_updated": "2026-05-20",
+    "note": "Data source for the portfolio site. Images live in /public/projects/{slug}/. The first element of 'image' is the static placeholder that loads immediately; swap for animated content (gif/webm) on intersection. 'video' is the path to the webm/mp4 shown when the card is visible."
+  },
+
+  "about": {
+    "name": "Sebastian Asprino",
+    "headline": "Fullstack Software Engineer",
+    "bio": "Construyo software de principio a fin: APIs, bases de datos, interfaces y despliegue. Me muevo con confianza entre TypeScript, Python y Go; entre React y Svelte; entre AWS Lambda y Cloudflare Workers. Me interesa escribir código limpio, sistemas bien pensados y productos que la gente disfruta usar.",
+    "currently": "Fullstack Engineer en My Little Venture",
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/SebastianAsprino",
+        "icon": "github"
+      },
+      {
+        "label": "Email",
+        "url": "mailto:sebastian.asprino@mylittleventure.com",
+        "icon": "mail"
+      },
+      {
+        "label": "Blog",
+        "url": null,
+        "icon": "rss"
+      }
+    ]
+  },
+
+  "projects": [
+    {
+      "id": "mlv",
+      "name": "My Little Venture",
+      "slug": "mlv",
+      "tagline": "Marketplace B2C con microservicios serverless",
+      "description": "Plataforma empresarial fullstack: backend de microservicios sobre AWS Lambda con arquitectura hexagonal y Vertical Slice, y frontend Next.js 16 con Turbopack. Integra pagos Stripe, búsqueda Algolia, autenticación OAuth2 y monitoreo Sentry en un monorepo gestionado con pnpm.",
+      "year": "2024–presente",
+      "role": "Fullstack Engineer",
+      "type": "SaaS · Marketplace",
+      "featured": true,
+      "private": true,
+      "stack": [
+        "TypeScript",
+        "Next.js 16",
+        "Hono",
+        "AWS Lambda",
+        "Amazon DynamoDB",
+        "Stripe",
+        "Algolia",
+        "NextAuth.js",
+        "Vitest",
+        "pnpm workspaces"
+      ],
+      "highlights": [
+        "Arquitectura hexagonal (Ports & Adapters) en servicios Lambda",
+        "Monorepo con pnpm workspaces — packages/ y services/ independientes",
+        "Integración de pagos Stripe end-to-end",
+        "Búsqueda en tiempo real con Algolia react-instantsearch",
+        "Calidad de código con SonarQube y cobertura Vitest"
+      ],
+      "image": [
+        "/projects/mlv/preview.webp",
+        "/projects/mlv/backend.webp",
+        "/projects/mlv/frontend.webp"
+      ],
+      "video": "/projects/mlv/demo.webm",
+      "links": {
+        "live": null,
+        "repo": null
+      }
+    },
+
+    {
+      "id": "artemisa",
+      "name": "Olympus Analytics – Artemisa",
+      "slug": "artemisa",
+      "tagline": "Plataforma de analítica geoespacial",
+      "description": "Backend Python/Django con capacidades GIS avanzadas: procesamiento de datos geoespaciales con GDAL, GeoPandas y Shapely, API REST documentada con Swagger y soporte multi-tenant. Complementado con reescritura en Go/Fiber para mayor throughput.",
+      "year": "2023–2024",
+      "role": "Backend Engineer",
+      "type": "Analytics · GIS",
+      "featured": true,
+      "private": true,
+      "stack": [
+        "Python",
+        "Django 5.1",
+        "Django REST Framework",
+        "PostgreSQL",
+        "GDAL",
+        "GeoPandas",
+        "Shapely",
+        "Go",
+        "Fiber v2",
+        "Docker Compose"
+      ],
+      "highlights": [
+        "Procesamiento geoespacial con GDAL, GeoPandas, Shapely y Pyproj",
+        "API documentada con Swagger/OpenAPI (drf-yasg)",
+        "Base de datos dinámica con soporte multi-tenant",
+        "Reescritura estratégica a Go/Fiber por requisitos de performance"
+      ],
+      "image": [
+        "/projects/artemisa/preview.webp",
+        "/projects/artemisa/map.webp",
+        "/projects/artemisa/api.webp"
+      ],
+      "video": "/projects/artemisa/demo.webm",
+      "links": {
+        "live": null,
+        "repo": null
+      }
+    },
+
+    {
+      "id": "anime-paradise",
+      "name": "AnimeParadise.lat",
+      "slug": "anime-paradise",
+      "tagline": "Plataforma de streaming de anime",
+      "description": "SPA de streaming con React 18, Zustand y React Router v6. API REST con Elysia sobre runtime Bun y base de datos distribuida LibSQL/Turso. Incluye librería de componentes compartida (ParadiseUI), documentación Swagger y deploy containerizado con Docker.",
+      "year": "2023",
+      "role": "Fullstack Developer",
+      "type": "Streaming · SPA",
+      "featured": true,
+      "private": false,
+      "stack": [
+        "React 18",
+        "Zustand",
+        "Elysia",
+        "Bun",
+        "Drizzle ORM",
+        "LibSQL / Turso",
+        "Tailwind CSS",
+        "Docker",
+        "Swagger"
+      ],
+      "highlights": [
+        "SPA con React 18 y React Router v6",
+        "API con Elysia/Bun para alta performance",
+        "Base de datos distribuida con LibSQL/Turso",
+        "Librería de componentes interna ParadiseUI"
+      ],
+      "image": [
+        "/projects/anime-paradise/preview.webp",
+        "/projects/anime-paradise/catalog.webp",
+        "/projects/anime-paradise/player.webp"
+      ],
+      "video": "/projects/anime-paradise/demo.webm",
+      "links": {
+        "live": null,
+        "repo": null
+      }
+    },
+
+    {
+      "id": "alcancia",
+      "name": "Alcancía",
+      "slug": "alcancia",
+      "tagline": "App de ahorro personal",
+      "description": "Aplicación de finanzas personales construida con SvelteKit, TypeScript y DaisyUI, desplegada en Cloudflare Pages. Interfaz simple para registrar y visualizar metas de ahorro.",
+      "year": "2024",
+      "role": "Solo project",
+      "type": "Finance · Personal",
+      "featured": false,
+      "private": false,
+      "stack": [
+        "SvelteKit",
+        "TypeScript",
+        "Tailwind CSS",
+        "DaisyUI",
+        "Vite",
+        "Bun",
+        "Cloudflare Pages"
+      ],
+      "highlights": [
+        "Deploy en Cloudflare Pages (edge)",
+        "UI construida con DaisyUI sobre Tailwind"
+      ],
+      "image": [
+        "/projects/alcancia/preview.webp",
+        "/projects/alcancia/dashboard.webp"
+      ],
+      "video": "/projects/alcancia/demo.webm",
+      "links": {
+        "live": null,
+        "repo": null
+      }
+    },
+
+    {
+      "id": "blog",
+      "name": "Blog personal",
+      "slug": "blog",
+      "tagline": "Blog técnico con Astro 5 y MDX",
+      "description": "Blog técnico estático con Astro 5, MDX, búsqueda client-side con Pagefind, feed RSS, soporte KaTeX para fórmulas matemáticas y syntax highlighting. Cero JavaScript por defecto, carga instantánea.",
+      "year": "2025",
+      "role": "Solo project",
+      "type": "Content · Static",
+      "featured": false,
+      "private": false,
+      "stack": [
+        "Astro 5",
+        "TypeScript",
+        "MDX",
+        "Tailwind CSS",
+        "Pagefind",
+        "Biome",
+        "pnpm"
+      ],
+      "highlights": [
+        "Búsqueda estática client-side con Pagefind",
+        "KaTeX para artículos con fórmulas",
+        "Feed RSS y galerías de imágenes integradas"
+      ],
+      "image": [
+        "/projects/blog/preview.webp",
+        "/projects/blog/post.webp"
+      ],
+      "video": "/projects/blog/demo.webm",
+      "links": {
+        "live": null,
+        "repo": null
+      }
+    },
+
+    {
+      "id": "portafolio",
+      "name": "Este portafolio",
+      "slug": "portafolio",
+      "tagline": "Portafolio con océano de píxeles interactivo",
+      "description": "Portafolio personal construido con Astro y Svelte. El fondo es un océano pixel-art renderizado en canvas con rayos de luz y peces creados por visitantes, persistidos en Cloudflare Workers KV. Cada visitante puede diseñar y dejar su propio pez.",
+      "year": "2026",
+      "role": "Solo project",
+      "type": "Portfolio · Creative",
+      "featured": false,
+      "private": false,
+      "stack": [
+        "Astro",
+        "Svelte",
+        "TypeScript",
+        "Cloudflare Workers",
+        "Cloudflare KV",
+        "Hono",
+        "Canvas API"
+      ],
+      "highlights": [
+        "Océano pixel-art en canvas con rayos y caustics dithering",
+        "Peces creados por visitantes, guardados en KV",
+        "Editor de sprites pixel-art en el navegador"
+      ],
+      "image": [
+        "/projects/portafolio/preview.webp",
+        "/projects/portafolio/ocean.webp",
+        "/projects/portafolio/creator.webp"
+      ],
+      "video": "/projects/portafolio/demo.webm",
+      "links": {
+        "live": null,
+        "repo": "https://github.com/SebastianAsprino/portafolio"
+      }
+    }
+  ],
+
+  "stack": {
+    "frontend": [
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Astro",
+      "SvelteKit",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Radix UI"
+    ],
+    "backend": [
+      "Node.js",
+      "Hono",
+      "Elysia / Bun",
+      "Django",
+      "Go / Fiber",
+      "REST API",
+      "JWT"
+    ],
+    "data": [
+      "PostgreSQL",
+      "Amazon DynamoDB",
+      "SQLite / LibSQL",
+      "Drizzle ORM",
+      "Sequelize"
+    ],
+    "infra": [
+      "AWS Lambda",
+      "Docker",
+      "Cloudflare Pages",
+      "Cloudflare Workers",
+      "GitHub Actions"
+    ],
+    "tools": [
+      "pnpm / Monorepo",
+      "Vite",
+      "Vitest",
+      "Zod",
+      "Stripe",
+      "Algolia",
+      "Sentry"
+    ],
+    "other": [
+      "Python",
+      "Go",
+      "Rust",
+      "GDAL / GeoPandas",
+      "FFmpeg",
+      "WebAssembly"
+    ]
+  },
+
+  "contact": {
+    "email": "sebastian.asprino@mylittleventure.com",
+    "github": "https://github.com/SebastianAsprino",
+    "linkedin": null,
+    "twitter": null,
+    "available_for": "freelance, contratos, posiciones remotas"
+  }
+}

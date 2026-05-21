@@ -1,0 +1,226 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import FishCreate from "../components/FishCreate.svelte";
+
+interface Props {
+	title: string;
+	subtitle?: string;
+	activeSection?: string;
+}
+
+const {
+	title,
+	subtitle = "Fullstack · Backend · Frontend · DevOps · Arquitectura",
+	activeSection,
+} = Astro.props;
+---
+
+<BaseLayout title={title}>
+	<div class="site-center">
+		<div class="bento">
+			<header class="block block--header">
+				<span class="name">Sebastian Asprino</span>
+			</header>
+
+			<div class="block block--top">
+				<span class="tagline">{subtitle}</span>
+			</div>
+
+			<nav class="block block--nav">
+				<div class="nav-wide">
+					<ul>
+						<li>
+							<a href="/" class:list={[{ active: activeSection === "home" }]}
+								>Inicio</a
+							>
+						</li>
+						<li>
+							<a
+								href="/tecnologias"
+								class:list={[{ active: activeSection === "tecnologias" }]}
+								>Tecnologías</a
+							>
+						</li>
+						<li>
+							<a
+								href="/contacto"
+								class:list={[{ active: activeSection === "contacto" }]}
+								>Contacto</a
+							>
+						</li>
+						<li class="nav-sep"></li>
+						<li><a href="/peces">Peces</a></li>
+						<li>
+							<a class="nav-btn" href="/crear-pez">+ dejar mi pez</a>
+						</li>
+					</ul>
+				</div>
+				<details class="nav-narrow">
+					<summary>Menu</summary>
+					<ul>
+						<li><a href="/">Inicio</a></li>
+						<li><a href="/tecnologias">Tecnologías</a></li>
+						<li><a href="/contacto">Contacto</a></li>
+						<li><a href="/peces">Peces</a></li>
+						<li><a href="/crear-pez">Dejar mi pez</a></li>
+					</ul>
+				</details>
+			</nav>
+
+			<main class="block--main">
+				<slot />
+			</main>
+
+			<footer class="block block--footer">
+				<span>Hecho con Astro · 2026</span>
+			</footer>
+		</div>
+	</div>
+	<FishCreate client:load />
+</BaseLayout>
+
+<style>
+	.site-center {
+		height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 1rem;
+	}
+
+	.bento {
+		display: grid;
+		width: 100%;
+		max-width: 900px;
+		height: 60vh;
+		grid-template-columns: 180px 1fr;
+		grid-template-rows: auto 1fr auto;
+		grid-template-areas:
+			"header  top"
+			"nav     main"
+			"footer  footer";
+		gap: 6px;
+	}
+
+	.block {
+		background: rgba(0, 10, 30, 0.72);
+		border: 1px solid rgba(130, 200, 255, 0.18);
+		backdrop-filter: blur(2px);
+		padding: 1rem;
+		color: #c8e8f8;
+		font-family: monospace;
+	}
+
+	.block--header {
+		grid-area: header;
+	}
+	.block--top {
+		grid-area: top;
+	}
+	.block--nav {
+		grid-area: nav;
+	}
+	.block--footer {
+		grid-area: footer;
+	}
+
+	.block--main {
+		grid-area: main;
+		overflow-y: auto;
+		scrollbar-width: none;
+	}
+
+	.block--main::-webkit-scrollbar {
+		display: none;
+	}
+
+	.name {
+		font-size: 1.1rem;
+		font-weight: bold;
+		letter-spacing: 0.05em;
+	}
+
+	.tagline {
+		font-size: 0.85rem;
+		color: rgba(200, 232, 248, 0.7);
+	}
+
+	nav ul {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+	}
+
+	nav a,
+	nav .nav-btn {
+		color: #c8e8f8;
+		text-decoration: none;
+		font-size: 0.85rem;
+		opacity: 0.8;
+		font-family: monospace;
+	}
+
+	nav a:hover,
+	nav .nav-btn:hover {
+		opacity: 1;
+	}
+
+	nav a.active {
+		opacity: 1;
+		color: #a8d8ff;
+	}
+
+	.nav-btn {
+		background: none;
+		border: none;
+		padding: 0;
+		cursor: pointer;
+		display: block;
+		width: 100%;
+		text-align: left;
+	}
+
+	.nav-sep {
+		border-top: 1px solid rgba(130, 200, 255, 0.15);
+		margin: 0.25rem 0;
+	}
+
+	.block--footer {
+		text-align: center;
+		font-size: 0.75rem;
+		opacity: 0.5;
+	}
+
+	.nav-wide {
+		display: block;
+	}
+	.nav-narrow {
+		display: none;
+	}
+
+	@media (max-width: 640px) {
+		.bento {
+			height: 90vh;
+			grid-template-columns: 1fr;
+			grid-template-rows: auto auto auto 1fr auto;
+			grid-template-areas:
+				"header"
+				"top"
+				"nav"
+				"main"
+				"footer";
+		}
+
+		.nav-wide {
+			display: none;
+		}
+		.nav-narrow {
+			display: block;
+		}
+
+		details.nav-narrow > ul {
+			margin-top: 0.5rem;
+		}
+	}
+</style>

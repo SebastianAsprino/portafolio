@@ -1,5 +1,6 @@
 <script>
 	import { onMount } from "svelte";
+	import { FISH_COLORS, API_URL } from "../lib/fish";
 
 	let canvas;
 
@@ -80,127 +81,18 @@
 			);
 		}
 
-		const SPRITES = [
-			[
-				[0, 0, 0, 0, 0, 0, 9, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-				[0, 0, 0, 0, 0, 9, 3, 3, 3, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-				[0, 0, 0, 0, 3, 3, 1, 1, 1, 3, 3, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0],
-				[3, 0, 0, 1, 1, 1, 7, 1, 1, 7, 1, 1, 7, 1, 1, 1, 1, 1, 5, 0, 0, 0],
-				[3, 3, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 0],
-				[3, 3, 1, 1, 1, 9, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 8, 1, 1, 1],
-				[3, 3, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 0],
-				[3, 0, 0, 1, 1, 1, 7, 1, 1, 7, 1, 1, 7, 1, 1, 1, 1, 1, 5, 0, 0, 0],
-				[0, 0, 0, 0, 3, 3, 1, 1, 1, 3, 3, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0],
-				[0, 0, 0, 0, 0, 9, 3, 3, 3, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-				[0, 0, 0, 0, 0, 0, 9, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-			],
-			[
-				[0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0],
-				[0, 0, 0, 9, 9, 0, 0, 0, 0, 0, 0, 0],
-				[0, 0, 0, 9, 3, 9, 0, 0, 0, 0, 0, 0],
-				[0, 0, 9, 3, 1, 3, 9, 0, 0, 0, 0, 0],
-				[0, 3, 3, 1, 5, 1, 3, 1, 0, 0, 0, 0],
-				[0, 3, 1, 1, 2, 1, 1, 1, 1, 0, 0, 0],
-				[3, 3, 1, 1, 2, 1, 1, 1, 1, 1, 0, 0],
-				[3, 3, 1, 1, 1, 1, 1, 1, 4, 8, 1, 0],
-				[3, 3, 1, 1, 2, 1, 1, 1, 1, 1, 0, 0],
-				[0, 3, 1, 1, 2, 1, 1, 1, 1, 0, 0, 0],
-				[0, 3, 3, 1, 5, 1, 3, 1, 0, 0, 0, 0],
-				[0, 0, 9, 3, 1, 3, 9, 0, 0, 0, 0, 0],
-				[0, 0, 0, 9, 3, 9, 0, 0, 0, 0, 0, 0],
-				[0, 0, 0, 9, 9, 0, 0, 0, 0, 0, 0, 0],
-				[0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0],
-			],
-			[
-				[
-					0, 0, 0, 0, 0, 0, 9, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					0, 0, 0,
-				],
-				[
-					0, 0, 3, 0, 0, 9, 1, 1, 1, 9, 5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					0, 0, 0,
-				],
-				[
-					0, 3, 3, 1, 1, 1, 1, 1, 1, 1, 5, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0,
-					0, 0, 0,
-				],
-				[
-					3, 0, 1, 1, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0,
-					0, 0, 0,
-				],
-				[
-					3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4,
-					8, 1, 1,
-				],
-				[
-					3, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0,
-					0, 0, 0,
-				],
-				[
-					0, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0,
-					0, 0, 0,
-				],
-				[
-					0, 0, 3, 0, 0, 9, 1, 1, 1, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					0, 0, 0,
-				],
-				[
-					0, 0, 0, 0, 0, 0, 9, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					0, 0, 0,
-				],
-			],
-			[
-				[0, 9, 9, 0],
-				[1, 1, 4, 1],
-				[0, 1, 1, 0],
-			],
-		];
-
-		const FISH_COLORS = [
-			[222, 108, 20],
-			[218, 188, 32],
-			[198, 52, 40],
-			[55, 178, 78],
-			[218, 90, 158],
-			[195, 215, 228],
-			[130, 75, 200],
-			[218, 142, 55],
-			[80, 200, 212],
-		];
-
-		function makePalette([r, g, b]) {
-			return {
-				body: [r, g, b],
-				belly: [
-					Math.min(255, r + 65),
-					Math.min(255, g + 65),
-					Math.min(255, b + 65),
-				],
-				fin: [(r * 0.5) | 0, (g * 0.5) | 0, (b * 0.5) | 0],
-				eye: [12, 14, 22],
-				highlight: [
-					Math.min(255, r + 118),
-					Math.min(255, g + 118),
-					Math.min(255, b + 100),
-				],
-				shadow: [(r * 0.28) | 0, (g * 0.28) | 0, (b * 0.28) | 0],
-				stripe: [Math.max(0, r - 78), Math.max(0, g - 62), Math.max(0, b - 32)],
-				eyeShine: [222, 238, 255],
-				finRay: [(r * 0.7) | 0, (g * 0.7) | 0, (b * 0.7) | 0],
-			};
-		}
+		let fishData = [];
 
 		function spawnFish(forceX) {
-			const spriteIdx = (Math.random() * SPRITES.length) | 0;
-			const sprite = SPRITES[spriteIdx];
-			const colorBase = FISH_COLORS[(Math.random() * FISH_COLORS.length) | 0];
+			const idx = (Math.random() * fishData.length) | 0;
+			const fd = fishData[idx];
+			const sprite = fd.sprite;
 			const dir = Math.random() < 0.5 ? 1 : -1;
 			const spriteW = sprite[0].length;
 			const x =
 				forceX !== undefined ? forceX : dir === 1 ? -spriteW - 1 : VW + 1;
 			return {
 				sprite,
-				pal: makePalette(colorBase),
 				x,
 				yBase: 24 + Math.random() * (VH - 50),
 				dir,
@@ -209,13 +101,30 @@
 				oscFreq: 0.033 + Math.random() * 0.044,
 				phase: Math.random() * Math.PI * 2,
 				age: 0,
+				scareTimer: 0,
+				scareSpdBoost: 0,
+				scareYVel: 0,
 			};
 		}
 
-		const NFISH = SPRITES.length * 2;
-		const fishes = Array.from({ length: NFISH }, () =>
-			spawnFish(Math.random() * VW),
-		);
+		function scareFish(cx, cy) {
+			for (const fish of fishes) {
+				const fw = fish.sprite[0].length;
+				const fx = fish.x + fw / 2;
+				const fy = fish.yBase;
+				const dx = fx - cx;
+				const dy = fy - cy;
+				const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+				const strength = Math.max(0, 1 - dist / (VW * 0.85));
+
+				fish.dir = dx >= 0 ? 1 : -1;
+				fish.scareTimer = (18 + Math.random() * 12) | 0;
+				fish.scareSpdBoost = fish.speed * (1 + strength * 2.5);
+				fish.scareYVel = (dy / dist) * strength * 0.9;
+			}
+		}
+
+		const fishes = [];
 
 		function drawFish(d, fish) {
 			const sp = fish.sprite;
@@ -227,17 +136,6 @@
 					Math.sin(fish.phase + fish.age * fish.oscFreq) * fish.oscAmp,
 			);
 			const flip = fish.dir === -1;
-			const {
-				body,
-				belly,
-				fin,
-				eye,
-				highlight,
-				shadow,
-				stripe,
-				eyeShine,
-				finRay,
-			} = fish.pal;
 
 			for (let row = -1; row <= nR; row++) {
 				for (let col = -1; col <= nC; col++) {
@@ -292,24 +190,7 @@
 						py = oy + row;
 					if (px < 0 || px >= VW || py < 0 || py >= VH) continue;
 					const i = (py * VW + px) << 2;
-					const [cr, cg, cb] =
-						val === 1
-							? body
-							: val === 2
-								? belly
-								: val === 3
-									? fin
-									: val === 4
-										? eye
-										: val === 5
-											? highlight
-											: val === 6
-												? shadow
-												: val === 7
-													? stripe
-													: val === 8
-														? eyeShine
-														: finRay;
+					const [cr, cg, cb] = FISH_COLORS[val - 1] ?? FISH_COLORS[0];
 					d[i] = cr;
 					d[i + 1] = cg;
 					d[i + 2] = cb;
@@ -415,7 +296,14 @@
 
 			for (const f of fishes) {
 				f.age++;
-				f.x += f.dir * f.speed;
+				if (f.scareTimer > 0) {
+					const t = f.scareTimer / 60;
+					f.x += f.dir * (f.speed + f.scareSpdBoost * t);
+					f.yBase = Math.max(24, Math.min(VH - 26, f.yBase + f.scareYVel * t));
+					f.scareTimer--;
+				} else {
+					f.x += f.dir * f.speed;
+				}
 				const w = f.sprite[0].length;
 				const gone = f.dir === 1 ? f.x > VW + w + 2 : f.x < -w - 2;
 				if (gone) Object.assign(f, spawnFish());
@@ -445,7 +333,41 @@
 
 		rafId = requestAnimationFrame(tick);
 
-		return () => cancelAnimationFrame(rafId);
+		function fetchFish() {
+			fetch(`${API_URL}/fish`)
+				.then((r) => r.json())
+				.then((data) => {
+					if (data.fish?.length) {
+						fishData = data.fish;
+						if (fishes.length === 0) {
+							const count = Math.min(fishData.length * 2, 16);
+							for (let i = 0; i < count; i++) {
+								fishes.push(spawnFish(Math.random() * VW));
+							}
+						}
+					}
+				})
+				.catch(() => {});
+		}
+
+		const onFishCreated = () => fetchFish();
+		window.addEventListener("fish-created", onFishCreated);
+
+		const onTap = (e) => {
+			const rect = canvas.getBoundingClientRect();
+			const cx = ((e.clientX - rect.left) / rect.width) * VW;
+			const cy = ((e.clientY - rect.top) / rect.height) * VH;
+			scareFish(cx, cy);
+		};
+		window.addEventListener("click", onTap);
+
+		fetchFish();
+
+		return () => {
+			cancelAnimationFrame(rafId);
+			window.removeEventListener("fish-created", onFishCreated);
+			window.removeEventListener("click", onTap);
+		};
 	});
 </script>
 

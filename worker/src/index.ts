@@ -7,8 +7,7 @@ type Env = {
 	};
 };
 
-interface Fish
-{
+interface Fish {
 	id: string;
 	sprite: number[][];
 	creatorName: string;
@@ -16,12 +15,13 @@ interface Fish
 	createdAt: number;
 }
 
+type FishMeta = Omit<Fish, 'sprite'>;
+
 const app = new Hono<Env>();
 
 app.use('*', cors());
 
-app.post('/fish', async (c) =>
-{
+app.post('/fish', async (c) => {
 	const body = await c.req.json<Pick<Fish, 'sprite' | 'creatorName' | 'creatorUrl'>>();
 
 	const fish: Fish = {
@@ -32,27 +32,37 @@ app.post('/fish', async (c) =>
 		createdAt: Date.now(),
 	};
 
+	const meta: FishMeta = {
+		id: fish.id,
+		creatorName: fish.creatorName,
+		creatorUrl: fish.creatorUrl,
+		createdAt: fish.createdAt,
+	};
+
 	await c.env.FISH_KV.put(
 		`fish:${fish.createdAt}:${fish.id}`,
 		JSON.stringify(fish),
-		{ metadata: fish },
+		{ metadata: meta },
 	);
 
 	return c.json(fish, 201);
 });
 
-app.get('/fish', async (c) =>
-{
+app.get('/fish', async (c) => {
 	const cursor = c.req.query('cursor');
 
-	const result = await c.env.FISH_KV.list<Fish>({
+	const result = await c.env.FISH_KV.list<FishMeta>({
 		prefix: 'fish:',
 		limit: 10,
 		...(cursor ? { cursor } : {}),
 	});
 
+	const fish = await Promise.all(
+		result.keys.map((k) => c.env.FISH_KV.get<Fish>(k.name, 'json')),
+	);
+
 	return c.json({
-		fish: result.keys.map((k) => k.metadata).filter(Boolean) as Fish[],
+		fish: fish.filter(Boolean) as Fish[],
 		cursor: result.list_complete ? null : result.cursor,
 	});
 });

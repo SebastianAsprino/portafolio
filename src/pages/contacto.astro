@@ -1,0 +1,38 @@
+---
+import BentoLayout from "../layouts/BentoLayout.astro";
+---
+
+<BentoLayout
+	title="Contacto · Sebastian Asprino"
+	activeSection="contacto"
+	subtitle="Contacto"
+>
+	<section class="block">
+		<h2>Contacto</h2>
+		<p>Próximamente...</p>
+	</section>
+</BentoLayout>
+
+<style>
+	.block {
+		background: rgba(0, 10, 30, 0.72);
+		border: 1px solid rgba(130, 200, 255, 0.18);
+		backdrop-filter: blur(2px);
+		padding: 1rem;
+		color: #c8e8f8;
+		font-family: monospace;
+	}
+
+	h2 {
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+		color: rgba(130, 200, 255, 0.6);
+		margin-bottom: 0.5rem;
+	}
+
+	p {
+		font-size: 0.82rem;
+		color: rgba(200, 232, 248, 0.45);
+	}
+</style>

@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FishCreate from '../components/FishCreate.svelte';
+---
+
+<BaseLayout title="Crear Pez · Sebastian Asprino">
+	<a href="/" class="back-home">← inicio</a>
+	<FishCreate client:load autoOpen={true} />
+</BaseLayout>
+
+<style>
+	.back-home {
+		position: fixed;
+		top: 1rem;
+		right: 1rem;
+		z-index: 1;
+		color: rgba(200, 232, 248, 0.6);
+		font-family: monospace;
+		font-size: 0.8rem;
+		text-decoration: none;
+		background: rgba(0, 10, 30, 0.6);
+		border: 1px solid rgba(130, 200, 255, 0.15);
+		padding: 0.3rem 0.7rem;
+		backdrop-filter: blur(4px);
+	}
+
+	.back-home:hover {
+		color: #c8e8f8;
+		border-color: rgba(130, 200, 255, 0.4);
+	}
+</style>

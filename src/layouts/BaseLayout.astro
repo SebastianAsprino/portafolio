@@ -1,11 +1,12 @@
 ---
-import OceanBackground from '../components/OceanBackground.svelte';
+import { ClientRouter } from "astro:transitions";
+import OceanBackground from "../components/OceanBackground.svelte";
 
 interface Props {
 	title?: string;
 }
 
-const { title = 'Portafolio' } = Astro.props;
+const { title = "Portafolio" } = Astro.props;
 ---
 
 <!doctype html>
@@ -15,9 +16,20 @@ const { title = 'Portafolio' } = Astro.props;
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>{title}</title>
 		<link rel="icon" href="/favicon.svg" />
+		<script
+			is:inline
+			src="https://rybbit.asprino.dev/api/script.js"
+			data-site-id="ad088843ac0c"
+			defer></script>
+		<script
+			is:inline
+			defer
+			src="https://umami.asprino.dev/script.js"
+			data-website-id="50baaba3-915b-4f01-8e78-e8b7805486e5"></script>
+		<ClientRouter />
 	</head>
 	<body>
-		<OceanBackground client:only="svelte" />
+		<OceanBackground client:only="svelte" transition:persist />
 		<div class="overlay">
 			<slot />
 		</div>

@@ -1,0 +1,426 @@
+{
+  "meta": {
+    "generated": "2026-05-13",
+    "purpose": "Raw CV data for ATS-optimized resume generation",
+    "source": "Recursive analysis of /home/saao/Repositorios",
+    "total_repos_analyzed": 54
+  },
+
+  "candidate": {
+    "name": "Sebastian Asprino",
+    "email": "sebastian.asprino@mylittleventure.com",
+    "profile_repo": "https://github.com/SebastianAsprino",
+    "blog_exists": true,
+    "portfolio_exists": true,
+    "cv_json_exists": true
+  },
+
+  "ats_keywords": {
+    "languages": [
+      "TypeScript", "JavaScript", "Python", "Go", "Rust", "Nim",
+      "HTML5", "CSS3", "SQL", "Markdown", "MDX"
+    ],
+    "frontend_frameworks": [
+      "React", "React 18", "Next.js", "SvelteKit", "Astro",
+      "Angular", "Preact", "Vue"
+    ],
+    "backend_frameworks": [
+      "Node.js", "Express", "Django", "Django REST Framework",
+      "Hono", "Elysia", "Fiber", "Bun"
+    ],
+    "databases": [
+      "PostgreSQL", "MySQL", "SQLite", "Amazon DynamoDB",
+      "LibSQL", "Turso"
+    ],
+    "orms": [
+      "Drizzle ORM", "Sequelize", "Django ORM", "GORM"
+    ],
+    "cloud_and_devops": [
+      "AWS Lambda", "AWS DynamoDB", "AWS SDK",
+      "Cloudflare Pages", "Cloudflare Workers",
+      "Docker", "Docker Compose",
+      "Vercel", "CI/CD Pipelines",
+      "SonarQube", "GitHub Actions"
+    ],
+    "state_management": [
+      "Zustand", "Redux", "TanStack React Query", "React Context"
+    ],
+    "ui_libraries": [
+      "Radix UI", "Tailwind CSS", "DaisyUI", "Framer Motion",
+      "Embla Carousel", "Recharts", "Lucide React"
+    ],
+    "auth_and_payments": [
+      "NextAuth.js", "JWT", "OAuth2",
+      "Stripe", "Stripe SDK"
+    ],
+    "testing": [
+      "Vitest", "Jest", "pytest",
+      "Testing Library", "Coverage v8", "TDD"
+    ],
+    "data_and_gis": [
+      "Pandas", "NumPy", "GeoPandas", "GDAL", "Shapely",
+      "Pyproj", "Rasterio", "Pillow", "FFmpeg"
+    ],
+    "search_and_monitoring": [
+      "Algolia", "react-instantsearch", "Sentry",
+      "Pagefind", "Swagger", "OpenAPI"
+    ],
+    "tooling": [
+      "pnpm", "npm", "Bun", "Yarn",
+      "Vite", "Turbopack", "Webpack",
+      "ESLint", "Biome", "Prettier",
+      "Zod", "UUID"
+    ],
+    "architecture_patterns": [
+      "Microservices", "Hexagonal Architecture", "Vertical Slice Architecture",
+      "Monorepo", "REST API", "GraphQL",
+      "SPA", "SSR", "SSG", "Edge Computing",
+      "Component-Driven Development", "Domain-Driven Design (DDD)"
+    ],
+    "soft_and_methodologies": [
+      "Agile", "Scrum", "Team Collaboration", "Technical Documentation",
+      "Code Review", "Performance Optimization", "Responsive Design",
+      "Cross-Platform Development", "API Integration", "SDK Integration"
+    ]
+  },
+
+  "experience": [
+    {
+      "context": "Trabajo / My_Little_Venture",
+      "label": "Fullstack Engineer – Enterprise SaaS Marketplace",
+      "relevance": "high",
+      "duration_estimate": "active / ongoing",
+      "projects": [
+        {
+          "name": "mlv-backend-service-api-typescript",
+          "type": "backend / monorepo",
+          "description": "Backend de microservicios para marketplace empresarial, con arquitectura hexagonal y Vertical Slice sobre Hono framework.",
+          "stack": ["TypeScript", "Node.js", "Hono", "AWS Lambda", "Amazon DynamoDB", "AWS SDK", "Stripe", "Zod", "pnpm workspaces", "Vitest", "Docker Compose", "SonarQube", "JWT", "ESLint", "Prettier"],
+          "highlights": [
+            "Arquitectura hexagonal (Ports & Adapters) aplicada a servicios Lambda",
+            "Vertical Slice Architecture para escalabilidad de features",
+            "Monorepo con pnpm workspaces (packages/ + services/)",
+            "Integración de pagos Stripe end-to-end",
+            "Base de datos NoSQL con DynamoDB y AWS SDK",
+            "Calidad de código asegurada con SonarQube y Vitest",
+            "CI/CD pipeline completo con empaquetado Lambda"
+          ],
+          "metrics": { "loc": 113601, "files": 2097, "directories": 32 }
+        },
+        {
+          "name": "mlv-frontend-monorepo",
+          "type": "frontend / monorepo",
+          "description": "Frontend de alto rendimiento para marketplace usando Next.js con stack moderno completo.",
+          "stack": ["Next.js 16", "TypeScript 5.8", "Turbopack", "Radix UI", "Tailwind CSS", "TanStack React Query", "Zustand", "NextAuth.js", "Framer Motion", "Stripe", "Algolia", "Sentry", "Recharts", "Vitest", "pnpm"],
+          "highlights": [
+            "Next.js 16 con Turbopack para builds ultrarrápidos",
+            "Integración de búsqueda con Algolia react-instantsearch",
+            "Monitoreo de errores en producción con Sentry",
+            "Autenticación robusta con NextAuth.js (OAuth2, JWT)",
+            "Virtualización de listas con react-virtuoso para performance",
+            "Sistema de diseño completo con Radix UI + Tailwind",
+            "Animaciones y transiciones con Framer Motion",
+            "Pagos integrados con Stripe"
+          ],
+          "metrics": { "files": 1220, "directories": 17 }
+        }
+      ],
+      "ats_summary": "Desarrollo fullstack de marketplace B2C con microservicios serverless (AWS Lambda), arquitectura hexagonal, TypeScript estricto, integración de pagos Stripe, búsqueda Algolia, Next.js 16 y monorepo gestionado con pnpm."
+    },
+    {
+      "context": "Trabajo / Olympus-Analytics",
+      "label": "Backend Engineer – Plataforma de Analítica Geoespacial",
+      "relevance": "high",
+      "projects": [
+        {
+          "name": "ArtemisaBackend (Python / Django)",
+          "type": "backend / monolith + microservices",
+          "description": "Backend Django con capacidades GIS avanzadas, procesamiento de datos geoespaciales y API REST documentada.",
+          "stack": ["Python", "Django 5.1", "Django REST Framework", "PostgreSQL", "psycopg2", "GeoPandas", "GDAL", "Shapely", "Pyproj", "NumPy", "Pandas", "Pillow", "drf-yasg", "JWT", "Resend", "pytest", "Docker Compose"],
+          "highlights": [
+            "Procesamiento de datos GIS con GDAL, GeoPandas, Shapely y Pyproj",
+            "API REST documentada con Swagger/OpenAPI (drf-yasg)",
+            "Soporte para bases de datos dinámicas (multi-tenant)",
+            "Autenticación JWT sobre DRF",
+            "Integración de email transaccional con Resend",
+            "Stack de datos científicos: Pandas, NumPy, Rasterio"
+          ],
+          "metrics": { "files": 14360, "directories": 21 }
+        },
+        {
+          "name": "artemisa-backend-go-version",
+          "type": "backend / microservices",
+          "description": "Reescritura del backend en Go con Fiber para mayor throughput y concurrencia.",
+          "stack": ["Go 1.24", "Fiber v2", "Resty", "Docker Compose"],
+          "highlights": [
+            "Reescritura estratégica de Python a Go por requisitos de performance",
+            "Arquitectura de microservicios: user-service, source-search, database-manager",
+            "Framework Fiber v2 (inspirado en Express, performant en Go)",
+            "HTTP client Resty para comunicación entre servicios"
+          ],
+          "metrics": { "loc": 10629, "files": 125 }
+        }
+      ],
+      "ats_summary": "Desarrollo backend en Python/Django y Go de plataforma analítica con procesamiento geoespacial (GDAL, GeoPandas), API REST, PostgreSQL, microservicios y migración de stack por requisitos de performance."
+    },
+    {
+      "context": "Trabajo / Undercodes-SAS",
+      "label": "Fullstack Developer – Sistema Financiero de Libranza",
+      "relevance": "medium-high",
+      "projects": [
+        {
+          "name": "Software_De_Libranza",
+          "type": "fullstack / financial system",
+          "description": "Sistema integral de gestión de créditos por libranza (descuento de nómina) con frontend React y backend Node.js/Rust.",
+          "stack": ["React", "JavaScript", "JSX", "Node.js", "Rust", "CSS"],
+          "highlights": [
+            "Sistema de gestión de préstamos y libranza (descuento de nómina)",
+            "Componentes de backend en Rust para operaciones críticas de performance",
+            "Documentación completa de rutas API en README",
+            "Frontend React con gestión de estado de créditos y clientes"
+          ],
+          "metrics": { "loc": 8374, "files": 213 }
+        },
+        {
+          "name": "COTIX – Equipment Management Suite",
+          "type": "fullstack / enterprise",
+          "description": "Suite de gestión de equipos y maquinaria con Angular, Drizzle ORM y múltiples módulos de negocio.",
+          "stack": ["Angular", "TypeScript", "Drizzle ORM", "PostgreSQL", "Webpack"],
+          "highlights": [
+            "Sistema multi-módulo: equipmaster, maqimport, tecnonacho",
+            "Modelado de dominio complejo (inventario, importaciones, gestión técnica)",
+            "Angular con arquitectura de módulos empresariales"
+          ]
+        }
+      ],
+      "ats_summary": "Desarrollo de sistema financiero para créditos de libranza y suite de gestión empresarial multi-módulo con React, Angular, Node.js, Rust y PostgreSQL."
+    },
+    {
+      "context": "Trabajo / JotoLandia-Factory",
+      "label": "Fullstack Developer – Plataforma de Streaming / Media",
+      "relevance": "medium",
+      "projects": [
+        {
+          "name": "AnimeParadise.lat + API.AnimeParadise.lat",
+          "type": "fullstack / streaming platform",
+          "description": "Plataforma de streaming de contenido anime con SPA React, API REST Elysia/Bun y base de datos LibSQL (Turso).",
+          "stack": ["React 18", "React Router v6", "Zustand", "Vite", "Tailwind CSS", "Elysia", "Bun", "Drizzle ORM", "LibSQL", "Turso", "MySQL", "Docker", "Swagger"],
+          "highlights": [
+            "SPA con React 18, Zustand y React Router v6",
+            "API REST con Elysia sobre runtime Bun (alta performance)",
+            "Base de datos distribuida con LibSQL/Turso",
+            "Librería de componentes compartida (ParadiseUI)",
+            "API documentada con Swagger",
+            "Deploy containerizado con Docker"
+          ],
+          "metrics": { "loc": 4222, "files": 149 }
+        },
+        {
+          "name": "ffmpeg-template",
+          "type": "tool / video processing",
+          "description": "Herramienta GUI de procesamiento de video con FFmpeg: watermarks, codecs, subtítulos y audio.",
+          "stack": ["Python", "FFmpeg"],
+          "highlights": [
+            "GUI de escritorio para procesamiento batch de video",
+            "Watermark overlay programático",
+            "Configuración de codecs, subtítulos y pistas de audio"
+          ]
+        }
+      ],
+      "ats_summary": "Desarrollo de plataforma de streaming con React 18, Elysia/Bun, Drizzle ORM, LibSQL y Docker, incluyendo librería de componentes compartida y herramientas de procesamiento multimedia."
+    },
+    {
+      "context": "Trabajo / Jorge-dokkaebi-promobiliarias",
+      "label": "Fullstack Developer – Plataforma Inmobiliaria",
+      "relevance": "medium",
+      "projects": [
+        {
+          "name": "Promobiliarias + Dokkaebi",
+          "type": "fullstack / real estate",
+          "description": "Plataforma de gestión y promoción de propiedades inmobiliarias con TypeScript, Drizzle ORM y PostgreSQL.",
+          "stack": ["TypeScript", "JavaScript", "React", "Drizzle ORM", "PostgreSQL"],
+          "highlights": [
+            "Sistema de gestión de propiedades inmobiliarias",
+            "API backend con Drizzle ORM sobre PostgreSQL",
+            "Dashboard administrativo integrado"
+          ],
+          "metrics": { "loc": 41812, "files": 588 }
+        }
+      ],
+      "ats_summary": "Desarrollo de plataforma inmobiliaria fullstack con TypeScript, React, Drizzle ORM y PostgreSQL."
+    },
+    {
+      "context": "Personal",
+      "label": "Proyectos Personales – Side Projects & Open Source",
+      "relevance": "medium",
+      "projects": [
+        {
+          "name": "koye-deploy",
+          "type": "fullstack / SaaS backend",
+          "description": "Backend con Elysia/Bun, SQLite/Drizzle, JWT, Swagger y AI (Google Generative AI) para plataforma de deploy.",
+          "stack": ["Elysia", "Bun", "Drizzle ORM", "SQLite", "JWT", "Swagger", "Google Generative AI", "PapaParse", "Docker"],
+          "highlights": [
+            "Integración de Google Generative AI SDK",
+            "Autenticación JWT con plugins Elysia",
+            "Parseo de CSV con PapaParse",
+            "API documentada con Swagger",
+            "Containerizado con Docker"
+          ]
+        },
+        {
+          "name": "alcancia",
+          "type": "frontend / personal finance",
+          "description": "App de ahorro personal con SvelteKit, Tailwind, DaisyUI y deploy en Cloudflare Pages.",
+          "stack": ["SvelteKit", "TypeScript", "Tailwind CSS", "DaisyUI", "Vite", "Bun", "Cloudflare Pages"]
+        },
+        {
+          "name": "Blog personal",
+          "type": "frontend / content site",
+          "description": "Blog técnico con Astro 5, MDX, Pagefind, RSS, KaTeX, galerías y syntax highlighting.",
+          "stack": ["Astro 5", "TypeScript", "Tailwind CSS", "MDX", "Pagefind", "Biome", "pnpm"]
+        },
+        {
+          "name": "Nocountry – S11-25-Equipo-39",
+          "type": "fullstack / team project",
+          "description": "Proyecto colaborativo en Nocountry: web app fullstack con React/TypeScript y PostgreSQL.",
+          "stack": ["TypeScript", "React", "Drizzle ORM", "PostgreSQL"]
+        },
+        {
+          "name": "animdustry",
+          "type": "game development",
+          "description": "Desarrollo de juego/aplicación con Nim, incluyendo soporte Android (cross-platform).",
+          "stack": ["Nim", "Android", "Nimble"]
+        }
+      ]
+    },
+    {
+      "context": "Educacion / UNINORTE + SOYHENRY",
+      "label": "Formación Académica – Proyectos Universitarios y Bootcamp",
+      "relevance": "low-medium",
+      "projects": [
+        {
+          "name": "PI-Pokemon (SoyHenry)",
+          "description": "Proyecto individual fullstack con React, Redux, Node.js/Express, Sequelize y PostgreSQL.",
+          "stack": ["React 17", "Redux", "React Router v6", "Node.js", "Express", "Sequelize", "PostgreSQL"]
+        },
+        {
+          "name": "Redes (UNINORTE)",
+          "description": "Programación de redes en Python y C/C++, protocolos, sockets.",
+          "stack": ["Python", "C", "C++", "Sockets", "Network Protocols"]
+        },
+        {
+          "name": "Estructura de datos I y II (UNINORTE)",
+          "description": "Implementaciones de árboles, tablas hash, listas enlazadas, dobles y multi-enlazadas.",
+          "stack": ["Python", "Algorithms", "Data Structures"]
+        },
+        {
+          "name": "Teoria de codigos (UNINORTE)",
+          "description": "App web para codificación/decodificación con Astro, TypeScript y un componente WebAssembly en Rust.",
+          "stack": ["Astro", "TypeScript", "Rust", "WebAssembly (WASM)"]
+        },
+        {
+          "name": "GawrGura_Player (UNINORTE)",
+          "description": "Reproductor de música con integración Spotify API.",
+          "stack": ["Python", "Spotify API"]
+        }
+      ]
+    }
+  ],
+
+  "skills_matrix": {
+    "expert": [
+      "TypeScript", "React", "Next.js", "Node.js",
+      "REST API Design", "PostgreSQL", "Drizzle ORM",
+      "Docker", "Tailwind CSS", "Astro", "Vite",
+      "pnpm / Monorepo", "Git"
+    ],
+    "advanced": [
+      "Python", "Django", "Django REST Framework",
+      "Go", "Fiber v2",
+      "SvelteKit", "Elysia", "Bun",
+      "AWS Lambda", "Amazon DynamoDB",
+      "Zustand", "TanStack React Query",
+      "JWT / Auth flows", "Stripe", "NextAuth.js",
+      "Vitest", "pytest",
+      "Hexagonal Architecture", "Microservices"
+    ],
+    "intermediate": [
+      "Rust", "Angular", "Nim",
+      "GIS / GDAL / GeoPandas",
+      "Pandas", "NumPy",
+      "Cloudflare Pages / Workers",
+      "Algolia", "Sentry",
+      "WebAssembly (WASM)",
+      "FFmpeg", "Video Processing",
+      "Redux", "Framer Motion",
+      "Radix UI", "DaisyUI"
+    ],
+    "familiar": [
+      "C", "C++", "SQL avanzado",
+      "Socket Programming",
+      "Google Generative AI SDK",
+      "Rasterio", "Pillow",
+      "SonarQube", "GitHub Actions CI/CD"
+    ]
+  },
+
+  "domains": {
+    "web_fullstack": {
+      "depth": "expert",
+      "evidence": ["mlv-backend", "mlv-frontend", "AnimeParadise", "Promobiliarias", "Libranza", "Nocountry"],
+      "notes": "Múltiples proyectos productivos con arquitecturas modernas (monorepo, microservicios, hexagonal)"
+    },
+    "backend_engineering": {
+      "depth": "advanced",
+      "evidence": ["mlv-backend-service (Lambda/Hono)", "ArtemisaBackend (Django)", "artemisa-go (Fiber)", "koye-deploy (Elysia)"],
+      "notes": "Experiencia en Python, Go, TypeScript y Bun con múltiples DBs"
+    },
+    "frontend_engineering": {
+      "depth": "advanced",
+      "evidence": ["mlv-frontend (Next.js 16)", "AnimeParadise SPA", "alcancia (SvelteKit)", "Blog (Astro 5)"],
+      "notes": "Dominio del ecosistema React moderno y frameworks meta como Next.js y Astro"
+    },
+    "devops_cloud": {
+      "depth": "intermediate",
+      "evidence": ["AWS Lambda deploy pipeline", "Docker en 8+ proyectos", "Cloudflare Pages"],
+      "notes": "Sólida experiencia práctica en containerización y serverless"
+    },
+    "data_gis": {
+      "depth": "intermediate",
+      "evidence": ["ArtemisaBackend GIS stack"],
+      "notes": "GDAL, GeoPandas, Shapely, Pandas, NumPy en contexto productivo"
+    },
+    "financial_systems": {
+      "depth": "intermediate",
+      "evidence": ["Software_De_Libranza", "COTIX suite", "BudgetQuest", "alcancia"],
+      "notes": "Sistemas de crédito, nómina, gestión de equipos y ahorro personal"
+    },
+    "game_development": {
+      "depth": "hobbyist",
+      "evidence": ["animdustry (Nim)", "Monopoly_EDI (Python)"],
+      "notes": "Exploración de desarrollo de juegos con Nim y Android"
+    }
+  },
+
+  "expert_summary": {
+    "headline": "Fullstack Software Engineer especializado en TypeScript, Node.js y ecosistemas React/Next.js",
+    "paragraphs": [
+      "Desarrollador fullstack con experiencia comprobada en el diseño, construcción y despliegue de aplicaciones web de escala empresarial. Ha liderado y contribuido a proyectos de alto impacto con arquitecturas modernas como microservicios serverless sobre AWS Lambda, hexagonal architecture, monorepos con pnpm y patrones de Vertical Slice, demostrando capacidad para tomar decisiones técnicas fundamentadas en contextos complejos.",
+      "Dominio sólido del stack TypeScript end-to-end: Next.js 16 en el frontend (con Turbopack, TanStack React Query, Zustand y NextAuth), y Hono/Node.js o Elysia/Bun en el backend, con integración a DynamoDB, PostgreSQL, SQLite y múltiples ORMs (Drizzle, Sequelize). Ha integrado con éxito servicios de terceros críticos como Stripe, Algolia, Sentry y Google Generative AI en entornos productivos.",
+      "Experiencia en backend Python con Django 5 y Django REST Framework en contextos de analítica geoespacial, usando GDAL, GeoPandas y Pandas para procesamiento de datos GIS. Complementado con desarrollo en Go (Fiber v2) para reescrituras orientadas a performance, y componentes en Rust para operaciones de alta exigencia computacional.",
+      "Perfil versátil que cubre el ciclo completo del producto: desde el diseño de API y modelado de base de datos, hasta la configuración de pipelines CI/CD, Docker Compose, deploy en Cloudflare Pages/Workers o AWS Lambda, y monitoreo con Sentry y SonarQube. Habituado a trabajar en equipos colaborativos (Nocountry, My Little Venture) y a entregar proyectos end-to-end de forma autónoma."
+    ],
+    "one_liner": "Fullstack Engineer con experiencia productiva en TypeScript, React, Next.js, Node.js, Python/Django, Go y DevOps (AWS Lambda, Docker, Cloudflare), especializado en arquitecturas escalables, integración de pagos e infraestructura moderna.",
+    "ats_tags": [
+      "Fullstack Developer", "Software Engineer", "TypeScript Developer",
+      "React Developer", "Next.js Developer", "Node.js Developer",
+      "Python Developer", "Django Developer", "Go Developer",
+      "AWS Lambda", "Serverless", "Microservices",
+      "REST API", "PostgreSQL", "DynamoDB",
+      "Docker", "DevOps", "CI/CD",
+      "Stripe Integration", "Payment Systems",
+      "Hexagonal Architecture", "Monorepo",
+      "Agile", "Scrum", "Remote Work"
+    ]
+  }
+}
