@@ -1,5 +1,30 @@
 ---
 import BentoLayout from "../layouts/BentoLayout.astro";
+import portfolio from "../data/portfolio.json";
+
+const { about, contact } = portfolio;
+
+const blogUrl = about.links.find((l) => l.label === "Blog")?.url;
+
+const channels = [
+	{ label: "Email", value: contact.email, url: `mailto:${contact.email}` },
+	{
+		label: "GitHub",
+		value: contact.github.replace("https://", ""),
+		url: contact.github,
+	},
+	contact.linkedin && {
+		label: "LinkedIn",
+		value: contact.linkedin.replace("https://", ""),
+		url: contact.linkedin,
+	},
+	contact.twitter && {
+		label: "Twitter",
+		value: contact.twitter.replace("https://", ""),
+		url: contact.twitter,
+	},
+	blogUrl && { label: "Blog", value: blogUrl.replace("https://", ""), url: blogUrl },
+].filter((c): c is { label: string; value: string; url: string } => Boolean(c));
 ---
 
 <BentoLayout
@@ -8,8 +33,23 @@ import BentoLayout from "../layouts/BentoLayout.astro";
 	subtitle="Contacto"
 >
 	<section class="block">
-		<h2>Contacto</h2>
-		<p>Próximamente...</p>
+		<span class="label">sobre mí</span>
+		<p class="bio">{about.bio}</p>
+		<p class="availability">Disponible para {contact.available_for}.</p>
+	</section>
+
+	<section class="block">
+		<span class="label">canales</span>
+		<div class="channel-list">
+			{
+				channels.map((c) => (
+					<a href={c.url} class="channel" target="_blank" rel="noopener">
+						<span class="channel-label">{c.label}</span>
+						<span class="channel-value">{c.value}</span>
+					</a>
+				))
+			}
+		</div>
 	</section>
 </BentoLayout>
 
@@ -19,20 +59,62 @@ import BentoLayout from "../layouts/BentoLayout.astro";
 		border: 1px solid rgba(130, 200, 255, 0.18);
 		backdrop-filter: blur(2px);
 		padding: 1rem;
-		color: #c8e8f8;
 		font-family: monospace;
+		margin-bottom: 6px;
 	}
 
-	h2 {
-		font-size: 0.75rem;
+	.label {
+		font-size: 0.6rem;
 		text-transform: uppercase;
 		letter-spacing: 0.12em;
-		color: rgba(130, 200, 255, 0.6);
+		color: rgba(130, 200, 255, 0.5);
+		display: block;
 		margin-bottom: 0.5rem;
 	}
 
-	p {
-		font-size: 0.82rem;
-		color: rgba(200, 232, 248, 0.45);
+	.bio {
+		font-size: 0.8rem;
+		color: rgba(200, 232, 248, 0.75);
+		line-height: 1.6;
+		margin-bottom: 0.5rem;
+	}
+
+	.availability {
+		font-size: 0.78rem;
+		color: rgba(130, 200, 255, 0.7);
+	}
+
+	.channel-list {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+	}
+
+	.channel {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 0.75rem;
+		text-decoration: none;
+		border: 1px solid rgba(130, 200, 255, 0.18);
+		padding: 0.5rem 0.75rem;
+		background: rgba(0, 10, 30, 0.5);
+		transition: border-color 0.15s;
+	}
+
+	.channel:hover {
+		border-color: rgba(130, 200, 255, 0.5);
+	}
+
+	.channel-label {
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: rgba(130, 200, 255, 0.6);
+	}
+
+	.channel-value {
+		font-size: 0.78rem;
+		color: #c8e8f8;
 	}
 </style>
