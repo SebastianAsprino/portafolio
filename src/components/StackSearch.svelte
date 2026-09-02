@@ -97,7 +97,7 @@
 	.search {
 		display: flex;
 		flex-direction: column;
-		gap: 0.6rem;
+		gap: 0.8rem;
 		height: 100%;
 		overflow-y: auto;
 		scrollbar-width: none;
@@ -110,42 +110,42 @@
 	.filters {
 		display: flex;
 		flex-direction: column;
-		gap: 0.35rem;
+		gap: 0.5rem;
 	}
 
 	.filter-row {
 		display: flex;
 		align-items: flex-start;
-		gap: 0.5rem;
+		gap: 0.65rem;
 	}
 
 	.cat {
-		font-size: 0.58rem;
+		font-size: 0.72rem;
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
 		color: rgba(130, 200, 255, 0.35);
-		width: 36px;
+		width: 46px;
 		flex-shrink: 0;
-		padding-top: 3px;
+		padding-top: 4px;
 	}
 
 	.tags {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 3px;
+		gap: 4px;
 		flex: 1;
 	}
 
 	.tag {
 		display: inline-flex;
 		align-items: center;
-		gap: 3px;
+		gap: 4px;
 		background: rgba(0, 10, 30, 0.5);
 		border: 1px solid rgba(130, 200, 255, 0.13);
 		color: rgba(200, 232, 248, 0.55);
 		font-family: monospace;
-		font-size: 0.62rem;
-		padding: 2px 5px;
+		font-size: 0.8rem;
+		padding: 3px 7px;
 		cursor: pointer;
 		transition: all 0.1s;
 	}
@@ -163,8 +163,8 @@
 
 	.tag-icon {
 		display: inline-flex;
-		width: 11px;
-		height: 11px;
+		width: 14px;
+		height: 14px;
 	}
 
 	.tag-icon :global(div) {
@@ -188,13 +188,13 @@
 	}
 
 	.count {
-		font-size: 0.68rem;
+		font-size: 0.88rem;
 		color: rgba(200, 232, 248, 0.45);
 		font-family: monospace;
 	}
 
 	.clear-btn {
-		font-size: 0.62rem;
+		font-size: 0.8rem;
 		color: rgba(130, 200, 255, 0.5);
 		background: none;
 		border: none;
@@ -210,11 +210,11 @@
 	.results {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		gap: 6px;
+		gap: 8px;
 	}
 
 	.empty {
-		font-size: 0.78rem;
+		font-size: 1rem;
 		color: rgba(200, 232, 248, 0.35);
 		font-family: monospace;
 		padding: 0.5rem 0;

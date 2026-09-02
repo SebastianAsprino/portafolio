@@ -96,7 +96,7 @@
 		background: rgba(0, 10, 30, 0.72);
 		border: 1px solid rgba(130, 200, 255, 0.18);
 		backdrop-filter: blur(2px);
-		padding: 0.75rem;
+		padding: 0.95rem;
 		color: #c8e8f8;
 		font-family: monospace;
 		text-decoration: none;
@@ -112,7 +112,7 @@
 		position: relative;
 		aspect-ratio: 16 / 9;
 		background: rgba(0, 8, 24, 0.9);
-		margin-bottom: 0.6rem;
+		margin-bottom: 0.75rem;
 		overflow: hidden;
 	}
 
@@ -152,28 +152,28 @@
 	}
 
 	.type {
-		font-size: 0.62rem;
+		font-size: 0.8rem;
 		color: rgba(130, 200, 255, 0.55);
 		text-transform: uppercase;
 		letter-spacing: 0.08em;
 	}
 
 	.year {
-		font-size: 0.62rem;
+		font-size: 0.8rem;
 		color: rgba(200, 232, 248, 0.3);
 	}
 
 	.name {
-		font-size: 0.88rem;
+		font-size: 1.1rem;
 		font-weight: bold;
-		margin-bottom: 0.2rem;
+		margin-bottom: 0.25rem;
 		color: #c8e8f8;
 	}
 
 	.tagline {
-		font-size: 0.72rem;
+		font-size: 0.9rem;
 		color: rgba(200, 232, 248, 0.55);
-		margin-bottom: 0.5rem;
+		margin-bottom: 0.6rem;
 		line-height: 1.4;
 	}
 
@@ -186,8 +186,8 @@
 
 	.icon {
 		display: inline-flex;
-		width: 18px;
-		height: 18px;
+		width: 22px;
+		height: 22px;
 		opacity: 0.85;
 		flex-shrink: 0;
 	}
@@ -204,10 +204,10 @@
 	}
 
 	.badge {
-		font-size: 0.6rem;
+		font-size: 0.75rem;
 		color: rgba(130, 200, 255, 0.6);
 		border: 1px solid rgba(130, 200, 255, 0.18);
-		padding: 1px 5px;
+		padding: 2px 6px;
 		background: rgba(0, 10, 30, 0.5);
 		white-space: nowrap;
 	}
