@@ -70,40 +70,83 @@
 			}
 		},
 		{
-			"id": "artemisa",
-			"name": "Olympus Analytics – Artemisa",
-			"slug": "artemisa",
-			"tagline": "Plataforma de analítica geoespacial",
-			"description": "Backend Python/Django con capacidades GIS avanzadas: procesamiento de datos geoespaciales con GDAL, GeoPandas y Shapely, API REST documentada con Swagger y soporte multi-tenant. Complementado con reescritura en Go/Fiber para mayor throughput.",
-			"year": "2023–2024",
-			"role": "Backend Engineer",
-			"type": "Analytics · GIS",
+			"id": "dokkaebi",
+			"name": "Dokkaebi",
+			"slug": "dokkaebi",
+			"tagline": "ERP interno para concesionaria de motos",
+			"description": "Sistema de gestión full-stack para una concesionaria de motos. Incluye cotizador con precalificación crediticia y generación de documentos PDF (actas, contratos, pagarés), control de ventas con liquidaciones semanales y bonos configurables por mes, módulo de talleres con autorizaciones automatizadas, contaduría y un dashboard de rendimiento en tiempo real pensado para TV con ranking gamificado del equipo.",
+			"year": "2025–presente",
+			"role": "Fullstack Engineer",
+			"type": "ERP · Gestión interna",
 			"featured": true,
 			"private": true,
 			"stack": [
-				"Python",
-				"Django 5.1",
-				"Django REST Framework",
+				"Astro",
+				"Svelte 5",
+				"Tailwind CSS",
+				"DaisyUI",
+				"Elysia",
+				"Bun",
+				"Drizzle ORM",
 				"PostgreSQL",
-				"GDAL",
-				"GeoPandas",
-				"Shapely",
-				"Go",
-				"Fiber v2",
-				"Docker Compose"
+				"JWT",
+				"Playwright"
 			],
 			"highlights": [
-				"Procesamiento geoespacial con GDAL, GeoPandas, Shapely y Pyproj",
-				"API documentada con Swagger/OpenAPI (drf-yasg)",
-				"Base de datos dinámica con soporte multi-tenant",
-				"Reescritura estratégica a Go/Fiber por requisitos de performance"
+				"Cotizador de motos con precalificación y generación de PDFs (actas, contratos, pagarés)",
+				"Control de ventas: liquidaciones semanales y bonos configurables por mes",
+				"Módulo de talleres con generación automática de números de autorización",
+				"Dashboard de rendimiento en tiempo real para TV con ranking gamificado",
+				"Tests end-to-end con Playwright"
 			],
 			"image": [
-				"/projects/artemisa/preview.webp"
+				"/projects/dokkaebi/preview.webp",
+				"/projects/dokkaebi/catalogo.webp",
+				"/projects/dokkaebi/ordenes.webp"
 			],
-			"video": "",
+			"video": "/projects/dokkaebi/demo.webm",
 			"links": {
 				"live": null,
+				"repo": null
+			}
+		},
+		{
+			"id": "promobiliarias",
+			"name": "Promobiliarias",
+			"slug": "promobiliarias",
+			"tagline": "Portal inmobiliario con panel de administración",
+			"description": "Plataforma de listados inmobiliarios construida con SvelteKit y Svelte 5: búsqueda y filtrado de propiedades por ciudad, provincia, precio y habitaciones, formulario de publicación de inmuebles con carga de imágenes, flujo de aprobación para administradores y notificaciones por email. API en Elysia (Bun) con Drizzle ORM sobre PostgreSQL.",
+			"year": "2026",
+			"role": "Fullstack Developer",
+			"type": "Real Estate · Marketplace",
+			"featured": true,
+			"private": true,
+			"stack": [
+				"SvelteKit",
+				"Svelte 5",
+				"TypeScript",
+				"Tailwind CSS",
+				"DaisyUI",
+				"Elysia",
+				"Bun",
+				"Drizzle ORM",
+				"PostgreSQL",
+				"JWT"
+			],
+			"highlights": [
+				"Búsqueda y filtrado de propiedades por ciudad, provincia, precio y habitaciones",
+				"Publicación de inmuebles con carga de imágenes y flujo de aprobación admin",
+				"Notificaciones por email con Nodemailer",
+				"Geolocalización de visitantes vía IP para personalizar resultados"
+			],
+			"image": [
+				"/projects/promobiliarias/preview.webp",
+				"/projects/promobiliarias/catalogo.webp",
+				"/projects/promobiliarias/detalle.webp"
+			],
+			"video": "/projects/promobiliarias/demo.webm",
+			"links": {
+				"live": "https://promobiliarias.com",
 				"repo": null
 			}
 		},
@@ -181,6 +224,44 @@
 				"/projects/anime-paradise/episodes.webp"
 			],
 			"video": "/projects/anime-paradise/demo.webm",
+			"links": {
+				"live": null,
+				"repo": null
+			}
+		},
+		{
+			"id": "artemisa",
+			"name": "Olympus Analytics – Artemisa",
+			"slug": "artemisa",
+			"tagline": "Plataforma de analítica geoespacial",
+			"description": "Backend Python/Django con capacidades GIS avanzadas: procesamiento de datos geoespaciales con GDAL, GeoPandas y Shapely, API REST documentada con Swagger y soporte multi-tenant. Complementado con reescritura en Go/Fiber para mayor throughput.",
+			"year": "2023–2024",
+			"role": "Backend Engineer",
+			"type": "Analytics · GIS",
+			"featured": true,
+			"private": true,
+			"stack": [
+				"Python",
+				"Django 5.1",
+				"Django REST Framework",
+				"PostgreSQL",
+				"GDAL",
+				"GeoPandas",
+				"Shapely",
+				"Go",
+				"Fiber v2",
+				"Docker Compose"
+			],
+			"highlights": [
+				"Procesamiento geoespacial con GDAL, GeoPandas, Shapely y Pyproj",
+				"API documentada con Swagger/OpenAPI (drf-yasg)",
+				"Base de datos dinámica con soporte multi-tenant",
+				"Reescritura estratégica a Go/Fiber por requisitos de performance"
+			],
+			"image": [
+				"/projects/artemisa/preview.webp"
+			],
+			"video": "",
 			"links": {
 				"live": null,
 				"repo": null
