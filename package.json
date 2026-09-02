@@ -11,20 +11,17 @@
 		"convert:webp": "bun run scripts/convert-webp.ts"
 	},
 	"dependencies": {
-		"@astrojs/react": "^5.0.7",
-		"@astrojs/svelte": "^8.1.2",
-		"@types/react": "^19.2.17",
-		"@types/react-dom": "^19.2.3",
-		"astro": "6.3.5",
+		"@astrojs/svelte": "^9.0.1",
+		"@types/react": "^19.2.18",
+		"@types/react-dom": "^19.2.5",
+		"astro": "7.2.10",
 		"react": "^19.2.8",
 		"react-dom": "^19.2.8",
-		"sharp": "0.34.5",
-		"svelte": "5.55.8",
+		"sharp": "0.35.4",
+		"svelte": "5.57.0",
 		"tech-stack-icons": "^3.7.1"
 	},
 	"devDependencies": {
-		"svelte-check": "4.4.8",
-		"svelte-preprocess": "6.0.3",
-		"typescript": "^5.9.3"
+		"typescript": "^7.0.2"
 	}
 }
