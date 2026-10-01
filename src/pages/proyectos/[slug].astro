@@ -21,7 +21,7 @@ const icons = buildIconMap(project.stack);
 ---
 
 <BaseLayout title={`${project.name} · Sebastian Asprino`}>
-	<a href="/" class="back" onclick="history.back(); return false">← volver</a>
+	<a href="/" class="back" onclick="if (history.state?.index > 0) { history.back(); return false }">← volver</a>
 	<div class="detail-wrap">
 		<article class="detail">
 			<header class="detail-header">
