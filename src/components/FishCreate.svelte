@@ -239,11 +239,13 @@
 					creatorUrl: url.trim(),
 				}),
 			});
-			if (!res.ok) throw new Error();
-			window.dispatchEvent(new CustomEvent("fish-created"));
+			if (!res.ok) {
+				const data = await res.json().catch(() => null);
+				throw new Error(data?.error);
+			}
 			done = true;
-		} catch {
-			errorMsg = "error al crear el pez, intenta de nuevo";
+		} catch (err) {
+			errorMsg = (err as Error).message || "error al crear el pez, intenta de nuevo";
 		} finally {
 			submitting = false;
 		}
@@ -268,7 +270,7 @@
 					{#if previewSprite}
 						<FishSprite sprite={previewSprite} scale={6} />
 					{/if}
-					<p>tu pez ya nada en el océano</p>
+					<p>tu pez está en revisión, pronto nadará en el océano</p>
 					<div class="done-links">
 						<a href="/peces">ver todos los peces</a>
 						<button class="done-close" on:click={close}>cerrar</button>

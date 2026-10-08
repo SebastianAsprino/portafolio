@@ -1,7 +1,21 @@
-name = "portafolio-fish-api"
+name = "portafolio"
 main = "src/index.ts"
-compatibility_date = "2024-09-23"
+compatibility_date = "2026-07-01"
 
 [[kv_namespaces]]
 binding = "FISH_KV"
 id = "88cbfc0a73c44a8ca7316e0c372d4c7d"
+
+# 3 peces por minuto por IP (period solo admite 10 o 60 segundos)
+[[ratelimits]]
+name = "FISH_RATE_LIMITER"
+namespace_id = "1001"
+simple = { limit = 3, period = 60 }
+
+[vars]
+MODERATION_EMAIL = "contacto@asprino.dev"
+MODERATION_FROM = "Peces Asprino <peces@tansactional.asprino.dev>"
+
+# Secretos (wrangler secret put):
+#   RESEND_API_KEY     → el mismo de Dokkaebi
+#   MODERATION_SECRET  → string aleatorio para firmar los links de aprobar/rechazar
