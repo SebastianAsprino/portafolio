@@ -21,7 +21,7 @@ const icons = buildIconMap(project.stack);
 ---
 
 <BaseLayout title={`${project.name} · Sebastian Asprino`}>
-	<a href="/" class="back" onclick="if (history.state?.index > 0) { history.back(); return false }">← volver</a>
+	<a href="/" class="back">← volver</a>
 	<div class="detail-wrap">
 		<article class="detail">
 			<header class="detail-header">
@@ -133,6 +133,22 @@ const icons = buildIconMap(project.stack);
 	</div>
 	<FishCreate client:load />
 </BaseLayout>
+
+<script>
+	// Si se llegó navegando dentro del sitio, "volver" usa el historial.
+	// Va en captura para correr antes que el ClientRouter, y no inline por la CSP.
+	document.addEventListener(
+		"click",
+		(e) => {
+			const back = (e.target as Element | null)?.closest("a.back");
+			if (back && history.state?.index > 0) {
+				e.preventDefault();
+				history.back();
+			}
+		},
+		true,
+	);
+</script>
 
 <style>
 	.detail-wrap {
