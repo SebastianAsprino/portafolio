@@ -20,7 +20,10 @@ const { project } = Astro.props as {
 const icons = buildIconMap(project.stack);
 ---
 
-<BaseLayout title={`${project.name} · Sebastian Asprino`}>
+<BaseLayout
+	title={`${project.name} · Sebastian Asprino`}
+	description={project.tagline}
+>
 	<a href="/" class="back">← volver</a>
 	<div class="detail-wrap">
 		<article class="detail">
