@@ -1,0 +1,7 @@
+# Copia este archivo a .dev.vars para `wrangler dev` (no se sube a git).
+# En producción se cargan con `wrangler secret put <NOMBRE>`.
+
+# API key de Resend para el correo de moderación
+RESEND_API_KEY=
+# String aleatorio largo para firmar los links de aprobar/rechazar (p. ej. `openssl rand -hex 32`)
+MODERATION_SECRET=

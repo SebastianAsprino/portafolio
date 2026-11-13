@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount, onDestroy, tick } from "svelte";
 	import FishSprite from "./FishSprite.svelte";
-	import { API_URL, type ApiFish } from "../lib/fish";
+	import { fetchFishPage, type ApiFish } from "../lib/fish";
 
 	let fish: ApiFish[] = [];
 	let cursor: string | null = null;
@@ -11,18 +11,11 @@
 	let sentinel: HTMLDivElement;
 	let observer: IntersectionObserver | null = null;
 
-	async function loadPage(cur?: string) {
-		const url = cur ? `${API_URL}/fish?cursor=${cur}` : `${API_URL}/fish`;
-		const res = await fetch(url);
-		if (!res.ok) throw new Error();
-		return res.json() as Promise<{ fish: ApiFish[]; cursor: string | null }>;
-	}
-
 	async function loadMore() {
 		if (!cursor || loadingMore) return;
 		loadingMore = true;
 		try {
-			const data = await loadPage(cursor);
+			const data = await fetchFishPage(cursor);
 			fish = [...fish, ...data.fish];
 			cursor = data.cursor;
 			if (!cursor) {
@@ -35,6 +28,9 @@
 					observer.observe(sentinel);
 				}
 			}
+		} catch (err) {
+			// se reintenta la próxima vez que el sentinel entre en pantalla
+			console.error("no se pudo cargar más peces:", err);
 		} finally {
 			loadingMore = false;
 		}
@@ -52,7 +48,7 @@
 
 	onMount(async () => {
 		try {
-			const data = await loadPage();
+			const data = await fetchFishPage();
 			fish = data.fish;
 			cursor = data.cursor;
 		} catch {

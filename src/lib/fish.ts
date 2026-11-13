@@ -100,8 +100,25 @@ export interface ApiFish
 	createdAt: number;
 }
 
-export const API_URL = 'https://portafolio.asprinosebastian.workers.dev';
-// export const API_URL = 'http://localhost:8787';
+// API del worker (worker/). Para desarrollo local: PUBLIC_FISH_API_URL=http://localhost:8787 en .env
+export const API_URL: string =
+	import.meta.env.PUBLIC_FISH_API_URL || 'https://portafolio.asprinosebastian.workers.dev';
+
+export interface FishPage
+{
+	fish: ApiFish[];
+	cursor: string | null;
+}
+
+// Una página del listado público (GET /fish). `cursor` viene de la página anterior.
+export async function fetchFishPage(cursor?: string | null): Promise<FishPage>
+{
+	const url = new URL('/fish', API_URL);
+	if (cursor) url.searchParams.set('cursor', cursor);
+	const res = await fetch(url);
+	if (!res.ok) throw new Error(`GET /fish respondió ${res.status}`);
+	return res.json();
+}
 
 export function drawFishSprite(
 	canvas: HTMLCanvasElement,

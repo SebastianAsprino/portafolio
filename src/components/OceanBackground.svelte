@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from "svelte";
-	import { FISH_COLORS, API_URL } from "../lib/fish";
+	import { FISH_COLORS, fetchFishPage } from "../lib/fish";
 
 	let canvas;
 
@@ -412,11 +412,10 @@
 
 		async function fetchFish() {
 			fishData = [];
-			let cur = undefined;
+			let cur = null;
 			try {
 				do {
-					const url = cur ? `${API_URL}/fish?cursor=${cur}` : `${API_URL}/fish`;
-					const data = await fetch(url).then((r) => r.json());
+					const data = await fetchFishPage(cur);
 					if (data.fish?.length) {
 						const wasEmpty = fishes.length === 0;
 						fishData.push(...data.fish);
@@ -424,7 +423,9 @@
 					}
 					cur = data.cursor;
 				} while (cur);
-			} catch {}
+			} catch {
+				// sin API el océano se pinta igual, solo que sin peces: es decoración
+			}
 		}
 
 		const onFishCreated = () => fetchFish();

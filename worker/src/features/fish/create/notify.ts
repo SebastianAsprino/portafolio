@@ -1,5 +1,7 @@
 import { escapeHtml, signModerationToken, spriteToHtml, type Bindings, type Fish } from '@shared';
 
+const RESEND_API_URL = 'https://api.resend.com/emails';
+
 export async function sendModerationEmail(env: Bindings, fish: Fish, origin: string): Promise<void>
 {
 	const token = await signModerationToken(env.MODERATION_SECRET, fish.id);
@@ -19,7 +21,24 @@ export async function sendModerationEmail(env: Bindings, fish: Fish, origin: str
 			<p style="font-size:12px;color:#8899aa">Si no haces nada, se descarta solo en 7 días.</p>
 		</div>`;
 
-	const res = await fetch('https://api.resend.com/emails', {
+	let res: Response;
+	try
+	{
+		res = await sendEmail(env, `Nuevo pez: ${fish.creatorName}`, html);
+	}
+	catch (err)
+	{
+		// corre en waitUntil: un fallo de red no debe quedar como rechazo sin manejar
+		console.error('resend error', err);
+		return;
+	}
+
+	if (!res.ok) console.error('resend error', res.status, await res.text());
+}
+
+function sendEmail(env: Bindings, subject: string, html: string): Promise<Response>
+{
+	return fetch(RESEND_API_URL, {
 		method: 'POST',
 		headers: {
 			Authorization: `Bearer ${env.RESEND_API_KEY}`,
@@ -28,10 +47,8 @@ export async function sendModerationEmail(env: Bindings, fish: Fish, origin: str
 		body: JSON.stringify({
 			from: env.MODERATION_FROM,
 			to: env.MODERATION_EMAIL,
-			subject: `Nuevo pez: ${fish.creatorName}`,
+			subject,
 			html,
 		}),
 	});
-
-	if (!res.ok) console.error('resend error', res.status, await res.text());
 }
