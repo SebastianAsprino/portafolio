@@ -1,18 +1,29 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import OceanBackground from "../components/OceanBackground.svelte";
+import { person, website, LOCATION_LABEL, type JsonLdNode } from "../lib/seo";
 interface Props {
 	title?: string;
 	description?: string;
+	/** Páginas que no deben indexarse (404): agrega noindex y omite el canonical. */
+	noindex?: boolean;
+	/** Nodos JSON-LD propios de la página; WebSite y Person van siempre. */
+	schema?: JsonLdNode[];
 }
 
 const {
 	title = "Portafolio",
-	description = "Fullstack Software Engineer. Construyo software de principio a fin: APIs, bases de datos, interfaces y despliegue.",
+	description = `Desarrollador fullstack en ${LOCATION_LABEL}. Construyo software de principio a fin: APIs, bases de datos, interfaces y despliegue.`,
+	noindex = false,
+	schema = [],
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL("/og.jpg", Astro.site);
+const jsonLd = JSON.stringify({
+	"@context": "https://schema.org",
+	"@graph": [website, person, ...schema],
+});
 ---
 
 <!doctype html>
@@ -22,9 +33,10 @@ const ogImage = new URL("/og.jpg", Astro.site);
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>{title}</title>
 		<meta name="description" content={description} />
-		<link rel="canonical" href={canonical} />
+		{noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
 
 		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="es_CO" />
 		<meta property="og:site_name" content="Sebastian Asprino" />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
@@ -39,6 +51,8 @@ const ogImage = new URL("/og.jpg", Astro.site);
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={ogImage} />
+		{!noindex && <script type="application/ld+json" is:inline set:html={jsonLd} />}
+		<link rel="alternate" type="text/markdown" href="/llms.txt" title="llms.txt" />
 		<link rel="icon" href="/favicon.ico" sizes="32x32" />
 		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />

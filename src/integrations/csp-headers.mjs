@@ -4,7 +4,9 @@ import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const PLACEHOLDER = "{{CSP_SCRIPT_HASHES}}";
-const INLINE_SCRIPT = /<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/g;
+// Excluye bloques de datos (JSON-LD): no se ejecutan, la CSP no los afecta.
+const INLINE_SCRIPT =
+	/<script(?![^>]*\bsrc=)(?![^>]*\btype="application\/ld\+json")[^>]*>([\s\S]*?)<\/script>/g;
 
 // Astro mete scripts inline en el HTML (hidratación de islands) que cambian
 // entre versiones. En vez de permitir 'unsafe-inline', se calculan sus hashes

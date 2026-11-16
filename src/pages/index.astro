@@ -4,16 +4,30 @@ import ProjectCard from "../components/ProjectCard.svelte";
 import portfolio from "../data/portfolio.json";
 import cv from "../data/cv.json";
 import { buildIconMap } from "../lib/stack-icons";
+import { SITE, LOCATION_LABEL, webPage } from "../lib/seo";
+
+const { about } = portfolio;
 
 const allTechs = [...new Set(portfolio.projects.flatMap((p) => p.stack))];
 const icons = buildIconMap(allTechs);
+
+const title = `Sebastian Asprino · Desarrollador Fullstack en ${about.location.city}`;
+const description = `Desarrollador fullstack en ${LOCATION_LABEL}: APIs, bases de datos, interfaces y despliegue con TypeScript, Python y Go. Freelance y remoto.`;
 ---
 
-<BentoLayout title="Sebastian Asprino" activeSection="inicio">
+<BentoLayout
+	title={title}
+	description={description}
+	activeSection="inicio"
+	schema={[webPage("ProfilePage", `${SITE}/`, title, description)]}
+>
 	<section class="summary">
 		<span class="label">sobre mí</span>
 		<p>{cv.summary.intro}</p>
 		<p class="stack-line">{cv.summary.stack}</p>
+		<p class="stack-line">
+			Disponible para {portfolio.contact.available_for}
+		</p>
 	</section>
 
 	<div class="projects-grid">

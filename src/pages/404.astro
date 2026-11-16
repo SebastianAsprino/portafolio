@@ -1,0 +1,40 @@
+---
+import BentoLayout from "../layouts/BentoLayout.astro";
+---
+
+<BentoLayout title="Página no encontrada · Sebastian Asprino" subtitle="404" noindex>
+	<section class="block">
+		<span class="label">404</span>
+		<p>Esta página no existe o se movió.</p>
+		<p><a href="/">← volver al inicio</a></p>
+	</section>
+</BentoLayout>
+
+<style>
+	.block {
+		background: rgba(0, 10, 30, 0.72);
+		border: 1px solid rgba(130, 200, 255, 0.18);
+		backdrop-filter: blur(2px);
+		padding: 1rem;
+		font-family: monospace;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.label {
+		font-size: 0.6rem;
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+		color: rgba(130, 200, 255, 0.5);
+	}
+
+	p {
+		font-size: 0.8rem;
+		color: rgba(200, 232, 248, 0.75);
+	}
+
+	a {
+		color: #c8e8f8;
+	}
+</style>

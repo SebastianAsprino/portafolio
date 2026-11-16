@@ -10,6 +10,7 @@ import {
 	RYBBIT_INLINE_SIZE,
 } from "../../lib/rybbit";
 import type { GetStaticPaths } from "astro";
+import { SITE, LOCATION_LABEL, breadcrumbs, projectWork, webPage } from "../../lib/seo";
 
 export const getStaticPaths: GetStaticPaths = () => {
 	return portfolio.projects.map((p) => ({
@@ -24,12 +25,21 @@ const { project } = Astro.props as {
 
 const icons = buildIconMap(project.stack);
 const rybbitWidget = "rybbitWidget" in project ? project.rybbitWidget : null;
+
+const url = `${SITE}/proyectos/${project.slug}/`;
+const title = `${project.name} · Sebastian Asprino`;
+const description = `${project.tagline} con ${project.stack.slice(0, 3).join(", ")}. Proyecto de Sebastian Asprino, desarrollador fullstack en ${LOCATION_LABEL}.`;
+const schema = [
+	{ ...webPage("WebPage", url, title, description), mainEntity: { "@id": `${url}#work` } },
+	projectWork(project, url),
+	breadcrumbs([
+		{ name: "Inicio", url: `${SITE}/` },
+		{ name: project.name, url },
+	]),
+];
 ---
 
-<BaseLayout
-	title={`${project.name} · Sebastian Asprino`}
-	description={project.tagline}
->
+<BaseLayout title={title} description={description} schema={schema}>
 	<a href="/" class="back">← volver</a>
 	<div class="detail-wrap">
 		<article class="detail">

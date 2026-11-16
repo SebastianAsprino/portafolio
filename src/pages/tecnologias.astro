@@ -3,6 +3,7 @@ import BentoLayout from "../layouts/BentoLayout.astro";
 import StackSearch from "../components/StackSearch.svelte";
 import portfolio from "../data/portfolio.json";
 import { buildIconMap } from "../lib/stack-icons";
+import { SITE, LOCATION_LABEL, webPage } from "../lib/seo";
 
 const allTechs = [...new Set(portfolio.projects.flatMap((p) => p.stack))];
 const icons = buildIconMap(allTechs);
@@ -10,6 +11,15 @@ const icons = buildIconMap(allTechs);
 
 <BentoLayout
 	title="Tecnologías · Sebastian Asprino"
+	description={`Stack de Sebastian Asprino, desarrollador fullstack en ${LOCATION_LABEL}: TypeScript, Svelte, React, Python, Go, AWS y Cloudflare.`}
+	schema={[
+		webPage(
+			"CollectionPage",
+			`${SITE}/tecnologias/`,
+			"Tecnologías · Sebastian Asprino",
+			"Tecnologías y proyectos donde se aplicaron.",
+		),
+	]}
 	activeSection="tecnologias"
 	subtitle="Tecnologías"
 >

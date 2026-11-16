@@ -1,36 +1,50 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import FishCreate from "../components/FishCreate.svelte";
+import type { JsonLdNode } from "../lib/seo";
 
 interface Props {
 	title: string;
+	description?: string;
+	noindex?: boolean;
+	schema?: JsonLdNode[];
+	/** Sin subtítulo propio (inicio) el h1 es el nombre; si no, el subtítulo. */
 	subtitle?: string;
 	activeSection?: string;
 }
 
 const {
 	title,
-	subtitle = "Fullstack · Backend · Frontend · DevOps · Arquitectura",
+	description,
+	noindex,
+	schema,
+	subtitle,
 	activeSection,
 } = Astro.props;
+
+const nameIsHeading = !subtitle;
+const NameTag = nameIsHeading ? "h1" : "span";
+const SubtitleTag = nameIsHeading ? "span" : "h1";
 ---
 
-<BaseLayout title={title}>
+<BaseLayout title={title} description={description} noindex={noindex} schema={schema}>
 	<div class="site-center">
 		<div class="bento">
 			<header class="block block--header">
-				<span class="name">Sebastian Asprino</span>
+				<NameTag class="name">Sebastian Asprino</NameTag>
 			</header>
 
 			<div class="block block--top">
-				<span class="tagline">{subtitle}</span>
+				<SubtitleTag class="tagline">
+					{subtitle ?? "Fullstack · Backend · Frontend · DevOps · Arquitectura"}
+				</SubtitleTag>
 			</div>
 
 			<nav class="block block--nav">
 				<div class="nav-wide">
 					<ul>
 						<li>
-							<a href="/" class:list={[{ active: activeSection === "home" }]}
+							<a href="/" class:list={[{ active: activeSection === "inicio" }]}
 								>Inicio</a
 							>
 						</li>
@@ -142,6 +156,7 @@ const {
 
 	.tagline {
 		font-size: 1.1rem;
+		font-weight: normal;
 		color: rgba(200, 232, 248, 0.7);
 	}
 

@@ -9,6 +9,12 @@
 		"headline": "Fullstack Software Engineer",
 		"bio": "Construyo software de principio a fin: APIs, bases de datos, interfaces y despliegue. Me muevo con confianza entre TypeScript, Python y Go; entre React y Svelte; entre AWS Lambda y Cloudflare Workers. Me interesa escribir código limpio, sistemas bien pensados y productos que la gente disfruta usar.",
 		"currently": "Fullstack Engineer en My Little Venture",
+		"location": {
+			"city": "Barranquilla",
+			"region": "Atlántico",
+			"country": "Colombia",
+			"countryCode": "CO"
+		},
 		"links": [
 			{
 				"label": "GitHub",
@@ -394,6 +400,7 @@
 		"github": "https://github.com/SebastianAsprino",
 		"linkedin": "https://www.linkedin.com/in/sebastian-alejandro-asprino-ortiz-432075249",
 		"twitter": "https://x.com/Seb_Asp",
+		"whatsapp": "+57 301 304 6076",
 		"available_for": "freelance, contratos, posiciones remotas"
 	}
 }

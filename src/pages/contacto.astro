@@ -1,6 +1,7 @@
 ---
 import BentoLayout from "../layouts/BentoLayout.astro";
 import portfolio from "../data/portfolio.json";
+import { SITE, LOCATION_LABEL, webPage } from "../lib/seo";
 
 const { about, contact } = portfolio;
 
@@ -8,6 +9,11 @@ const blogUrl = about.links.find((l) => l.label === "Blog")?.url;
 
 const channels = [
 	{ label: "Email", value: contact.email, url: `mailto:${contact.email}` },
+	{
+		label: "WhatsApp",
+		value: contact.whatsapp,
+		url: `https://wa.me/${contact.whatsapp.replace(/\D/g, "")}`,
+	},
 	{
 		label: "GitHub",
 		value: contact.github.replace("https://", ""),
@@ -29,13 +35,24 @@ const channels = [
 
 <BentoLayout
 	title="Contacto · Sebastian Asprino"
+	description={`Contacta a Sebastian Asprino, desarrollador fullstack en ${LOCATION_LABEL}, por email, WhatsApp o LinkedIn. Freelance, contratos y remoto.`}
+	schema={[
+		webPage(
+			"ContactPage",
+			`${SITE}/contacto/`,
+			"Contacto · Sebastian Asprino",
+			`Canales de contacto de Sebastian Asprino, desarrollador fullstack en ${LOCATION_LABEL}.`,
+		),
+	]}
 	activeSection="contacto"
 	subtitle="Contacto"
 >
 	<section class="block">
 		<span class="label">sobre mí</span>
 		<p class="bio">{about.bio}</p>
-		<p class="availability">Disponible para {contact.available_for}.</p>
+		<p class="availability">
+			Desde {LOCATION_LABEL}. Disponible para {contact.available_for}.
+		</p>
 	</section>
 
 	<section class="block">

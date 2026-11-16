@@ -3,7 +3,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FishCreate from '../components/FishCreate.svelte';
 ---
 
-<BaseLayout title="Crear Pez · Sebastian Asprino">
+<BaseLayout
+	title="Crear Pez · Sebastian Asprino"
+	description="Diseña tu propio pez pixel-art y suéltalo en el océano del portafolio de Sebastian Asprino."
+>
 	<a href="/" class="back-home">← inicio</a>
 	<FishCreate client:load autoOpen={true} />
 </BaseLayout>

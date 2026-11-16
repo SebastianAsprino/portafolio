@@ -3,6 +3,10 @@ import BentoLayout from "../layouts/BentoLayout.astro";
 import FishGallery from "../components/FishGallery.svelte";
 ---
 
-<BentoLayout title="Peces · Sebastian Asprino" subtitle="Peces del océano">
+<BentoLayout
+	title="Peces · Sebastian Asprino"
+	description="Galería de peces pixel-art creados por los visitantes del portafolio de Sebastian Asprino."
+	subtitle="Peces del océano"
+>
 	<FishGallery client:load />
 </BentoLayout>
