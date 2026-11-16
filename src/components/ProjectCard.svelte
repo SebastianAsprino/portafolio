@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from "svelte";
+	import { rybbitWidgetUrl, RYBBIT_INLINE_SIZE } from "../lib/rybbit";
 
 	export let project: {
 		id: string;
@@ -15,6 +16,7 @@
 		private: boolean;
 		links: { live: string | null; repo: string | null };
 		highlights: string[];
+		rybbitWidget?: string;
 	};
 	export let icons: Record<string, string> = {};
 
@@ -43,7 +45,9 @@
 	});
 </script>
 
-<a href="/proyectos/{project.slug}" class="card" bind:this={container}>
+<!-- El link del título se estira sobre toda la card (::after); así el iframe
+     de Rybbit queda fuera del <a> y recibe sus propios clics. -->
+<article class="card" bind:this={container}>
 	<div class="media">
 		{#if project.image[0]}
 			<img
@@ -73,25 +77,42 @@
 		<span class="year">{project.year}</span>
 	</div>
 
-	<h3 class="name">{project.name}</h3>
+	<h3 class="name">
+		<a href="/proyectos/{project.slug}" class="card-link">{project.name}</a>
+	</h3>
 	<p class="tagline">{project.tagline}</p>
 
-	<div class="badges">
-		{#each project.stack.slice(0, BADGE_LIMIT) as tech}
-			{#if icons[tech]}
-				<span class="icon" title={tech}>{@html icons[tech]}</span>
-			{:else}
-				<span class="badge">{tech}</span>
+	<div class="foot">
+		<div class="badges">
+			{#each project.stack.slice(0, BADGE_LIMIT) as tech}
+				{#if icons[tech]}
+					<span class="icon" title={tech}>{@html icons[tech]}</span>
+				{:else}
+					<span class="badge">{tech}</span>
+				{/if}
+			{/each}
+			{#if project.stack.length > BADGE_LIMIT}
+				<span class="badge more">+{project.stack.length - BADGE_LIMIT}</span>
 			{/if}
-		{/each}
-		{#if project.stack.length > BADGE_LIMIT}
-			<span class="badge more">+{project.stack.length - BADGE_LIMIT}</span>
+		</div>
+
+		{#if project.rybbitWidget}
+			<iframe
+				class="live"
+				src={rybbitWidgetUrl(project.rybbitWidget, "inline")}
+				width={RYBBIT_INLINE_SIZE.width}
+				height={RYBBIT_INLINE_SIZE.height}
+				loading="lazy"
+				title="Visitantes en vivo"
+				scrolling="no"
+			></iframe>
 		{/if}
 	</div>
-</a>
+</article>
 
 <style>
 	.card {
+		position: relative;
 		display: block;
 		background: rgba(0, 10, 30, 0.72);
 		border: 1px solid rgba(130, 200, 255, 0.18);
@@ -104,8 +125,21 @@
 		transition: border-color 0.15s;
 	}
 
-	.card:hover {
+	.card:hover,
+	.card:has(.card-link:focus-visible) {
 		border-color: rgba(130, 200, 255, 0.45);
+	}
+
+	.card-link {
+		color: inherit;
+		text-decoration: none;
+		outline: none;
+	}
+
+	.card-link::after {
+		content: "";
+		position: absolute;
+		inset: 0;
 	}
 
 	.media {
@@ -175,6 +209,26 @@
 		color: rgba(200, 232, 248, 0.55);
 		margin-bottom: 0.6rem;
 		line-height: 1.4;
+	}
+
+	.foot {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 6px;
+	}
+
+	/* Por encima del ::after del link para que no se lo coma. color-scheme
+	   igual al del widget: si difieren, el navegador pinta un fondo opaco
+	   detrás del iframe en vez de dejarlo transparente. */
+	.live {
+		position: relative;
+		z-index: 1;
+		display: block;
+		flex-shrink: 0;
+		border: 0;
+		color-scheme: dark;
 	}
 
 	.badges {

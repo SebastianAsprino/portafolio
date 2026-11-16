@@ -2,7 +2,7 @@
 	"meta": {
 		"version": "1.0",
 		"last_updated": "2026-05-20",
-		"note": "Data source for the portfolio site. Images live in /public/projects/{slug}/. The first element of 'image' is the static placeholder that loads immediately; swap for animated content (gif/webm) on intersection. 'video' is the path to the webm/mp4 shown when the card is visible."
+		"note": "Data source for the portfolio site. Images live in /public/projects/{slug}/. The first element of 'image' is the static placeholder that loads immediately; swap for animated content (gif/webm) on intersection. 'video' is the path to the webm/mp4 shown when the card is visible. 'rybbitWidget' (optional) is a Rybbit site id: shows the live-visitors widget on the card and detail page."
 	},
 	"about": {
 		"name": "Sebastian Asprino",
@@ -105,6 +105,7 @@
 				"/projects/dokkaebi/ordenes.webp"
 			],
 			"video": "/projects/dokkaebi/demo.webm",
+			"rybbitWidget": "9afc6815303c",
 			"links": {
 				"live": null,
 				"repo": null
@@ -327,11 +328,9 @@
 				"Editor de sprites pixel-art en el navegador"
 			],
 			"image": [
-				"/projects/portafolio/preview.webp",
-				"/projects/portafolio/ocean.webp",
-				"/projects/portafolio/creator.webp"
+				"/og.jpg"
 			],
-			"video": "/projects/portafolio/demo.webm",
+			"video": "",
 			"links": {
 				"live": null,
 				"repo": "https://github.com/SebastianAsprino/portafolio"
