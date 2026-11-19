@@ -122,7 +122,7 @@ const SubtitleTag = nameIsHeading ? "span" : "h1";
 		backdrop-filter: blur(2px);
 		padding: 1rem;
 		color: #c8e8f8;
-		font-family: monospace;
+		font-family: var(--font-text);
 	}
 
 	.block--header {
@@ -149,13 +149,16 @@ const SubtitleTag = nameIsHeading ? "span" : "h1";
 	}
 
 	.name {
-		font-size: 1.4rem;
-		font-weight: bold;
+		font-family: var(--font-pixel);
+		font-size: 1.5rem;
+		font-weight: 700;
+		line-height: 1.15;
 		letter-spacing: 0.05em;
 	}
 
 	.tagline {
-		font-size: 1.1rem;
+		font-family: var(--font-pixel);
+		font-size: 1.15rem;
 		font-weight: normal;
 		color: rgba(200, 232, 248, 0.7);
 	}
@@ -171,9 +174,9 @@ const SubtitleTag = nameIsHeading ? "span" : "h1";
 	nav .nav-btn {
 		color: #c8e8f8;
 		text-decoration: none;
-		font-size: 1.1rem;
+		font-size: 1.15rem;
 		opacity: 0.8;
-		font-family: monospace;
+		font-family: var(--font-pixel);
 	}
 
 	nav a:hover,
@@ -203,7 +206,7 @@ const SubtitleTag = nameIsHeading ? "span" : "h1";
 
 	.block--footer {
 		text-align: center;
-		font-size: 0.95rem;
+		font-size: 0.94rem;
 		opacity: 0.5;
 	}
 

@@ -11,7 +11,8 @@ Producción: <https://asprino.dev>
 
 - **Proyectos** (`/` y `/proyectos/[slug]`): tarjetas con preview en imagen/video y una página de
   detalle por proyecto, generadas desde `src/data/portfolio.json`.
-- **Tecnologías** (`/tecnologias`): buscador del stack con íconos SVG renderizados en el build.
+- **Tecnologías** (`/tecnologias`): filtro de proyectos por tecnología, agrupado por categoría y con
+  cuántos proyectos usan cada una. Sale del catálogo `src/data/techs.ts`.
 - **Contacto** (`/contacto`).
 - **Océano interactivo** (`OceanBackground.svelte`): degradado por profundidad con dithering Bayer,
   rayos de luz, partículas y peces que huyen al hacer clic; bucle con paso de tiempo fijo.
@@ -26,7 +27,8 @@ Producción: <https://asprino.dev>
 | Parte    | Tecnologías                                                                                   |
 | -------- | --------------------------------------------------------------------------------------------- |
 | Sitio    | [Astro 7](https://astro.build) (estático, `ClientRouter`), [Svelte 5](https://svelte.dev), TypeScript |
-| Íconos   | `tech-stack-icons` (React solo en el build, con `renderToStaticMarkup`)                       |
+| Íconos   | `tech-stack-icons` y favicons oficiales, bajados a `public/stack-icons/` con `bun run stack-icons` |
+| Fuentes  | Pixelify Sans (nombre, nav y títulos) y JetBrains Mono (texto), servidas con Fontsource       |
 | API      | Cloudflare Workers + [Elysia](https://elysiajs.com), Workers KV, Rate Limiting binding        |
 | Correo   | [Resend](https://resend.com) para los avisos de moderación                                    |
 | Tooling  | [Bun](https://bun.sh), `sharp` y `ffmpeg` para optimizar medios                               |
@@ -39,14 +41,14 @@ Producción: <https://asprino.dev>
 │   ├── pages/            # rutas: index, proyectos/[slug], tecnologias, contacto, crear-pez, peces
 │   ├── layouts/          # BaseLayout (meta, analítica, ClientRouter) y BentoLayout
 │   ├── components/       # islas Svelte: OceanBackground, FishCreate, FishGallery, ProjectCard, ...
-│   ├── data/             # portfolio.json (proyectos) y cv.json (resumen)
+│   ├── data/             # portfolio.json (proyectos), cv.json (resumen) y techs.ts (catálogo de tecnologías)
 │   ├── lib/
 │   │   ├── fish.ts        # paleta, sprites por defecto, cliente de la API de peces
-│   │   └── stack-icons.ts # nombre de tecnología → SVG
+│   │   └── stack.ts       # nombre en `stack` → ícono, e índice de filtros de /tecnologias
 │   └── integrations/
 │       └── csp-headers.mjs # hook astro:build:done que escribe los hashes CSP en dist/_headers
 ├── public/               # estáticos: _headers, security.txt, robots.txt, imágenes y videos de proyectos
-├── scripts/              # convert-webp.ts y convert-webm.ts (optimización de medios)
+├── scripts/              # optimización de medios y stack-icons.ts (baja los íconos del catálogo)
 └── worker/               # API de peces (Cloudflare Worker)
     └── src/
         ├── features/
@@ -101,6 +103,18 @@ bun run scripts/convert-webm.ts # videos → .webm 1280x720 (requiere ffmpeg/ffp
 ```
 
 Ambos aceptan `--delete` para borrar el original.
+
+### Tecnologías
+
+Cada nombre que aparece en el `stack` de un proyecto tiene que estar en `src/data/techs.ts`, como
+`label` o en `aliases` de una tecnología; si no, el build falla. Para agregar una, se suma al catálogo
+con su categoría y de dónde sale el ícono (`lib` de `tech-stack-icons`, `raster`/`svg` del sitio
+oficial, `aws` del paquete de Architecture Icons o `inline`) y se corre:
+
+```sh
+bun run stack-icons           # baja solo los íconos que faltan a public/stack-icons/
+bun run stack-icons --force   # los regenera todos (requiere ImageMagick para los .ico/.png)
+```
 
 ## Despliegue
 

@@ -22,6 +22,11 @@
 
 	const BADGE_LIMIT = 4;
 
+	// "SvelteKit" y "Svelte 5" comparten ícono: en la card se muestra una vez.
+	const badges = project.stack.filter(
+		(tech, i) => !icons[tech] || project.stack.findIndex((t) => icons[t] === icons[tech]) === i,
+	);
+
 	let container: HTMLElement;
 	let videoEl: HTMLVideoElement;
 	let videoActive = false;
@@ -84,15 +89,15 @@
 
 	<div class="foot">
 		<div class="badges">
-			{#each project.stack.slice(0, BADGE_LIMIT) as tech}
+			{#each badges.slice(0, BADGE_LIMIT) as tech}
 				{#if icons[tech]}
-					<span class="icon" title={tech}>{@html icons[tech]}</span>
+					<img class="icon" src={icons[tech]} alt={tech} title={tech} width="24" height="24" loading="lazy" />
 				{:else}
 					<span class="badge">{tech}</span>
 				{/if}
 			{/each}
-			{#if project.stack.length > BADGE_LIMIT}
-				<span class="badge more">+{project.stack.length - BADGE_LIMIT}</span>
+			{#if badges.length > BADGE_LIMIT}
+				<span class="badge more">+{badges.length - BADGE_LIMIT}</span>
 			{/if}
 		</div>
 
@@ -119,7 +124,7 @@
 		backdrop-filter: blur(2px);
 		padding: 0.95rem;
 		color: #c8e8f8;
-		font-family: monospace;
+		font-family: var(--font-text);
 		text-decoration: none;
 		cursor: pointer;
 		transition: border-color 0.15s;
@@ -186,26 +191,29 @@
 	}
 
 	.type {
-		font-size: 0.8rem;
+		font-family: var(--font-text);
+		font-size: 0.9rem;
 		color: rgba(130, 200, 255, 0.55);
 		text-transform: uppercase;
 		letter-spacing: 0.08em;
 	}
 
 	.year {
-		font-size: 0.8rem;
+		font-family: var(--font-text);
+		font-size: 0.9rem;
 		color: rgba(200, 232, 248, 0.3);
 	}
 
 	.name {
-		font-size: 1.1rem;
-		font-weight: bold;
+		font-family: var(--font-pixel);
+		font-size: 1.2rem;
+		font-weight: 700;
 		margin-bottom: 0.25rem;
 		color: #c8e8f8;
 	}
 
 	.tagline {
-		font-size: 0.9rem;
+		font-size: 1.08rem;
 		color: rgba(200, 232, 248, 0.55);
 		margin-bottom: 0.6rem;
 		line-height: 1.4;
@@ -239,26 +247,16 @@
 	}
 
 	.icon {
-		display: inline-flex;
-		width: 22px;
-		height: 22px;
-		opacity: 0.85;
+		display: block;
+		width: 24px;
+		height: 24px;
+		object-fit: contain;
+		opacity: 0.9;
 		flex-shrink: 0;
 	}
 
-	.icon :global(div) {
-		width: 100%;
-		height: 100%;
-		display: flex;
-	}
-
-	.icon :global(svg) {
-		width: 100%;
-		height: 100%;
-	}
-
 	.badge {
-		font-size: 0.75rem;
+		font-size: 0.9rem;
 		color: rgba(130, 200, 255, 0.6);
 		border: 1px solid rgba(130, 200, 255, 0.18);
 		padding: 2px 6px;

@@ -3,7 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import FishCreate from "../../components/FishCreate.svelte";
 import ImageLightbox from "../../components/ImageLightbox.svelte";
 import portfolio from "../../data/portfolio.json";
-import { buildIconMap } from "../../lib/stack-icons";
+import { buildIconMap } from "../../lib/stack";
 import {
 	rybbitWidgetUrl,
 	RYBBIT_CARD_SIZE,
@@ -98,9 +98,7 @@ const schema = [
 						{
 							project.stack.map((tech) => (
 								<span class="tech-badge">
-									{icons[tech] && (
-										<span class="tech-icon" set:html={icons[tech]} />
-									)}
+									<img class="tech-icon" src={icons[tech]} alt="" width="18" height="18" />
 									{tech}
 								</span>
 							))
@@ -210,8 +208,8 @@ const schema = [
 		left: 1rem;
 		z-index: 10;
 		color: rgba(200, 232, 248, 0.75);
-		font-family: monospace;
-		font-size: 0.8rem;
+		font-family: var(--font-text);
+		font-size: 0.96rem;
 		text-decoration: none;
 		background: rgba(0, 10, 30, 0.72);
 		border: 1px solid rgba(130, 200, 255, 0.18);
@@ -242,7 +240,7 @@ const schema = [
 		border: 1px solid rgba(130, 200, 255, 0.18);
 		backdrop-filter: blur(2px);
 		padding: 1.25rem;
-		font-family: monospace;
+		font-family: var(--font-text);
 	}
 
 	.meta-row {
@@ -252,29 +250,31 @@ const schema = [
 	}
 
 	.type {
-		font-size: 0.65rem;
+		font-family: var(--font-text);
+		font-size: 0.78rem;
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
 		color: rgba(130, 200, 255, 0.55);
 	}
 
 	.year {
-		font-size: 0.65rem;
+		font-family: var(--font-text);
+		font-size: 0.78rem;
 		color: rgba(200, 232, 248, 0.3);
 	}
 
 	h1 {
-		font-size: 1.4rem;
-		font-weight: bold;
+		font-size: 1.8rem;
+		font-weight: 700;
 		color: #c8e8f8;
-		font-family: monospace;
+		font-family: var(--font-pixel);
 		margin-bottom: 0.4rem;
 	}
 
 	.tagline {
-		font-size: 0.85rem;
+		font-size: 1.02rem;
 		color: rgba(200, 232, 248, 0.6);
-		font-family: monospace;
+		font-family: var(--font-text);
 	}
 
 	/* Widget de Rybbit: la card fija abajo a la izquierda solo cuando sobra
@@ -332,8 +332,8 @@ const schema = [
 	}
 
 	.placeholder-label {
-		font-family: monospace;
-		font-size: 0.75rem;
+		font-family: var(--font-text);
+		font-size: 0.9rem;
 		text-transform: uppercase;
 		letter-spacing: 0.12em;
 		color: rgba(130, 200, 255, 0.35);
@@ -346,8 +346,8 @@ const schema = [
 	}
 
 	.description {
-		font-family: monospace;
-		font-size: 0.82rem;
+		font-family: var(--font-text);
+		font-size: 0.98rem;
 		color: rgba(200, 232, 248, 0.7);
 		line-height: 1.65;
 		background: rgba(0, 10, 30, 0.72);
@@ -364,11 +364,11 @@ const schema = [
 	}
 
 	h2 {
-		font-size: 0.65rem;
+		font-size: 0.78rem;
 		text-transform: uppercase;
 		letter-spacing: 0.12em;
 		color: rgba(130, 200, 255, 0.5);
-		font-family: monospace;
+		font-family: var(--font-text);
 		margin-bottom: 0.75rem;
 	}
 
@@ -382,8 +382,8 @@ const schema = [
 		display: inline-flex;
 		align-items: center;
 		gap: 5px;
-		font-family: monospace;
-		font-size: 0.72rem;
+		font-family: var(--font-text);
+		font-size: 0.86rem;
 		color: rgba(200, 232, 248, 0.7);
 		border: 1px solid rgba(130, 200, 255, 0.18);
 		padding: 3px 8px;
@@ -391,20 +391,11 @@ const schema = [
 	}
 
 	.tech-icon {
-		display: inline-flex;
-		width: 16px;
-		height: 16px;
-	}
-
-	.tech-icon :global(div) {
-		width: 100%;
-		height: 100%;
-		display: flex;
-	}
-
-	.tech-icon :global(svg) {
-		width: 100%;
-		height: 100%;
+		display: block;
+		width: 18px;
+		height: 18px;
+		object-fit: contain;
+		flex-shrink: 0;
 	}
 
 	.highlight-list {
@@ -415,8 +406,8 @@ const schema = [
 	}
 
 	.highlight-list li {
-		font-family: monospace;
-		font-size: 0.78rem;
+		font-family: var(--font-text);
+		font-size: 0.94rem;
 		color: rgba(200, 232, 248, 0.65);
 		padding-left: 0.75rem;
 		position: relative;
@@ -436,8 +427,8 @@ const schema = [
 	}
 
 	.link-btn {
-		font-family: monospace;
-		font-size: 0.78rem;
+		font-family: var(--font-text);
+		font-size: 0.94rem;
 		color: #c8e8f8;
 		text-decoration: none;
 		border: 1px solid rgba(130, 200, 255, 0.28);

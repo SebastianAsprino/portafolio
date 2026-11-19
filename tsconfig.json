@@ -4,9 +4,7 @@
     "strict": true,
     "esModuleInterop": true,
     "moduleResolution": "bundler",
-    "skipLibCheck": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "react"
+    "skipLibCheck": true
   },
   "include": [
     "src/**/*.d.ts",

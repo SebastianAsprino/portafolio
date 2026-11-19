@@ -3,10 +3,11 @@
 // propios nodos (ProfilePage, ContactPage, CreativeWork, BreadcrumbList) que
 // apuntan a esos dos por @id.
 import portfolio from "../data/portfolio.json";
+import { TECHS } from "../data/techs";
 
 export const SITE = "https://asprino.dev";
 
-const { about, contact, projects, stack } = portfolio;
+const { about, contact, projects } = portfolio;
 const { city, region, country, countryCode } = about.location;
 
 export const PERSON_ID = `${SITE}/#person`;
@@ -45,7 +46,7 @@ export const person: JsonLdNode = {
 		name: "My Little Venture",
 		url: "https://mylittleventure.com/",
 	},
-	knowsAbout: [...new Set(Object.values(stack).flat())],
+	knowsAbout: TECHS.map((t) => t.label),
 	knowsLanguage: ["es", "en"],
 	sameAs: [contact.github, contact.linkedin, contact.twitter],
 	contactPoint: {

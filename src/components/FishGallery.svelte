@@ -115,8 +115,8 @@
 <style>
 	.status {
 		color: rgba(200, 232, 248, 0.6);
-		font-family: monospace;
-		font-size: 0.85rem;
+		font-family: var(--font-text);
+		font-size: 1.02rem;
 		padding: 2rem 0;
 		text-align: center;
 	}
@@ -156,8 +156,8 @@
 
 	.name {
 		color: #c8e8f8;
-		font-family: monospace;
-		font-size: 0.8rem;
+		font-family: var(--font-text);
+		font-size: 0.96rem;
 		text-decoration: none;
 		white-space: nowrap;
 		overflow: hidden;
@@ -169,8 +169,8 @@
 	}
 
 	.date {
-		font-family: monospace;
-		font-size: 0.7rem;
+		font-family: var(--font-text);
+		font-size: 0.84rem;
 		color: rgba(200, 232, 248, 0.45);
 	}
 

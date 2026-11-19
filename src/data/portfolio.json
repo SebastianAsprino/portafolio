@@ -55,7 +55,24 @@
 				"Algolia",
 				"NextAuth.js",
 				"Vitest",
-				"pnpm workspaces"
+				"pnpm workspaces",
+				"Node.js",
+				"Zod",
+				"Sentry",
+				"REST API",
+				"React",
+				"SvelteKit",
+				"Playwright",
+				"Testing Library",
+				"Scalar",
+				"Terraform",
+				"Bitbucket Pipelines",
+				"AWS Amplify",
+				"Docker",
+				"Amazon S3",
+				"Amazon SQS",
+				"Amazon SES",
+				"Amazon Cognito"
 			],
 			"highlights": [
 				"Arquitectura hexagonal (Ports & Adapters) en servicios Lambda",
@@ -96,7 +113,12 @@
 				"Drizzle ORM",
 				"PostgreSQL",
 				"JWT",
-				"Playwright"
+				"Playwright",
+				"REST API",
+				"Docker",
+				"Dokploy",
+				"MinIO",
+				"Resend"
 			],
 			"highlights": [
 				"Cotizador de motos con precalificación y generación de PDFs (actas, contratos, pagarés)",
@@ -112,6 +134,106 @@
 			],
 			"video": "/projects/dokkaebi/demo.webm",
 			"rybbitWidget": "46122308b009",
+			"links": {
+				"live": null,
+				"repo": null
+			}
+		},
+		{
+			"id": "moelog",
+			"name": "MoeLog",
+			"slug": "moelog",
+			"tagline": "Observabilidad que sobrevive al proceso que vigila",
+			"description": "Plataforma open source de logs, errores y salud de procesos para Node y Bun. La app no hace red: el SDK escribe a un socket Unix local y se olvida, y un sidecar en un proceso aparte persiste, reintenta y sube los eventos al servidor. Por vivir fuera de la app detecta lo que ningún SDK interno puede reportar: una muerte por SIGKILL u OOM, un event loop bloqueado o una app que nunca arrancó. El proyecto incluye el protocolo MLWP, cuatro paquetes publicados en npm, un servidor de ingesta con dashboard en tiempo real, el sitio moecorp.org y una charla técnica.",
+			"year": "2026",
+			"role": "Creador y mantenedor",
+			"type": "Observabilidad · Open source",
+			"featured": true,
+			"private": false,
+			"stack": [
+				"TypeScript",
+				"Bun",
+				"Node.js",
+				"Elysia",
+				"SvelteKit",
+				"Tailwind CSS",
+				"Drizzle ORM",
+				"PostgreSQL",
+				"SQLite",
+				"WebSocket",
+				"REST API",
+				"JWT",
+				"Docker",
+				"Dokploy",
+				"GitHub Actions",
+				"npm",
+				"Astro",
+				"Slidev"
+			],
+			"highlights": [
+				"SDK de 0,95 kB (Node) y 1,3 kB (Bun) en gzip, sin dependencias de terceros en toda la cadena",
+				"Sidecar fuera del proceso: detecta SIGKILL/OOM, event loop bloqueado y apps que nunca arrancan",
+				"Suite e2e que provoca los 7 modos de fallo en Node y en Bun y verifica la señal de cada uno",
+				"Monorepo de 4 paquetes publicados en npm, con release-please y presupuesto de tamaño en CI",
+				"Servidor Elysia + Drizzle (Postgres o SQLite) con dashboard SvelteKit en vivo por WebSocket, imágenes en GHCR y plantilla de Dokploy"
+			],
+			"image": [
+				"/projects/moelog/preview.webp",
+				"/projects/moelog/alertas.webp",
+				"/projects/moelog/logs.webp",
+				"/projects/moelog/arquitectura.webp"
+			],
+			"video": "/projects/moelog/demo.webm",
+			"links": {
+				"live": "https://moecorp.org/",
+				"repo": "https://github.com/Moe-Corp/MoeLog.js"
+			}
+		},
+		{
+			"id": "cotix",
+			"name": "COTIX",
+			"slug": "cotix",
+			"tagline": "Cotizador B2B con PDF de marca, en producción para 3 empresas",
+			"description": "Plataforma para que los asesores comerciales armen cotizaciones en minutos: sincroniza el catálogo desde WooCommerce, permite buscar productos, agregarlos a una o varias cotizaciones, ajustar precios y cantidades, y genera el PDF con la marca de cada empresa para enviarlo por correo o WhatsApp. Incluye panel de administración con usuarios, NITs por sede y analítica de cotizaciones por asesor. Se despliega como una instancia por cliente (Equipmaster, Maqimport y Tecnonacho) con API en .NET 9 y frontend Angular 19 con SSR. Desarrollado en Undercodes S.A.S.; se presenta como caso de estudio porque el código pertenece a los clientes.",
+			"year": "2025–2026",
+			"role": "Fullstack Engineer",
+			"type": "SaaS B2B · Ventas",
+			"featured": true,
+			"private": true,
+			"stack": [
+				"C#",
+				".NET",
+				"Angular",
+				"PrimeNG",
+				"TypeScript",
+				"NgRx",
+				"PostgreSQL",
+				"Dapper",
+				"QuestPDF",
+				"JWT",
+				"REST API",
+				"Scalar",
+				"Swagger",
+				"Chart.js",
+				"Docker",
+				"GitHub Actions",
+				"Bun"
+			],
+			"highlights": [
+				"Una instancia por cliente: 3 empresas en producción con su propia marca, catálogo y NITs",
+				"Generación de PDF con QuestPDF: encabezado y pie de cada marca, imágenes de producto cacheadas y validadas",
+				"Sincronización diaria del catálogo WooCommerce (productos, categorías e imágenes) en un servicio en segundo plano",
+				"Envío de cotizaciones por correo (plantillas MJML) y por WhatsApp, y exportación a CSV",
+				"Autenticación JWT con contraseñas Argon2 y roles; documentación de la API con Scalar",
+				"Imágenes Docker publicadas por GitHub Actions en cada despliegue"
+			],
+			"image": [
+				"/projects/cotix/preview.webp",
+				"/projects/cotix/pdf.webp",
+				"/projects/cotix/catalogo.webp",
+				"/projects/cotix/analitica.webp"
+			],
+			"video": "/projects/cotix/demo.webm",
 			"links": {
 				"live": null,
 				"repo": null
@@ -138,7 +260,12 @@
 				"Bun",
 				"Drizzle ORM",
 				"PostgreSQL",
-				"JWT"
+				"JWT",
+				"REST API",
+				"Playwright",
+				"Docker",
+				"Dokploy",
+				"Leaflet"
 			],
 			"highlights": [
 				"Búsqueda y filtrado de propiedades por ciudad, provincia, precio y habitaciones",
@@ -178,7 +305,9 @@
 				"Tailwind CSS",
 				"DaisyUI",
 				"Resend",
-				"Vitest"
+				"Vitest",
+				"REST API",
+				"Cloudflare Pages"
 			],
 			"highlights": [
 				"Simulador de crédito interactivo y formulario de solicitud multi-etapa",
@@ -217,7 +346,10 @@
 				"LibSQL / Turso",
 				"Tailwind CSS",
 				"Docker",
-				"Swagger"
+				"Swagger",
+				"REST API",
+				"FFmpeg",
+				"Scalar"
 			],
 			"highlights": [
 				"SPA con React 18 y React Router v6",
@@ -258,7 +390,13 @@
 				"Shapely",
 				"Go",
 				"Fiber v2",
-				"Docker Compose"
+				"Docker Compose",
+				"REST API",
+				"Swagger",
+				"Scalar",
+				"SurrealDB",
+				"JWT",
+				"Dokploy"
 			],
 			"highlights": [
 				"Procesamiento geoespacial con GDAL, GeoPandas, Shapely y Pyproj",
@@ -273,6 +411,87 @@
 			"links": {
 				"live": null,
 				"repo": null
+			}
+		},
+		{
+			"id": "jobfilter",
+			"name": "JobFilter",
+			"slug": "jobfilter",
+			"tagline": "Búsqueda de empleo automatizada en portales de Latinoamérica",
+			"description": "Herramienta open source que corre en tu máquina: con un botón busca vacantes en 8 portales de empleo de Latinoamérica (GetOnBoard, Computrabajo, LinkedIn, elempleo, PeakU, Hireline, Magneto365, Talently) sin iniciar sesión en ninguno. Detecta las empresas que republican la misma vacante para recolectar hojas de vida y las manda a una lista negra con la evidencia, aunque cambien el título o retoquen el texto. Cada vacante se pinta según qué tanto encaja con tu perfil y la lista se ordena de la más compatible a la menos. Backend organizado en slices verticales con CQRS y un adapter por plataforma.",
+			"year": "2026",
+			"role": "Creador y mantenedor",
+			"type": "Herramienta · Open source",
+			"featured": false,
+			"private": false,
+			"stack": [
+				"SvelteKit",
+				"Svelte 5",
+				"TypeScript",
+				"Bun",
+				"Drizzle ORM",
+				"SQLite",
+				"Vite",
+				"GitHub Actions"
+			],
+			"highlights": [
+				"Scraping de 8 portales con un adapter por plataforma, pausas aleatorias, reintentos y detección de bloqueos",
+				"Lista negra automática: reconoce la misma vacante aunque cambien el título o el texto",
+				"Mapa de calor de compatibilidad contra las tecnologías de tu perfil",
+				"Slices verticales con CQRS; tests con bun test sobre fixtures reales de cada portal y CI en GitHub Actions",
+				"Local y sin login: los datos quedan en SQLite y nunca se usa tu cuenta"
+			],
+			"image": [
+				"/projects/jobfilter/preview.webp",
+				"/projects/jobfilter/mapa-de-calor.webp",
+				"/projects/jobfilter/lista-negra.webp",
+				"/projects/jobfilter/aplicadas.webp"
+			],
+			"video": "/projects/jobfilter/demo.webm",
+			"links": {
+				"live": null,
+				"repo": "https://github.com/SebastianAsprino/jobfilter"
+			}
+		},
+		{
+			"id": "elysia-benchmark",
+			"name": "Charla ElysiaJS",
+			"slug": "elysia-benchmark",
+			"tagline": "Keynote sobre Elysia con benchmark en vivo de 9 frameworks",
+			"description": "Charla de 20–30 minutos sobre backend TypeScript con Elysia, construida con Slidev. Recorre runtimes (Node, Deno, Bun), compara el mismo endpoint en Express, NestJS y Elysia, y termina con un benchmark en vivo: nueve frameworks en seis lenguajes (Express, Fastify, NestJS, Django, Spring Boot, Quarkus, Gin, Rocket y Elysia) corriendo en Docker Compose con el mismo límite de CPU y memoria. Un runner en Bun genera la carga dentro de la red de Docker y transmite la latencia de cada respuesta a la slide en tiempo real con Server-Sent Events.",
+			"year": "2026",
+			"role": "Autor y speaker",
+			"type": "Charla · Benchmark",
+			"featured": false,
+			"private": false,
+			"stack": [
+				"Elysia",
+				"Bun",
+				"TypeScript",
+				"Slidev",
+				"Vue",
+				"Docker Compose",
+				"Nginx",
+				"Dokploy",
+				"GitHub Actions"
+			],
+			"highlights": [
+				"Benchmark en vivo de 9 frameworks en 6 lenguajes, cada uno con 1 core y 512 MB",
+				"Latencias transmitidas a la slide en tiempo real con Server-Sent Events",
+				"La carga se genera dentro de la red de Docker: el resultado no depende del wifi de la sala",
+				"El mismo endpoint escrito en Express, NestJS y Elysia para comparar filosofías",
+				"CI (build de slides y go vet) y despliegue del benchmark en Dokploy"
+			],
+			"image": [
+				"/projects/elysia-benchmark/preview.webp",
+				"/projects/elysia-benchmark/benchmark.webp",
+				"/projects/elysia-benchmark/ciclo-de-vida.webp",
+				"/projects/elysia-benchmark/endpoint.webp"
+			],
+			"video": "/projects/elysia-benchmark/demo.webm",
+			"links": {
+				"live": null,
+				"repo": "https://github.com/SebastianAsprino/presentacion_elysia_js"
 			}
 		},
 		{
@@ -293,7 +512,8 @@
 				"DaisyUI",
 				"Vite",
 				"Bun",
-				"Cloudflare Pages"
+				"Cloudflare Pages",
+				"GitHub Actions"
 			],
 			"highlights": [
 				"Deploy en Cloudflare Pages (edge)",
@@ -326,8 +546,10 @@
 				"TypeScript",
 				"Cloudflare Workers",
 				"Cloudflare KV",
-				"Hono",
-				"Canvas API"
+				"Elysia",
+				"Canvas API",
+				"REST API",
+				"GitHub Actions"
 			],
 			"highlights": [
 				"Océano pixel-art en canvas con rayos y caustics dithering",
@@ -335,67 +557,18 @@
 				"Editor de sprites pixel-art en el navegador"
 			],
 			"image": [
-				"/og.jpg"
+				"/projects/portafolio/preview.webp",
+				"/projects/portafolio/tecnologias.webp",
+				"/projects/portafolio/editor.webp",
+				"/projects/portafolio/peces.webp"
 			],
-			"video": "",
+			"video": "/projects/portafolio/demo.webm",
 			"links": {
 				"live": null,
 				"repo": "https://github.com/SebastianAsprino/portafolio"
 			}
 		}
 	],
-	"stack": {
-		"frontend": [
-			"TypeScript",
-			"React",
-			"Next.js",
-			"Astro",
-			"SvelteKit",
-			"Tailwind CSS",
-			"Framer Motion",
-			"Radix UI"
-		],
-		"backend": [
-			"Node.js",
-			"Hono",
-			"Elysia / Bun",
-			"Django",
-			"Go / Fiber",
-			"REST API",
-			"JWT"
-		],
-		"data": [
-			"PostgreSQL",
-			"Amazon DynamoDB",
-			"SQLite / LibSQL",
-			"Drizzle ORM",
-			"Sequelize"
-		],
-		"infra": [
-			"AWS Lambda",
-			"Docker",
-			"Cloudflare Pages",
-			"Cloudflare Workers",
-			"GitHub Actions"
-		],
-		"tools": [
-			"pnpm / Monorepo",
-			"Vite",
-			"Vitest",
-			"Zod",
-			"Stripe",
-			"Algolia",
-			"Sentry"
-		],
-		"other": [
-			"Python",
-			"Go",
-			"Rust",
-			"GDAL / GeoPandas",
-			"FFmpeg",
-			"WebAssembly"
-		]
-	},
 	"contact": {
 		"email": "contacto@asprino.dev",
 		"github": "https://github.com/SebastianAsprino",

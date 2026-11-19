@@ -142,7 +142,7 @@
 		line-height: 1;
 		cursor: pointer;
 		padding: 0 0.2rem;
-		font-family: monospace;
+		font-family: var(--font-text);
 	}
 
 	.close-btn:hover {
