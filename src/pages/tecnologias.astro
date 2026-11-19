@@ -2,11 +2,12 @@
 import BentoLayout from "../layouts/BentoLayout.astro";
 import StackSearch from "../components/StackSearch.svelte";
 import portfolio from "../data/portfolio.json";
-import { buildIconMap } from "../lib/stack-icons";
+import { buildIconMap, buildTechIndex } from "../lib/stack";
 import { SITE, LOCATION_LABEL, webPage } from "../lib/seo";
 
 const allTechs = [...new Set(portfolio.projects.flatMap((p) => p.stack))];
 const icons = buildIconMap(allTechs);
+const { groups, techsByProject } = buildTechIndex(portfolio.projects);
 ---
 
 <BentoLayout
@@ -25,8 +26,9 @@ const icons = buildIconMap(allTechs);
 >
 	<StackSearch
 		projects={portfolio.projects}
-		allIcons={icons}
-		stackCategories={portfolio.stack}
+		{groups}
+		{techsByProject}
+		{icons}
 		client:load
 	/>
 </BentoLayout>

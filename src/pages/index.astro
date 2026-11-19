@@ -3,7 +3,7 @@ import BentoLayout from "../layouts/BentoLayout.astro";
 import ProjectCard from "../components/ProjectCard.svelte";
 import portfolio from "../data/portfolio.json";
 import cv from "../data/cv.json";
-import { buildIconMap } from "../lib/stack-icons";
+import { buildIconMap } from "../lib/stack";
 import { SITE, LOCATION_LABEL, webPage } from "../lib/seo";
 
 const { about } = portfolio;
@@ -52,24 +52,24 @@ const description = `Desarrollador fullstack en ${LOCATION_LABEL}: APIs, bases d
 	}
 
 	.label {
-		font-size: 0.6rem;
+		font-size: 0.85rem;
 		text-transform: uppercase;
 		letter-spacing: 0.12em;
 		color: rgba(130, 200, 255, 0.5);
-		font-family: monospace;
+		font-family: var(--font-pixel);
 	}
 
 	.summary p {
-		font-family: monospace;
-		font-size: 0.78rem;
+		font-family: var(--font-text);
+		font-size: 1.5rem;
 		color: rgba(200, 232, 248, 0.75);
-		line-height: 1.6;
+		line-height: 1.3;
 		margin: 0;
 	}
 
 	.stack-line {
 		color: rgba(200, 232, 248, 0.42) !important;
-		font-size: 0.7rem !important;
+		font-size: 1.34rem !important;
 	}
 
 	.projects-grid {

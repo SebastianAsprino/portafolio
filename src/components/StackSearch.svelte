@@ -1,224 +1,337 @@
 <script lang="ts">
+	import type { ComponentProps } from "svelte";
 	import ProjectCard from "./ProjectCard.svelte";
+	import type { TechFilter, TechGroup } from "../lib/stack";
 
-	type Project = {
-		id: string;
-		name: string;
-		slug: string;
-		tagline: string;
-		type: string;
-		year: string;
-		stack: string[];
-		image: string[];
-		video: string;
-		featured: boolean;
-		private: boolean;
-		links: { live: string | null; repo: string | null };
-		highlights: string[];
-	};
+	type Project = ComponentProps<typeof ProjectCard>["project"];
 
-	export let projects: Project[];
-	export let allIcons: Record<string, string>;
-	export let stackCategories: Record<string, string[]>;
+	interface Props {
+		projects: Project[];
+		groups: TechGroup[];
+		/** Id de proyecto → ids de catálogo de su stack. */
+		techsByProject: Record<string, string[]>;
+		/** Nombre en `stack` → ícono, para las cards. */
+		icons: Record<string, string>;
+	}
 
-	let selected = new Set<string>();
+	let { projects, groups, techsByProject, icons }: Props = $props();
 
-	$: filtered =
-		selected.size === 0
+	const techById = new Map<string, TechFilter>(
+		groups.flatMap((g) => g.techs.map((t) => [t.id, t] as const)),
+	);
+
+	let selected = $state<string[]>([]);
+	let resultsEl: HTMLElement;
+
+	const filtered = $derived(
+		selected.length === 0
 			? projects
-			: projects.filter((p) => p.stack.some((t) => selected.has(t)));
+			: projects.filter((p) => techsByProject[p.id].some((id) => selected.includes(id))),
+	);
 
-	function toggle(tech: string) {
-		const next = new Set(selected);
-		if (next.has(tech)) next.delete(tech);
-		else next.add(tech);
-		selected = next;
+	function toggle(id: string) {
+		selected = selected.includes(id) ? selected.filter((s) => s !== id) : [...selected, id];
 	}
 
 	function clear() {
-		selected = new Set();
+		selected = [];
 	}
 
-	const CAT_LABELS: Record<string, string> = {
-		frontend: "UI",
-		backend: "BE",
-		data: "DB",
-		infra: "Infra",
-		tools: "Util",
-		other: "Otros",
-	};
+	function showResults() {
+		resultsEl.scrollIntoView({ behavior: "smooth", block: "start" });
+	}
+
+	const plural = (n: number) => `${n} proyecto${n === 1 ? "" : "s"}`;
 </script>
 
-<div class="search">
-	<div class="filters">
-		{#each Object.entries(stackCategories) as [cat, techs]}
-			<div class="filter-row">
-				<span class="cat">{CAT_LABELS[cat] ?? cat}</span>
-				<div class="tags">
-					{#each techs as tech}
-						<button
-							class="tag"
-							class:active={selected.has(tech)}
-							on:click={() => toggle(tech)}
-							title={tech}
-						>
-							{#if allIcons[tech]}
-								<span class="tag-icon">{@html allIcons[tech]}</span>
-							{/if}
-							<span>{tech}</span>
-						</button>
+<div class="stack">
+	<div class="groups">
+		{#each groups as group (group.id)}
+			<section class="group" aria-labelledby="group-{group.id}">
+				<h2 id="group-{group.id}" class="group-title">{group.label}</h2>
+				<ul class="chips">
+					{#each group.techs as tech (tech.id)}
+						{@const active = selected.includes(tech.id)}
+						<li>
+							<button
+								type="button"
+								class="chip"
+								class:active
+								aria-pressed={active}
+								disabled={tech.count === 0}
+								title={tech.count === 0
+									? `${tech.label}: sin proyectos publicados todavía`
+									: `${tech.label}: ${plural(tech.count)}`}
+								onclick={() => toggle(tech.id)}
+							>
+								<img src={tech.icon} alt="" width="22" height="22" />
+								<span class="chip-label">{tech.label}</span>
+								{#if tech.count > 0}
+									<span class="chip-count">{tech.count}</span>
+								{/if}
+							</button>
+						</li>
 					{/each}
-				</div>
-			</div>
+				</ul>
+			</section>
 		{/each}
 	</div>
 
-	{#if selected.size > 0}
-		<div class="filter-status">
-			<span class="count"
-				>{filtered.length} proyecto{filtered.length !== 1 ? "s" : ""}</span
-			>
-			<button class="clear-btn" on:click={clear}>limpiar</button>
-		</div>
-	{/if}
-
-	<div class="results">
-		{#if filtered.length === 0}
-			<p class="empty">sin proyectos con ese stack</p>
-		{:else}
-			{#each filtered as project (project.id)}
-				<ProjectCard {project} icons={allIcons} />
-			{/each}
+	<div class="status" class:filtering={selected.length > 0}>
+		<p class="status-count" aria-live="polite">
+			{#if selected.length === 0}
+				{plural(projects.length)}
+				<span class="hint">· elegí tecnologías para filtrar; el número es en cuántos proyectos aparece</span>
+			{:else}
+				{filtered.length} de {plural(projects.length)} con
+			{/if}
+		</p>
+		{#if selected.length > 0}
+			<ul class="selected">
+				{#each selected as id (id)}
+					{@const tech = techById.get(id)}
+					{#if tech}
+						<li>
+							<button
+								type="button"
+								class="selected-chip"
+								aria-label="Quitar {tech.label}"
+								onclick={() => toggle(id)}
+							>
+								<img src={tech.icon} alt="" width="16" height="16" />
+								{tech.label}
+								<span aria-hidden="true">×</span>
+							</button>
+						</li>
+					{/if}
+				{/each}
+			</ul>
+			<div class="status-actions">
+				<button type="button" class="link-btn" onclick={clear}>limpiar</button>
+				<button type="button" class="link-btn" onclick={showResults}>ver ↓</button>
+			</div>
 		{/if}
+	</div>
+
+	<div class="results" bind:this={resultsEl}>
+		{#each filtered as project (project.id)}
+			<ProjectCard {project} {icons} />
+		{/each}
 	</div>
 </div>
 
 <style>
-	.search {
+	.stack {
 		display: flex;
 		flex-direction: column;
-		gap: 0.8rem;
+		gap: 6px;
 		height: 100%;
 		overflow-y: auto;
 		scrollbar-width: none;
 	}
 
-	.search::-webkit-scrollbar {
+	.stack::-webkit-scrollbar {
 		display: none;
 	}
 
-	.filters {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
+	/* Columnas en vez de grid: las categorías tienen alturas muy distintas y
+	   así no quedan huecos. */
+	.groups {
+		columns: 3 17rem;
+		column-gap: 6px;
 	}
 
-	.filter-row {
-		display: flex;
-		align-items: flex-start;
-		gap: 0.65rem;
+	.group {
+		break-inside: avoid;
+		margin-bottom: 6px;
+		background: rgba(0, 10, 30, 0.72);
+		border: 1px solid rgba(130, 200, 255, 0.18);
+		backdrop-filter: blur(2px);
+		padding: 0.75rem 0.8rem 0.85rem;
 	}
 
-	.cat {
-		font-size: 0.72rem;
+	.group-title {
+		font-family: var(--font-pixel);
+		font-size: 1.05rem;
+		font-weight: 400;
+		letter-spacing: 0.08em;
 		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		color: rgba(130, 200, 255, 0.35);
-		width: 46px;
-		flex-shrink: 0;
-		padding-top: 4px;
+		color: #82c8ff;
+		margin-bottom: 0.6rem;
 	}
 
-	.tags {
+	.chips {
+		list-style: none;
 		display: flex;
 		flex-wrap: wrap;
-		gap: 4px;
+		gap: 6px;
+	}
+
+	.chip {
+		display: inline-flex;
+		align-items: center;
+		gap: 7px;
+		padding: 4px 8px 4px 6px;
+		background: rgba(0, 10, 30, 0.55);
+		border: 1px solid rgba(130, 200, 255, 0.16);
+		color: rgba(200, 232, 248, 0.85);
+		font-family: var(--font-text);
+		font-size: 1.45rem;
+		line-height: 1;
+		cursor: pointer;
+		transition:
+			border-color 0.1s,
+			background 0.1s,
+			transform 0.1s,
+			box-shadow 0.1s;
+	}
+
+	.chip img {
+		width: 22px;
+		height: 22px;
+		object-fit: contain;
+		flex-shrink: 0;
+	}
+
+	/* Sombra dura de 2px: botón "levantado" estilo pixel art. */
+	.chip:hover:not(:disabled) {
+		border-color: rgba(130, 200, 255, 0.5);
+		color: #e4f4ff;
+		transform: translate(-1px, -1px);
+		box-shadow: 2px 2px 0 rgba(130, 200, 255, 0.3);
+	}
+
+	.chip:focus-visible {
+		outline: 2px solid #82c8ff;
+		outline-offset: 1px;
+	}
+
+	.chip.active {
+		background: rgba(130, 200, 255, 0.16);
+		border-color: #82c8ff;
+		color: #fff;
+		transform: translate(1px, 1px);
+		box-shadow: inset 2px 2px 0 rgba(0, 10, 30, 0.6);
+	}
+
+	.chip:disabled {
+		cursor: default;
+		opacity: 0.38;
+	}
+
+	.chip:disabled img {
+		filter: grayscale(1);
+	}
+
+	/* VT323: en Pixelify el 5 se confunde con una S. */
+	.chip-count {
+		font-family: var(--font-text);
+		font-size: 1.2rem;
+		line-height: 1;
+		min-width: 1.5em;
+		padding: 2px 4px;
+		text-align: center;
+		color: #82c8ff;
+		background: rgba(130, 200, 255, 0.1);
+		border: 1px solid rgba(130, 200, 255, 0.22);
+	}
+
+	.chip.active .chip-count {
+		color: #00101f;
+		background: #82c8ff;
+		border-color: #82c8ff;
+	}
+
+	/* Se pega abajo mientras se eligen filtros y queda como encabezado de
+	   los resultados al bajar. */
+	.status {
+		position: sticky;
+		bottom: 0;
+		z-index: 2;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 8px 12px;
+		padding: 0.6rem 0.8rem;
+		background: rgba(0, 10, 30, 0.92);
+		border: 1px solid rgba(130, 200, 255, 0.18);
+		backdrop-filter: blur(4px);
+		font-family: var(--font-text);
+		font-size: 1.45rem;
+		color: rgba(200, 232, 248, 0.6);
+	}
+
+	.status.filtering {
+		border-color: rgba(130, 200, 255, 0.45);
+	}
+
+	.status-count {
+		color: #c8e8f8;
+	}
+
+	.hint {
+		color: rgba(200, 232, 248, 0.5);
+	}
+
+	.selected {
+		list-style: none;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px;
 		flex: 1;
 	}
 
-	.tag {
+	.selected-chip {
 		display: inline-flex;
 		align-items: center;
-		gap: 4px;
-		background: rgba(0, 10, 30, 0.5);
-		border: 1px solid rgba(130, 200, 255, 0.13);
-		color: rgba(200, 232, 248, 0.55);
-		font-family: monospace;
-		font-size: 0.8rem;
-		padding: 3px 7px;
+		gap: 6px;
+		padding: 3px 8px 3px 5px;
+		background: rgba(130, 200, 255, 0.14);
+		border: 1px solid #82c8ff;
+		color: #fff;
+		font-family: var(--font-text);
+		font-size: 1.35rem;
+		line-height: 1;
 		cursor: pointer;
-		transition: all 0.1s;
 	}
 
-	.tag:hover {
-		border-color: rgba(130, 200, 255, 0.38);
-		color: #c8e8f8;
+	.selected-chip img {
+		width: 16px;
+		height: 16px;
+		object-fit: contain;
 	}
 
-	.tag.active {
-		border-color: rgba(130, 200, 255, 0.65);
-		background: rgba(130, 200, 255, 0.07);
-		color: #c8e8f8;
+	.selected-chip:hover span {
+		color: #ff9a9a;
 	}
 
-	.tag-icon {
-		display: inline-flex;
-		width: 14px;
-		height: 14px;
-	}
-
-	.tag-icon :global(div) {
-		width: 100%;
-		height: 100%;
+	.status-actions {
 		display: flex;
+		gap: 14px;
+		margin-left: auto;
 	}
 
-	.tag-icon :global(svg) {
-		width: 100%;
-		height: 100%;
-	}
-
-	.filter-status {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 0.2rem 0;
-		border-top: 1px solid rgba(130, 200, 255, 0.08);
-		border-bottom: 1px solid rgba(130, 200, 255, 0.08);
-	}
-
-	.count {
-		font-size: 0.88rem;
-		color: rgba(200, 232, 248, 0.45);
-		font-family: monospace;
-	}
-
-	.clear-btn {
-		font-size: 0.8rem;
-		color: rgba(130, 200, 255, 0.5);
+	.link-btn {
 		background: none;
 		border: none;
-		cursor: pointer;
-		font-family: monospace;
 		padding: 0;
+		font-family: var(--font-text);
+		font-size: 1.45rem;
+		color: rgba(130, 200, 255, 0.7);
+		cursor: pointer;
 	}
 
-	.clear-btn:hover {
-		color: rgba(130, 200, 255, 0.9);
+	.link-btn:hover,
+	.link-btn:focus-visible {
+		color: #82c8ff;
+		text-decoration: underline;
 	}
 
 	.results {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		gap: 8px;
-	}
-
-	.empty {
-		font-size: 1rem;
-		color: rgba(200, 232, 248, 0.35);
-		font-family: monospace;
-		padding: 0.5rem 0;
-		grid-column: 1 / -1;
+		gap: 6px;
+		scroll-margin-top: 6px;
 	}
 
 	@media (max-width: 640px) {

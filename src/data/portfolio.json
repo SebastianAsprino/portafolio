@@ -344,58 +344,6 @@
 			}
 		}
 	],
-	"stack": {
-		"frontend": [
-			"TypeScript",
-			"React",
-			"Next.js",
-			"Astro",
-			"SvelteKit",
-			"Tailwind CSS",
-			"Framer Motion",
-			"Radix UI"
-		],
-		"backend": [
-			"Node.js",
-			"Hono",
-			"Elysia / Bun",
-			"Django",
-			"Go / Fiber",
-			"REST API",
-			"JWT"
-		],
-		"data": [
-			"PostgreSQL",
-			"Amazon DynamoDB",
-			"SQLite / LibSQL",
-			"Drizzle ORM",
-			"Sequelize"
-		],
-		"infra": [
-			"AWS Lambda",
-			"Docker",
-			"Cloudflare Pages",
-			"Cloudflare Workers",
-			"GitHub Actions"
-		],
-		"tools": [
-			"pnpm / Monorepo",
-			"Vite",
-			"Vitest",
-			"Zod",
-			"Stripe",
-			"Algolia",
-			"Sentry"
-		],
-		"other": [
-			"Python",
-			"Go",
-			"Rust",
-			"GDAL / GeoPandas",
-			"FFmpeg",
-			"WebAssembly"
-		]
-	},
 	"contact": {
 		"email": "contacto@asprino.dev",
 		"github": "https://github.com/SebastianAsprino",

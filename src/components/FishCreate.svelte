@@ -429,13 +429,13 @@
 	.modal {
 		position: relative;
 		width: 100%;
-		max-width: 900px;
+		max-width: 1000px;
 		height: 90vh;
 		background: rgba(0, 10, 30, 0.96);
 		border: 1px solid rgba(130, 200, 255, 0.2);
 		overflow: hidden;
 		color: #c8e8f8;
-		font-family: monospace;
+		font-family: var(--font-text);
 	}
 
 	.close-btn {
@@ -450,7 +450,7 @@
 		line-height: 1;
 		cursor: pointer;
 		padding: 0 0.2rem;
-		font-family: monospace;
+		font-family: var(--font-text);
 	}
 
 	.close-btn:hover {
@@ -460,7 +460,7 @@
 	/* ── two-column layout ── */
 	.modal-body {
 		display: grid;
-		grid-template-columns: 1fr 300px;
+		grid-template-columns: 1fr 360px;
 		height: 100%;
 	}
 
@@ -521,10 +521,10 @@
 	}
 
 	.size-label {
-		font-size: 0.72rem;
+		font-size: 1.38rem;
 		color: rgba(200, 232, 248, 0.45);
 		white-space: nowrap;
-		min-width: 36px;
+		min-width: 48px;
 		text-align: center;
 	}
 
@@ -532,8 +532,8 @@
 		background: transparent;
 		border: 1px solid rgba(130, 200, 255, 0.2);
 		color: rgba(200, 232, 248, 0.55);
-		font-family: monospace;
-		font-size: 1rem;
+		font-family: var(--font-text);
+		font-size: 1.92rem;
 		width: 24px;
 		height: 24px;
 		display: flex;
@@ -557,8 +557,8 @@
 		background: transparent;
 		border: 1px solid rgba(130, 200, 255, 0.2);
 		color: rgba(200, 232, 248, 0.5);
-		font-family: monospace;
-		font-size: 0.7rem;
+		font-family: var(--font-text);
+		font-size: 1.34rem;
 		padding: 2px 7px;
 		cursor: pointer;
 		white-space: nowrap;
@@ -584,8 +584,8 @@
 		background: transparent;
 		border: 1px solid rgba(130, 200, 255, 0.2);
 		color: rgba(200, 232, 248, 0.45);
-		font-family: monospace;
-		font-size: 0.7rem;
+		font-family: var(--font-text);
+		font-size: 1.34rem;
 		padding: 3px 9px;
 		cursor: pointer;
 		white-space: nowrap;
@@ -614,8 +614,8 @@
 		background: transparent;
 		border: 1px solid rgba(130, 200, 255, 0.13);
 		color: rgba(200, 232, 248, 0.35);
-		font-family: monospace;
-		font-size: 0.65rem;
+		font-family: var(--font-text);
+		font-size: 1.25rem;
 		padding: 2px 7px;
 		cursor: pointer;
 		white-space: nowrap;
@@ -628,7 +628,7 @@
 
 	/* ── section label ── */
 	.section-label {
-		font-size: 0.62rem;
+		font-size: 1.19rem;
 		text-transform: uppercase;
 		letter-spacing: 0.08em;
 		color: rgba(130, 200, 255, 0.4);
@@ -673,7 +673,7 @@
 	}
 
 	.hint {
-		font-size: 0.7rem;
+		font-size: 1.34rem;
 		color: rgba(200, 232, 248, 0.22);
 	}
 
@@ -688,8 +688,8 @@
 		background: rgba(0, 10, 30, 0.6);
 		border: 1px solid rgba(130, 200, 255, 0.2);
 		color: #c8e8f8;
-		font-family: monospace;
-		font-size: 0.8rem;
+		font-family: var(--font-text);
+		font-size: 1.54rem;
 		padding: 0.3rem 0.5rem;
 		outline: none;
 		width: 100%;
@@ -703,7 +703,7 @@
 	}
 
 	.error {
-		font-size: 0.7rem;
+		font-size: 1.34rem;
 		color: rgba(255, 120, 100, 0.8);
 		margin: 0;
 	}
@@ -712,8 +712,8 @@
 		background: rgba(0, 10, 30, 0.72);
 		border: 1px solid rgba(130, 200, 255, 0.35);
 		color: #c8e8f8;
-		font-family: monospace;
-		font-size: 0.78rem;
+		font-family: var(--font-text);
+		font-size: 1.5rem;
 		padding: 0.4rem 0.75rem;
 		cursor: pointer;
 		letter-spacing: 0.04em;
@@ -741,7 +741,7 @@
 	}
 
 	.done p {
-		font-size: 0.9rem;
+		font-size: 1.73rem;
 		color: #c8e8f8;
 	}
 
@@ -753,8 +753,8 @@
 
 	.done-links a {
 		color: rgba(200, 232, 248, 0.65);
-		font-family: monospace;
-		font-size: 0.8rem;
+		font-family: var(--font-text);
+		font-size: 1.54rem;
 		text-decoration: none;
 	}
 
@@ -766,8 +766,8 @@
 		background: transparent;
 		border: 1px solid rgba(130, 200, 255, 0.25);
 		color: rgba(200, 232, 248, 0.55);
-		font-family: monospace;
-		font-size: 0.8rem;
+		font-family: var(--font-text);
+		font-size: 1.54rem;
 		padding: 0.2rem 0.7rem;
 		cursor: pointer;
 	}

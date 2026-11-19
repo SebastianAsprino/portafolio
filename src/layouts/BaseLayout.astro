@@ -1,5 +1,9 @@
 ---
 import { ClientRouter } from "astro:transitions";
+// Fuentes pixel servidas desde el sitio (la CSP solo permite font-src 'self').
+import "@fontsource/pixelify-sans/400.css";
+import "@fontsource/pixelify-sans/700.css";
+import "@fontsource/vt323/400.css";
 import OceanBackground from "../components/OceanBackground.svelte";
 import { person, website, LOCATION_LABEL, type JsonLdNode } from "../lib/seo";
 interface Props {
@@ -81,6 +85,14 @@ const jsonLd = JSON.stringify({
 </html>
 
 <style is:global>
+	/* Pixelify Sans para títulos, nav y etiquetas; VT323 (terminal pixel)
+	   para el texto. VT323 es chica para su tamaño nominal: los font-size del
+	   sitio ya lo compensan. */
+	:root {
+		--font-pixel: "Pixelify Sans", "VT323", monospace;
+		--font-text: "VT323", monospace;
+	}
+
 	* {
 		margin: 0;
 		padding: 0;
@@ -91,6 +103,15 @@ const jsonLd = JSON.stringify({
 		background: #000;
 		min-height: 100vh;
 		overflow-x: hidden;
+		font-family: var(--font-text);
+		-webkit-font-smoothing: antialiased;
+	}
+
+	button,
+	input,
+	select,
+	textarea {
+		font: inherit;
 	}
 </style>
 
