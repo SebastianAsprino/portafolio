@@ -59,7 +59,20 @@
 				"Node.js",
 				"Zod",
 				"Sentry",
-				"REST API"
+				"REST API",
+				"React",
+				"SvelteKit",
+				"Playwright",
+				"Testing Library",
+				"Scalar",
+				"Terraform",
+				"Bitbucket Pipelines",
+				"AWS Amplify",
+				"Docker",
+				"Amazon S3",
+				"Amazon SQS",
+				"Amazon SES",
+				"Amazon Cognito"
 			],
 			"highlights": [
 				"Arquitectura hexagonal (Ports & Adapters) en servicios Lambda",
@@ -101,7 +114,11 @@
 				"PostgreSQL",
 				"JWT",
 				"Playwright",
-				"REST API"
+				"REST API",
+				"Docker",
+				"Dokploy",
+				"MinIO",
+				"Resend"
 			],
 			"highlights": [
 				"Cotizador de motos con precalificación y generación de PDFs (actas, contratos, pagarés)",
@@ -144,7 +161,11 @@
 				"Drizzle ORM",
 				"PostgreSQL",
 				"JWT",
-				"REST API"
+				"REST API",
+				"Playwright",
+				"Docker",
+				"Dokploy",
+				"Leaflet"
 			],
 			"highlights": [
 				"Búsqueda y filtrado de propiedades por ciudad, provincia, precio y habitaciones",
@@ -185,7 +206,8 @@
 				"DaisyUI",
 				"Resend",
 				"Vitest",
-				"REST API"
+				"REST API",
+				"Cloudflare Pages"
 			],
 			"highlights": [
 				"Simulador de crédito interactivo y formulario de solicitud multi-etapa",
@@ -226,7 +248,8 @@
 				"Docker",
 				"Swagger",
 				"REST API",
-				"FFmpeg"
+				"FFmpeg",
+				"Scalar"
 			],
 			"highlights": [
 				"SPA con React 18 y React Router v6",
@@ -268,7 +291,12 @@
 				"Go",
 				"Fiber v2",
 				"Docker Compose",
-				"REST API"
+				"REST API",
+				"Swagger",
+				"Scalar",
+				"SurrealDB",
+				"JWT",
+				"Dokploy"
 			],
 			"highlights": [
 				"Procesamiento geoespacial con GDAL, GeoPandas, Shapely y Pyproj",

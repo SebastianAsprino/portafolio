@@ -39,7 +39,12 @@ function normalizeSvg(svg: string, fill?: string): string {
 	if (!out.includes('xmlns="http://www.w3.org/2000/svg"')) {
 		out = out.replace("<svg", '<svg xmlns="http://www.w3.org/2000/svg"');
 	}
-	if (fill) out = out.replace("<svg", `<svg fill="${fill}"`);
+	// Recolorea también los fill internos (p. ej. logos negros pensados para
+	// fondo claro); respeta fill="none".
+	if (fill) {
+		out = out.replace(/fill="(?!none")[^"]*"/g, `fill="${fill}"`);
+		out = out.replace("<svg", `<svg fill="${fill}"`);
+	}
 	return out + "\n";
 }
 

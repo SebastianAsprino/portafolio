@@ -15,6 +15,7 @@ export type TechCategory =
 	| "backend"
 	| "datos"
 	| "infra"
+	| "aws"
 	| "herramientas"
 	| "otros";
 
@@ -44,6 +45,7 @@ export const CATEGORIES: { id: TechCategory; label: string }[] = [
 	{ id: "backend", label: "Backend" },
 	{ id: "datos", label: "Datos" },
 	{ id: "infra", label: "Infra y deploy" },
+	{ id: "aws", label: "AWS" },
 	{ id: "herramientas", label: "Herramientas" },
 	{ id: "otros", label: "Geo y multimedia" },
 ];
@@ -130,12 +132,6 @@ export const TECHS: Tech[] = [
 	// Datos
 	{ id: "postgresql", label: "PostgreSQL", category: "datos", icon: { lib: "postgresql" } },
 	{
-		id: "dynamodb",
-		label: "Amazon DynamoDB",
-		category: "datos",
-		icon: { aws: `${AWS_ZIP_ROOT}/Arch_Databases/64/Arch_Amazon-DynamoDB_64.svg` },
-	},
-	{
 		id: "sqlite",
 		label: "SQLite / LibSQL",
 		category: "datos",
@@ -143,14 +139,18 @@ export const TECHS: Tech[] = [
 		icon: { lib: "sqlite" },
 	},
 	{ id: "drizzle", label: "Drizzle ORM", category: "datos", icon: { lib: "drizzle" } },
+	{ id: "surrealdb", label: "SurrealDB", category: "datos", icon: { lib: "surrealdb" } },
+	{
+		id: "minio",
+		label: "MinIO",
+		category: "datos",
+		icon: {
+			raster:
+				"https://cdn.prod.website-files.com/681c8426519d8db8f867c1e8/681c8426519d8db8f867c1f2_favicon-32x32.png",
+		},
+	},
 
 	// Infra y deploy
-	{
-		id: "aws-lambda",
-		label: "AWS Lambda",
-		category: "infra",
-		icon: { aws: `${AWS_ZIP_ROOT}/Arch_Compute/64/Arch_AWS-Lambda_64.svg` },
-	},
 	{
 		id: "docker",
 		label: "Docker",
@@ -177,6 +177,59 @@ export const TECHS: Tech[] = [
 		},
 	},
 
+	{ id: "terraform", label: "Terraform", category: "infra", icon: { lib: "terraform" } },
+	{
+		id: "bitbucket-pipelines",
+		label: "Bitbucket Pipelines",
+		category: "infra",
+		icon: { lib: "bitbucket" },
+	},
+	{ id: "dokploy", label: "Dokploy", category: "infra", icon: { svg: "https://dokploy.com/icon.svg" } },
+
+	// AWS
+	{
+		id: "aws-lambda",
+		label: "AWS Lambda",
+		category: "aws",
+		icon: { aws: `${AWS_ZIP_ROOT}/Arch_Compute/64/Arch_AWS-Lambda_64.svg` },
+	},
+	{
+		id: "dynamodb",
+		label: "Amazon DynamoDB",
+		category: "aws",
+		icon: { aws: `${AWS_ZIP_ROOT}/Arch_Databases/64/Arch_Amazon-DynamoDB_64.svg` },
+	},
+	{
+		id: "s3",
+		label: "Amazon S3",
+		category: "aws",
+		icon: { aws: `${AWS_ZIP_ROOT}/Arch_Storage/64/Arch_Amazon-Simple-Storage-Service_64.svg` },
+	},
+	{
+		id: "sqs",
+		label: "Amazon SQS",
+		category: "aws",
+		icon: { aws: `${AWS_ZIP_ROOT}/Arch_Application-Integration/64/Arch_Amazon-Simple-Queue-Service_64.svg` },
+	},
+	{
+		id: "ses",
+		label: "Amazon SES",
+		category: "aws",
+		icon: { aws: `${AWS_ZIP_ROOT}/Arch_Business-Applications/64/Arch_Amazon-Simple-Email-Service_64.svg` },
+	},
+	{
+		id: "cognito",
+		label: "Amazon Cognito",
+		category: "aws",
+		icon: { aws: `${AWS_ZIP_ROOT}/Arch_Security-Identity/64/Arch_Amazon-Cognito_64.svg` },
+	},
+	{
+		id: "amplify",
+		label: "AWS Amplify",
+		category: "aws",
+		icon: { aws: `${AWS_ZIP_ROOT}/Arch_Front-End-Web-Mobile/64/Arch_AWS-Amplify_64.svg` },
+	},
+
 	// Herramientas
 	{
 		id: "pnpm",
@@ -188,8 +241,15 @@ export const TECHS: Tech[] = [
 	{ id: "vite", label: "Vite", category: "herramientas", icon: { lib: "vitejs" } },
 	{ id: "vitest", label: "Vitest", category: "herramientas", icon: { lib: "vitest" } },
 	{ id: "playwright", label: "Playwright", category: "herramientas", icon: { lib: "playwright" } },
+	{
+		id: "testing-library",
+		label: "Testing Library",
+		category: "herramientas",
+		icon: { raster: "https://testing-library.com/img/octopus-128x128.png" },
+	},
 	{ id: "zod", label: "Zod", category: "herramientas", icon: { lib: "zod" } },
 	{ id: "swagger", label: "Swagger", category: "herramientas", icon: { lib: "swagger" } },
+	{ id: "scalar", label: "Scalar", category: "herramientas", icon: { svg: "https://scalar.com/favicon.svg", fill: "#e8e8e8" } },
 	{
 		id: "stripe",
 		label: "Stripe",
@@ -220,6 +280,12 @@ export const TECHS: Tech[] = [
 		label: "Shapely",
 		category: "otros",
 		icon: { inline: SHAPELY_ICON },
+	},
+	{
+		id: "leaflet",
+		label: "Leaflet",
+		category: "otros",
+		icon: { svg: "https://leafletjs.com/docs/images/favicon.svg" },
 	},
 	{ id: "ffmpeg", label: "FFmpeg", category: "otros", icon: { raster: "https://ffmpeg.org/favicon.ico" } },
 ];
