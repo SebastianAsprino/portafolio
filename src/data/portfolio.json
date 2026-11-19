@@ -55,7 +55,11 @@
 				"Algolia",
 				"NextAuth.js",
 				"Vitest",
-				"pnpm workspaces"
+				"pnpm workspaces",
+				"Node.js",
+				"Zod",
+				"Sentry",
+				"REST API"
 			],
 			"highlights": [
 				"Arquitectura hexagonal (Ports & Adapters) en servicios Lambda",
@@ -96,7 +100,8 @@
 				"Drizzle ORM",
 				"PostgreSQL",
 				"JWT",
-				"Playwright"
+				"Playwright",
+				"REST API"
 			],
 			"highlights": [
 				"Cotizador de motos con precalificación y generación de PDFs (actas, contratos, pagarés)",
@@ -138,7 +143,8 @@
 				"Bun",
 				"Drizzle ORM",
 				"PostgreSQL",
-				"JWT"
+				"JWT",
+				"REST API"
 			],
 			"highlights": [
 				"Búsqueda y filtrado de propiedades por ciudad, provincia, precio y habitaciones",
@@ -178,7 +184,8 @@
 				"Tailwind CSS",
 				"DaisyUI",
 				"Resend",
-				"Vitest"
+				"Vitest",
+				"REST API"
 			],
 			"highlights": [
 				"Simulador de crédito interactivo y formulario de solicitud multi-etapa",
@@ -217,7 +224,9 @@
 				"LibSQL / Turso",
 				"Tailwind CSS",
 				"Docker",
-				"Swagger"
+				"Swagger",
+				"REST API",
+				"FFmpeg"
 			],
 			"highlights": [
 				"SPA con React 18 y React Router v6",
@@ -258,7 +267,8 @@
 				"Shapely",
 				"Go",
 				"Fiber v2",
-				"Docker Compose"
+				"Docker Compose",
+				"REST API"
 			],
 			"highlights": [
 				"Procesamiento geoespacial con GDAL, GeoPandas, Shapely y Pyproj",
@@ -293,7 +303,8 @@
 				"DaisyUI",
 				"Vite",
 				"Bun",
-				"Cloudflare Pages"
+				"Cloudflare Pages",
+				"GitHub Actions"
 			],
 			"highlights": [
 				"Deploy en Cloudflare Pages (edge)",
@@ -326,8 +337,10 @@
 				"TypeScript",
 				"Cloudflare Workers",
 				"Cloudflare KV",
-				"Hono",
-				"Canvas API"
+				"Elysia",
+				"Canvas API",
+				"REST API",
+				"GitHub Actions"
 			],
 			"highlights": [
 				"Océano pixel-art en canvas con rayos y caustics dithering",

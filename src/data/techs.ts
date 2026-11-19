@@ -65,7 +65,6 @@ export const TECHS: Tech[] = [
 	{ id: "typescript", label: "TypeScript", category: "lenguajes", icon: { lib: "typescript" } },
 	{ id: "python", label: "Python", category: "lenguajes", icon: { lib: "python" } },
 	{ id: "go", label: "Go", category: "lenguajes", icon: { lib: "go" } },
-	{ id: "rust", label: "Rust", category: "lenguajes", icon: { lib: "rust" } },
 
 	// Frontend
 	{ id: "react", label: "React", category: "frontend", aliases: ["React 18"], icon: { lib: "react" } },
@@ -91,8 +90,6 @@ export const TECHS: Tech[] = [
 		category: "frontend",
 		icon: { svg: "https://img.daisyui.com/images/daisyui/mark.svg" },
 	},
-	{ id: "framer-motion", label: "Framer Motion", category: "frontend", icon: { lib: "framer" } },
-	{ id: "radix", label: "Radix UI", category: "frontend", icon: { lib: "radixui" } },
 	{ id: "zustand", label: "Zustand", category: "frontend", icon: { lib: "zustand" } },
 	{ id: "canvas", label: "Canvas API", category: "frontend", icon: { lib: "html5" } },
 
@@ -146,7 +143,6 @@ export const TECHS: Tech[] = [
 		icon: { lib: "sqlite" },
 	},
 	{ id: "drizzle", label: "Drizzle ORM", category: "datos", icon: { lib: "drizzle" } },
-	{ id: "sequelize", label: "Sequelize", category: "datos", icon: { lib: "sequelize" } },
 
 	// Infra y deploy
 	{
@@ -226,7 +222,6 @@ export const TECHS: Tech[] = [
 		icon: { inline: SHAPELY_ICON },
 	},
 	{ id: "ffmpeg", label: "FFmpeg", category: "otros", icon: { raster: "https://ffmpeg.org/favicon.ico" } },
-	{ id: "webassembly", label: "WebAssembly", category: "otros", icon: { lib: "webassembly" } },
 ];
 
 /** Ruta pública del ícono generado por scripts/stack-icons.ts. */

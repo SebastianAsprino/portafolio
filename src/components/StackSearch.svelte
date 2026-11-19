@@ -134,16 +134,16 @@
 		display: none;
 	}
 
-	/* Columnas en vez de grid: las categorías tienen alturas muy distintas y
-	   así no quedan huecos. */
+	/* Grid y no columnas CSS: con columnas el orden fluye hacia abajo y una
+	   categoría puede quedar al fondo según las alturas; así se lee por filas. */
 	.groups {
-		columns: 3 17rem;
-		column-gap: 6px;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+		align-items: start;
+		gap: 6px;
 	}
 
 	.group {
-		break-inside: avoid;
-		margin-bottom: 6px;
 		background: rgba(0, 10, 30, 0.72);
 		border: 1px solid rgba(130, 200, 255, 0.18);
 		backdrop-filter: blur(2px);
