@@ -57,6 +57,10 @@ const FIBER_ICON = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="18 57 200 2
 // Shapely no tiene logo: un polígono en pixel art.
 const SHAPELY_ICON = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3 4 11 2.5 13.5 9.5 7 13.5 2.5 10z" fill="#82c8ff" fill-opacity=".2" stroke="#82c8ff" stroke-width="1.2" stroke-linejoin="round"/><g fill="#c8e8f8" shape-rendering="crispEdges"><path d="M2 3h2v2H2zM10 1.5h2v2h-2zM12.5 8.5h2v2h-2zM6 12.5h2v2H6zM1.5 9h2v2h-2z"/></g></svg>`;
 
+// WebSocket es un protocolo sin logo: dos flechas opuestas en pixel art (canal
+// bidireccional), mismo estilo que REST_ICON.
+const WEBSOCKET_ICON = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" shape-rendering="crispEdges" fill="#82c8ff"><path d="M2 4h9V2h1v1h1v1h1v1h-1v1h-1v1h-1V5H2zM5 9v2h9v1H5v2H4v-1H3v-1H2v-1h1V9h1v1z"/></svg>`;
+
 // Llaves { } en pixel art, con el celeste del sitio.
 const REST_ICON = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" shape-rendering="crispEdges" fill="#82c8ff"><path d="M4 2h2v1H5v4H4v1H3v1h1v1h1v4h1v1H4v-1H3v-3H2V8H1V7h1V6h1V3h1zM10 2h2v1h1v3h1v1h1v1h-1v1h-1v3h-1v1h-2v-1h1v-4h1V8h1V7h-1V6h-1V3h-1z"/></svg>`;
 
@@ -67,6 +71,7 @@ export const TECHS: Tech[] = [
 	{ id: "typescript", label: "TypeScript", category: "lenguajes", icon: { lib: "typescript" } },
 	{ id: "python", label: "Python", category: "lenguajes", icon: { lib: "python" } },
 	{ id: "go", label: "Go", category: "lenguajes", icon: { lib: "go" } },
+	{ id: "csharp", label: "C#", category: "lenguajes", icon: { lib: "csharp" } },
 
 	// Frontend
 	{ id: "react", label: "React", category: "frontend", aliases: ["React 18"], icon: { lib: "react" } },
@@ -78,6 +83,9 @@ export const TECHS: Tech[] = [
 		icon: { raster: "https://nextjs.org/favicon.ico" },
 	},
 	{ id: "astro", label: "Astro", category: "frontend", icon: { lib: "astro" } },
+	{ id: "angular", label: "Angular", category: "frontend", aliases: ["Angular 19"], icon: { lib: "angular" } },
+	{ id: "primeng", label: "PrimeNG", category: "frontend", icon: { lib: "primeng" } },
+	{ id: "ngrx", label: "NgRx", category: "frontend", icon: { lib: "ngrx" } },
 	{
 		id: "svelte",
 		label: "Svelte / SvelteKit",
@@ -94,9 +102,24 @@ export const TECHS: Tech[] = [
 	},
 	{ id: "zustand", label: "Zustand", category: "frontend", icon: { lib: "zustand" } },
 	{ id: "canvas", label: "Canvas API", category: "frontend", icon: { lib: "html5" } },
+	{
+		id: "chartjs",
+		label: "Chart.js",
+		category: "frontend",
+		icon: { svg: "https://www.chartjs.org/img/chartjs-logo.svg" },
+	},
+	{ id: "vue", label: "Vue", category: "frontend", icon: { svg: "https://vuejs.org/logo.svg" } },
 
 	// Backend
 	{ id: "nodejs", label: "Node.js", category: "backend", icon: { lib: "nodejs" } },
+	{
+		id: "dotnet",
+		label: ".NET",
+		category: "backend",
+		aliases: [".NET 9", "ASP.NET Core"],
+		// `net` es .NET en tech-stack-icons (`netcore` es otra cosa).
+		icon: { lib: "net" },
+	},
 	{ id: "bun", label: "Bun", category: "backend", icon: { lib: "bunjs" } },
 	{
 		id: "elysia",
@@ -120,6 +143,7 @@ export const TECHS: Tech[] = [
 		icon: { inline: FIBER_ICON },
 	},
 	{ id: "rest", label: "REST API", category: "backend", icon: { inline: REST_ICON } },
+	{ id: "websocket", label: "WebSocket", category: "backend", icon: { inline: WEBSOCKET_ICON } },
 	{ id: "jwt", label: "JWT", category: "backend", icon: { raster: "https://jwt.io/icon/192" } },
 	{
 		id: "authjs",
@@ -139,6 +163,12 @@ export const TECHS: Tech[] = [
 		icon: { lib: "sqlite" },
 	},
 	{ id: "drizzle", label: "Drizzle ORM", category: "datos", icon: { lib: "drizzle" } },
+	{
+		id: "dapper",
+		label: "Dapper",
+		category: "datos",
+		icon: { raster: "https://www.learndapper.com/images/common/logo.png" },
+	},
 	{ id: "surrealdb", label: "SurrealDB", category: "datos", icon: { lib: "surrealdb" } },
 	{
 		id: "minio",
@@ -178,6 +208,7 @@ export const TECHS: Tech[] = [
 	},
 
 	{ id: "terraform", label: "Terraform", category: "infra", icon: { lib: "terraform" } },
+	{ id: "nginx", label: "Nginx", category: "infra", icon: { raster: "https://nginx.org/favicon.ico" } },
 	{
 		id: "bitbucket-pipelines",
 		label: "Bitbucket Pipelines",
@@ -238,6 +269,7 @@ export const TECHS: Tech[] = [
 		aliases: ["pnpm workspaces"],
 		icon: { lib: "pnpm" },
 	},
+	{ id: "npm", label: "npm", category: "herramientas", icon: { lib: "npm" } },
 	{ id: "vite", label: "Vite", category: "herramientas", icon: { lib: "vitejs" } },
 	{ id: "vitest", label: "Vitest", category: "herramientas", icon: { lib: "vitest" } },
 	{ id: "playwright", label: "Playwright", category: "herramientas", icon: { lib: "playwright" } },
@@ -248,6 +280,13 @@ export const TECHS: Tech[] = [
 		icon: { raster: "https://testing-library.com/img/octopus-128x128.png" },
 	},
 	{ id: "zod", label: "Zod", category: "herramientas", icon: { lib: "zod" } },
+	{
+		id: "questpdf",
+		label: "QuestPDF",
+		category: "herramientas",
+		icon: { raster: "https://www.questpdf.com/favicon.png" },
+	},
+	{ id: "slidev", label: "Slidev", category: "herramientas", icon: { svg: "https://sli.dev/logo.svg" } },
 	{ id: "swagger", label: "Swagger", category: "herramientas", icon: { lib: "swagger" } },
 	{ id: "scalar", label: "Scalar", category: "herramientas", icon: { svg: "https://scalar.com/favicon.svg", fill: "#e8e8e8" } },
 	{
