@@ -376,9 +376,12 @@
 				"Editor de sprites pixel-art en el navegador"
 			],
 			"image": [
-				"/og.jpg"
+				"/projects/portafolio/preview.webp",
+				"/projects/portafolio/tecnologias.webp",
+				"/projects/portafolio/editor.webp",
+				"/projects/portafolio/peces.webp"
 			],
-			"video": "",
+			"video": "/projects/portafolio/demo.webm",
 			"links": {
 				"live": null,
 				"repo": "https://github.com/SebastianAsprino/portafolio"
