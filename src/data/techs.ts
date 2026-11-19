@@ -135,7 +135,7 @@ export const TECHS: Tech[] = [
 		id: "sqlite",
 		label: "SQLite / LibSQL",
 		category: "datos",
-		aliases: ["LibSQL / Turso"],
+		aliases: ["SQLite", "LibSQL / Turso"],
 		icon: { lib: "sqlite" },
 	},
 	{ id: "drizzle", label: "Drizzle ORM", category: "datos", icon: { lib: "drizzle" } },

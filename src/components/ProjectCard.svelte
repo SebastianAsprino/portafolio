@@ -22,6 +22,11 @@
 
 	const BADGE_LIMIT = 4;
 
+	// "SvelteKit" y "Svelte 5" comparten ícono: en la card se muestra una vez.
+	const badges = project.stack.filter(
+		(tech, i) => !icons[tech] || project.stack.findIndex((t) => icons[t] === icons[tech]) === i,
+	);
+
 	let container: HTMLElement;
 	let videoEl: HTMLVideoElement;
 	let videoActive = false;
@@ -84,15 +89,15 @@
 
 	<div class="foot">
 		<div class="badges">
-			{#each project.stack.slice(0, BADGE_LIMIT) as tech}
+			{#each badges.slice(0, BADGE_LIMIT) as tech}
 				{#if icons[tech]}
 					<img class="icon" src={icons[tech]} alt={tech} title={tech} width="24" height="24" loading="lazy" />
 				{:else}
 					<span class="badge">{tech}</span>
 				{/if}
 			{/each}
-			{#if project.stack.length > BADGE_LIMIT}
-				<span class="badge more">+{project.stack.length - BADGE_LIMIT}</span>
+			{#if badges.length > BADGE_LIMIT}
+				<span class="badge more">+{badges.length - BADGE_LIMIT}</span>
 			{/if}
 		</div>
 

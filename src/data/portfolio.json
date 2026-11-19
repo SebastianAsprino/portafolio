@@ -314,6 +314,46 @@
 			}
 		},
 		{
+			"id": "jobfilter",
+			"name": "JobFilter",
+			"slug": "jobfilter",
+			"tagline": "Búsqueda de empleo automatizada en portales de Latinoamérica",
+			"description": "Herramienta open source que corre en tu máquina: con un botón busca vacantes en 8 portales de empleo de Latinoamérica (GetOnBoard, Computrabajo, LinkedIn, elempleo, PeakU, Hireline, Magneto365, Talently) sin iniciar sesión en ninguno. Detecta las empresas que republican la misma vacante para recolectar hojas de vida y las manda a una lista negra con la evidencia, aunque cambien el título o retoquen el texto. Cada vacante se pinta según qué tanto encaja con tu perfil y la lista se ordena de la más compatible a la menos. Backend organizado en slices verticales con CQRS y un adapter por plataforma.",
+			"year": "2026",
+			"role": "Creador y mantenedor",
+			"type": "Herramienta · Open source",
+			"featured": false,
+			"private": false,
+			"stack": [
+				"SvelteKit",
+				"Svelte 5",
+				"TypeScript",
+				"Bun",
+				"Drizzle ORM",
+				"SQLite",
+				"Vite",
+				"GitHub Actions"
+			],
+			"highlights": [
+				"Scraping de 8 portales con un adapter por plataforma, pausas aleatorias, reintentos y detección de bloqueos",
+				"Lista negra automática: reconoce la misma vacante aunque cambien el título o el texto",
+				"Mapa de calor de compatibilidad contra las tecnologías de tu perfil",
+				"Slices verticales con CQRS; tests con bun test sobre fixtures reales de cada portal y CI en GitHub Actions",
+				"Local y sin login: los datos quedan en SQLite y nunca se usa tu cuenta"
+			],
+			"image": [
+				"/projects/jobfilter/preview.webp",
+				"/projects/jobfilter/mapa-de-calor.webp",
+				"/projects/jobfilter/lista-negra.webp",
+				"/projects/jobfilter/aplicadas.webp"
+			],
+			"video": "/projects/jobfilter/demo.webm",
+			"links": {
+				"live": null,
+				"repo": "https://github.com/SebastianAsprino/jobfilter"
+			}
+		},
+		{
 			"id": "alcancia",
 			"name": "Alcancía",
 			"slug": "alcancia",

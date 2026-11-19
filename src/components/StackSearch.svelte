@@ -16,8 +16,8 @@
 
 	let { projects, groups, techsByProject, icons }: Props = $props();
 
-	const techById = new Map<string, TechFilter>(
-		groups.flatMap((g) => g.techs.map((t) => [t.id, t] as const)),
+	const techById = $derived(
+		new Map<string, TechFilter>(groups.flatMap((g) => g.techs.map((t) => [t.id, t] as const))),
 	);
 
 	let selected = $state<string[]>([]);
