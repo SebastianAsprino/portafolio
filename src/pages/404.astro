@@ -3,39 +3,145 @@ import BentoLayout from "../layouts/BentoLayout.astro";
 ---
 
 <BentoLayout title="Página no encontrada · Sebastian Asprino" subtitle="404" noindex>
-	<section class="block">
-		<span class="label">404</span>
-		<p>Esta página no existe o se movió.</p>
-		<p><a href="/">← volver al inicio</a></p>
+	<section class="bsod">
+		<div class="screen">
+			<video
+				src="/error/bsod.mp4"
+				poster="/error/bsod-poster.webp"
+				width="500"
+				height="304"
+				autoplay
+				muted
+				loop
+				playsinline
+				aria-label="Una chica bailando delante de una pantalla azul de error de Windows"
+			></video>
+		</div>
+
+		<div class="text">
+			<p class="title"><span>&nbsp;404&nbsp;</span></p>
+			<p>
+				A fatal exception 404 has occurred at <code id="bsod-path">esta dirección</code>.
+				La página que buscás no existe o se movió.
+			</p>
+			<ul>
+				<li>Revisá que la URL esté bien escrita.</li>
+				<li>O volvé al inicio y seguí navegando desde ahí.</li>
+			</ul>
+			<p class="continue">
+				<a href="/">Press any key to continue<span class="cursor">_</span></a>
+			</p>
+		</div>
 	</section>
 </BentoLayout>
 
+<script>
+	// El sitio es estático: la ruta real solo se conoce en el navegador.
+	const path = document.getElementById("bsod-path");
+	if (path) path.textContent = window.location.pathname;
+
+	// Como en la pantalla azul: cualquier tecla vuelve al inicio.
+	document.addEventListener("keydown", (e) => {
+		if (e.metaKey || e.ctrlKey || e.altKey || e.key === "Tab") return;
+		const target = e.target as HTMLElement | null;
+		if (target?.closest("input, textarea, select, [contenteditable]")) return;
+		window.location.href = "/";
+	});
+</script>
+
 <style>
-	.block {
-		background: rgba(0, 10, 30, 0.72);
-		border: 1px solid rgba(130, 200, 255, 0.18);
-		backdrop-filter: blur(2px);
-		padding: 1rem;
+	.bsod {
+		background: #0000aa;
+		border: 1px solid rgba(130, 200, 255, 0.3);
+		color: #fff;
 		font-family: var(--font-text);
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+		gap: 1.5rem;
+		padding: 1.25rem;
+		align-items: center;
+	}
+
+	.screen video {
+		display: block;
+		width: 100%;
+		height: auto;
+		aspect-ratio: 500 / 304;
+	}
+
+	.text {
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
-	}
-
-	.label {
-		font-family: var(--font-text);
-		font-size: 0.72rem;
-		text-transform: uppercase;
-		letter-spacing: 0.12em;
-		color: rgba(130, 200, 255, 0.5);
-	}
-
-	p {
+		gap: 0.85rem;
 		font-size: 0.96rem;
-		color: rgba(200, 232, 248, 0.75);
+		line-height: 1.5;
 	}
 
-	a {
-		color: #c8e8f8;
+	.title {
+		text-align: center;
+	}
+
+	.title span {
+		background: #aaaaaa;
+		color: #0000aa;
+		font-weight: bold;
+		letter-spacing: 0.08em;
+	}
+
+	code {
+		font-family: inherit;
+		color: #ffff55;
+		word-break: break-all;
+	}
+
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+
+	li::before {
+		content: "*  ";
+	}
+
+	.continue {
+		text-align: center;
+		margin-top: 0.5rem;
+	}
+
+	.continue a {
+		color: #fff;
+		text-decoration: none;
+	}
+
+	.continue a:hover,
+	.continue a:focus-visible {
+		background: #fff;
+		color: #0000aa;
+	}
+
+	.cursor {
+		animation: blink 1s steps(1) infinite;
+	}
+
+	@keyframes blink {
+		50% {
+			opacity: 0;
+		}
+	}
+
+	@media (max-width: 720px) {
+		.bsod {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.cursor {
+			animation: none;
+		}
 	}
 </style>
