@@ -176,7 +176,7 @@
 		border: 1px solid rgba(130, 200, 255, 0.16);
 		color: rgba(200, 232, 248, 0.85);
 		font-family: var(--font-text);
-		font-size: 1.45rem;
+		font-size: 0.91rem;
 		line-height: 1;
 		cursor: pointer;
 		transition:
@@ -223,10 +223,10 @@
 		filter: grayscale(1);
 	}
 
-	/* VT323: en Pixelify el 5 se confunde con una S. */
+	/* Texto, no Pixelify: ahí el 5 se confunde con una S. */
 	.chip-count {
 		font-family: var(--font-text);
-		font-size: 1.2rem;
+		font-size: 0.75rem;
 		line-height: 1;
 		min-width: 1.5em;
 		padding: 2px 4px;
@@ -257,7 +257,7 @@
 		border: 1px solid rgba(130, 200, 255, 0.18);
 		backdrop-filter: blur(4px);
 		font-family: var(--font-text);
-		font-size: 1.45rem;
+		font-size: 0.91rem;
 		color: rgba(200, 232, 248, 0.6);
 	}
 
@@ -290,7 +290,7 @@
 		border: 1px solid #82c8ff;
 		color: #fff;
 		font-family: var(--font-text);
-		font-size: 1.35rem;
+		font-size: 0.84rem;
 		line-height: 1;
 		cursor: pointer;
 	}
@@ -316,7 +316,7 @@
 		border: none;
 		padding: 0;
 		font-family: var(--font-text);
-		font-size: 1.45rem;
+		font-size: 0.91rem;
 		color: rgba(130, 200, 255, 0.7);
 		cursor: pointer;
 	}

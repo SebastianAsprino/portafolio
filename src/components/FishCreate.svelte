@@ -521,7 +521,7 @@
 	}
 
 	.size-label {
-		font-size: 1.38rem;
+		font-size: 0.86rem;
 		color: rgba(200, 232, 248, 0.45);
 		white-space: nowrap;
 		min-width: 48px;
@@ -533,7 +533,7 @@
 		border: 1px solid rgba(130, 200, 255, 0.2);
 		color: rgba(200, 232, 248, 0.55);
 		font-family: var(--font-text);
-		font-size: 1.92rem;
+		font-size: 1.2rem;
 		width: 24px;
 		height: 24px;
 		display: flex;
@@ -558,7 +558,7 @@
 		border: 1px solid rgba(130, 200, 255, 0.2);
 		color: rgba(200, 232, 248, 0.5);
 		font-family: var(--font-text);
-		font-size: 1.34rem;
+		font-size: 0.84rem;
 		padding: 2px 7px;
 		cursor: pointer;
 		white-space: nowrap;
@@ -585,7 +585,7 @@
 		border: 1px solid rgba(130, 200, 255, 0.2);
 		color: rgba(200, 232, 248, 0.45);
 		font-family: var(--font-text);
-		font-size: 1.34rem;
+		font-size: 0.84rem;
 		padding: 3px 9px;
 		cursor: pointer;
 		white-space: nowrap;
@@ -615,7 +615,7 @@
 		border: 1px solid rgba(130, 200, 255, 0.13);
 		color: rgba(200, 232, 248, 0.35);
 		font-family: var(--font-text);
-		font-size: 1.25rem;
+		font-size: 0.78rem;
 		padding: 2px 7px;
 		cursor: pointer;
 		white-space: nowrap;
@@ -628,7 +628,7 @@
 
 	/* ── section label ── */
 	.section-label {
-		font-size: 1.19rem;
+		font-size: 0.74rem;
 		text-transform: uppercase;
 		letter-spacing: 0.08em;
 		color: rgba(130, 200, 255, 0.4);
@@ -673,7 +673,7 @@
 	}
 
 	.hint {
-		font-size: 1.34rem;
+		font-size: 0.84rem;
 		color: rgba(200, 232, 248, 0.22);
 	}
 
@@ -689,7 +689,7 @@
 		border: 1px solid rgba(130, 200, 255, 0.2);
 		color: #c8e8f8;
 		font-family: var(--font-text);
-		font-size: 1.54rem;
+		font-size: 0.96rem;
 		padding: 0.3rem 0.5rem;
 		outline: none;
 		width: 100%;
@@ -703,7 +703,7 @@
 	}
 
 	.error {
-		font-size: 1.34rem;
+		font-size: 0.84rem;
 		color: rgba(255, 120, 100, 0.8);
 		margin: 0;
 	}
@@ -713,7 +713,7 @@
 		border: 1px solid rgba(130, 200, 255, 0.35);
 		color: #c8e8f8;
 		font-family: var(--font-text);
-		font-size: 1.5rem;
+		font-size: 0.94rem;
 		padding: 0.4rem 0.75rem;
 		cursor: pointer;
 		letter-spacing: 0.04em;
@@ -741,7 +741,7 @@
 	}
 
 	.done p {
-		font-size: 1.73rem;
+		font-size: 1.08rem;
 		color: #c8e8f8;
 	}
 
@@ -754,7 +754,7 @@
 	.done-links a {
 		color: rgba(200, 232, 248, 0.65);
 		font-family: var(--font-text);
-		font-size: 1.54rem;
+		font-size: 0.96rem;
 		text-decoration: none;
 	}
 
@@ -767,7 +767,7 @@
 		border: 1px solid rgba(130, 200, 255, 0.25);
 		color: rgba(200, 232, 248, 0.55);
 		font-family: var(--font-text);
-		font-size: 1.54rem;
+		font-size: 0.96rem;
 		padding: 0.2rem 0.7rem;
 		cursor: pointer;
 	}

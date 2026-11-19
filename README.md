@@ -28,7 +28,7 @@ Producción: <https://asprino.dev>
 | -------- | --------------------------------------------------------------------------------------------- |
 | Sitio    | [Astro 7](https://astro.build) (estático, `ClientRouter`), [Svelte 5](https://svelte.dev), TypeScript |
 | Íconos   | `tech-stack-icons` y favicons oficiales, bajados a `public/stack-icons/` con `bun run stack-icons` |
-| Fuentes  | Pixelify Sans (títulos) y VT323 (texto), servidas desde el sitio con Fontsource               |
+| Fuentes  | Pixelify Sans (nombre, nav y títulos) y JetBrains Mono (texto), servidas con Fontsource       |
 | API      | Cloudflare Workers + [Elysia](https://elysiajs.com), Workers KV, Rate Limiting binding        |
 | Correo   | [Resend](https://resend.com) para los avisos de moderación                                    |
 | Tooling  | [Bun](https://bun.sh), `sharp` y `ffmpeg` para optimizar medios                               |

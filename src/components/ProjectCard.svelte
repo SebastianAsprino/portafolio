@@ -186,32 +186,32 @@
 	}
 
 	.type {
-		font-family: var(--font-pixel);
-		font-size: 0.85rem;
+		font-family: var(--font-text);
+		font-size: 0.9rem;
 		color: rgba(130, 200, 255, 0.55);
 		text-transform: uppercase;
 		letter-spacing: 0.08em;
 	}
 
 	.year {
-		font-family: var(--font-pixel);
-		font-size: 0.85rem;
+		font-family: var(--font-text);
+		font-size: 0.9rem;
 		color: rgba(200, 232, 248, 0.3);
 	}
 
 	.name {
 		font-family: var(--font-pixel);
-		font-size: 1.35rem;
+		font-size: 1.2rem;
 		font-weight: 700;
 		margin-bottom: 0.25rem;
 		color: #c8e8f8;
 	}
 
 	.tagline {
-		font-size: 1.73rem;
+		font-size: 1.08rem;
 		color: rgba(200, 232, 248, 0.55);
 		margin-bottom: 0.6rem;
-		line-height: 1.15;
+		line-height: 1.4;
 	}
 
 	.foot {
@@ -251,7 +251,7 @@
 	}
 
 	.badge {
-		font-size: 1.44rem;
+		font-size: 0.9rem;
 		color: rgba(130, 200, 255, 0.6);
 		border: 1px solid rgba(130, 200, 255, 0.18);
 		padding: 2px 6px;
