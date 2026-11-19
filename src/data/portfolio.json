@@ -111,7 +111,7 @@
 				"/projects/dokkaebi/ordenes.webp"
 			],
 			"video": "/projects/dokkaebi/demo.webm",
-			"rybbitWidget": "9afc6815303c",
+			"rybbitWidget": "46122308b009",
 			"links": {
 				"live": null,
 				"repo": null
@@ -152,6 +152,7 @@
 				"/projects/promobiliarias/detalle.webp"
 			],
 			"video": "/projects/promobiliarias/demo.webm",
+			"rybbitWidget": "ae7556181804",
 			"links": {
 				"live": "https://promobiliarias.com",
 				"repo": null
