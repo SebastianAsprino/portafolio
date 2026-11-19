@@ -1,0 +1,2 @@
+# Cloudflare Pages. 200 = rewrite: la URL queda /mambo y se sirve la imagen.
+/mambo /mambo.webp 200

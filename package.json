@@ -1,7 +1,7 @@
 {
 	"name": "portafolio",
 	"type": "module",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"scripts": {
 		"typecheck": "tsc --noEmit",
 		"dev": "astro dev",
