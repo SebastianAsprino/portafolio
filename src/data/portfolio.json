@@ -23,7 +23,7 @@
 			},
 			{
 				"label": "Email",
-				"url": "mailto:sebastian.asprino@mylittleventure.com",
+				"url": "mailto:contacto@asprino.dev",
 				"icon": "mail"
 			},
 			{
@@ -406,6 +406,45 @@
 			],
 			"image": [
 				"/projects/artemisa/preview.webp"
+			],
+			"video": "",
+			"links": {
+				"live": null,
+				"repo": null
+			}
+		},
+		{
+			"id": "moemaker",
+			"name": "moemaker",
+			"slug": "moemaker",
+			"tagline": "Bot de WhatsApp que convierte videos en stickers con sonido",
+			"description": "Bot de WhatsApp con Baileys y Bun que convierte cualquier video en un sticker con sonido, el formato nuevo de WhatsApp. Baileys todavía no conoce ese mensaje, así que el bot lo arma a mano en protobuf: un sticker WebP animado con un audio ogg/opus adjunto, cada uno cifrado y subido por separado. Los límites reales del formato se midieron con rondas de pruebas en el celular (1 MB por archivo, sin tope de duración) y el conversor ajusta tamaño, fps, calidad y bitrate con FFmpeg para que un video de cualquier largo quede por debajo. Funciona en grupos con !sticker y en chats privados que se activan con !bot on, con protecciones contra baneo, y corre en Docker sobre Dokploy.",
+			"year": "2026",
+			"role": "Creador y mantenedor",
+			"type": "Bot · WhatsApp",
+			"featured": false,
+			"private": true,
+			"stack": [
+				"TypeScript",
+				"Bun",
+				"Baileys",
+				"FFmpeg",
+				"Docker",
+				"Dokploy"
+			],
+			"highlights": [
+				"Mensaje de sticker con sonido armado a mano en protobuf, porque Baileys todavía no lo soporta",
+				"Límites medidos en el celular: 1 MB por archivo para imagen y audio, sin tope de duración (stickers de 3 minutos suenan completos)",
+				"Conversor con FFmpeg que baja tamaño, fps, calidad y bitrate de opus hasta que imagen y audio entren cada uno bajo 950 KB",
+				"Modo grupo con !sticker y chats privados activables con !bot on; avisa el progreso editando un solo mensaje",
+				"Protecciones anti-baneo: nunca escribe primero, pausas aleatorias, cola de 5 conversiones y tope diario por persona",
+				"Firma del paquete en el EXIF del WebP y marca de agua de asprino.dev"
+			],
+			"image": [
+				"/projects/moemaker/preview.webp",
+				"/projects/moemaker/formato.webp",
+				"/projects/moemaker/limites.webp",
+				"/projects/moemaker/antibaneo.webp"
 			],
 			"video": "",
 			"links": {

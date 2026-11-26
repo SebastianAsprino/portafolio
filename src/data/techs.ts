@@ -129,6 +129,16 @@ export const TECHS: Tech[] = [
 	},
 	{ id: "hono", label: "Hono", category: "backend", icon: { lib: "hono" } },
 	{
+		// Baileys no tiene logo propio: es la API de WhatsApp Web, así que va el de WhatsApp.
+		id: "baileys",
+		label: "Baileys",
+		category: "backend",
+		icon: {
+			svg: "https://cdn.jsdelivr.net/npm/simple-icons@15.0.0/icons/whatsapp.svg",
+			fill: "#25D366",
+		},
+	},
+	{
 		id: "django",
 		label: "Django",
 		category: "backend",
