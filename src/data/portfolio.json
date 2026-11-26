@@ -440,7 +440,12 @@
 				"Protecciones anti-baneo: nunca escribe primero, pausas aleatorias, cola de 5 conversiones y tope diario por persona",
 				"Firma del paquete en el EXIF del WebP y marca de agua de asprino.dev"
 			],
-			"image": [],
+			"image": [
+				"/projects/moemaker/preview.webp",
+				"/projects/moemaker/formato.webp",
+				"/projects/moemaker/limites.webp",
+				"/projects/moemaker/antibaneo.webp"
+			],
 			"video": "",
 			"links": {
 				"live": null,
